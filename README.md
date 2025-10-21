@@ -18,49 +18,127 @@ Inside of your Astro project, you'll see the following folders and files:
 ```text
 /
 ├── public/
+│   ├── favicon.svg
+│   └── robots.txt
 ├── src/
-│   ├── components/          # React components
+│   ├── components/
 │   │   ├── Header.tsx
+│   │   ├── Footer.tsx
 │   │   ├── Hero.tsx
+│   │   ├── About.tsx
 │   │   ├── Services.tsx
-│   │   └── Footer.tsx
-│   ├── layouts/             # Astro layouts
+│   │   ├── NaturalResults.tsx
+│   │   ├── Testimonials.tsx
+│   │   ├── HowItWorks.tsx
+│   │   └── CTA.tsx
+│   ├── layouts/
 │   │   └── Layout.astro
-│   ├── pages/               # Astro pages (routes)
-│   │   └── index.astro
-│   └── styles/              # Global styles
-│       └── global.css
-├── .prettierrc              # Prettier configuration
-├── eslint.config.js         # ESLint configuration
-├── astro.config.mjs         # Astro configuration
+│   └── pages/
+│       ├── index.astro
+│       ├── specialists.astro
+│       ├── results.astro
+│       ├── process.astro
+│       └── reviews.astro
+├── astro.config.mjs
+├── vercel.json
 └── package.json
 ```
 
-## 🎨 Features
-
-- **Responsive Design**: Mobile-first approach with Tailwind CSS
-- **Modern Components**: React components with TypeScript
-- **SEO Optimized**: Proper meta tags and semantic HTML
-- **Fast Performance**: Astro's static site generation
-- **Code Quality**: ESLint and Prettier configured
-- **Dental Tourism Focus**: Specialized content for dental services in Cancun
-
 ## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+All commands are run from the root of the project:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`            | Installs dependencies                            |
-| `pnpm dev`                | Starts local dev server at `localhost:4321`     |
-| `pnpm build`              | Build your production site to `./dist/`         |
-| `pnpm preview`            | Preview your build locally, before deploying    |
-| `pnpm lint`               | Run ESLint to check code quality                |
-| `pnpm lint:fix`           | Run ESLint and automatically fix issues         |
-| `pnpm format`             | Format code with Prettier                       |
-| `pnpm format:check`       | Check if code is formatted correctly            |
-| `pnpm type-check`         | Run TypeScript type checking                    |
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| `pnpm install`         | Installs dependencies                            |
+| `pnpm run dev`         | Starts local dev server at `localhost:4321`      |
+| `pnpm run build`       | Build your production site to `./dist/`          |
+| `pnpm run preview`     | Preview your build locally, before deploying     |
+| `pnpm run lint`        | Run ESLint to check code quality                 |
+| `pnpm run lint:fix`    | Fix ESLint issues automatically                  |
+| `pnpm run format`      | Format code with Prettier                        |
+| `pnpm run type-check`  | Check TypeScript types                           |
 
-## 👀 Want to learn more?
+## 🚀 Deployment to Vercel
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Quick Deploy
+
+1. **Push to GitHub**:
+   ```bash
+   git add .
+   git commit -m "Ready for deployment"
+   git push origin main
+   ```
+
+2. **Deploy on Vercel**:
+   - Go to [vercel.com](https://vercel.com)
+   - Click "New Project"
+   - Import your GitHub repository
+   - Vercel will auto-detect Astro and configure settings
+   - Click "Deploy"
+
+### Manual Configuration (if needed)
+
+- **Framework Preset**: Astro
+- **Build Command**: `pnpm run build`
+- **Output Directory**: `dist`
+- **Install Command**: `pnpm install`
+
+### Environment Variables
+
+Copy `.env.example` to `.env` and update values:
+
+```bash
+PUBLIC_SITE_URL=https://your-site.vercel.app
+PUBLIC_SITE_NAME=Smile Concierge Cancun
+```
+
+## 📱 Pages
+
+- **Home** (`/`) - Main landing page with hero, services, and testimonials
+- **Specialists** (`/specialists`) - Meet our dental experts
+- **Results** (`/results`) - Before & after transformations
+- **Process** (`/process`) - Step-by-step journey
+- **Reviews** (`/reviews`) - Patient testimonials and success stories
+
+## 🎨 Design System
+
+### Colors
+- **Primary**: Teal (600-500)
+- **Secondary**: Cyan (600-500)
+- **Accent**: Emerald (600-500)
+- **Neutral**: Slate (50-800)
+
+### Glassmorphism Elements
+- `bg-white/60 backdrop-blur-xl`
+- `border border-white/40`
+- `shadow-xl hover:shadow-2xl`
+- `rounded-2xl` for modern look
+
+## 🔧 Optimization
+
+- ✅ CSS Minification
+- ✅ JavaScript Minification (Terser)
+- ✅ HTML Compression
+- ✅ Code Splitting (React vendor chunk)
+- ✅ Auto-inlined critical CSS
+- ✅ Optimized caching headers
+
+## 📊 Performance
+
+- **Lighthouse Score**: 95+ (target)
+- **First Contentful Paint**: < 1.5s
+- **Time to Interactive**: < 3.5s
+- **Cumulative Layout Shift**: < 0.1
+
+## 🤝 Contributing
+
+This is a client project. For any changes or improvements, please contact the project owner.
+
+## 📄 License
+
+© 2025 Smile Concierge Cancun. All rights reserved.
+
+---
+
+**Built with ❤️ using Astro + React + TailwindCSS**
