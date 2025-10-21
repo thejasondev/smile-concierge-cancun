@@ -42,13 +42,15 @@ const Testimonials: React.FC = () => {
           </p>
         </div>
 
-        {/* Mobile-Optimized Testimonials */}
+        {/* Mobile-Optimized Testimonials - Glassmorphism */}
         <div className="space-y-4 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 lg:gap-8">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 hover:scale-105"
+              className="group relative bg-white/60 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
             >
+              <div className={`absolute inset-0 bg-gradient-to-br ${index === 0 ? 'from-teal-500/5' : index === 1 ? 'from-cyan-500/5' : 'from-emerald-500/5'} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+              <div className="relative">
               {/* Mobile: Compact Stars */}
               <div className="flex items-center justify-between mb-4">
                 <div className="flex">
@@ -75,29 +77,30 @@ const Testimonials: React.FC = () => {
               </blockquote>
 
               {/* Simplified Patient Info */}
-              <div className="border-t border-slate-100 pt-4 md:pt-6">
+              <div className="border-t border-white/20 pt-4 md:pt-6">
                 <h4 className="font-semibold text-slate-800 text-sm md:text-base">{testimonial.name}</h4>
                 <p className="text-xs md:text-sm text-slate-500">{testimonial.location}</p>
+              </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Mobile-Optimized Trust Section */}
+        {/* Mobile-Optimized Trust Section - Glassmorphism */}
         <div className="mt-8 md:mt-16 flex justify-center">
-          <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-slate-100 w-full max-w-md text-center">
+          <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 w-full max-w-md text-center">
             <div className="grid grid-cols-3 gap-4 md:gap-8 mb-4 md:mb-6">
-              <div>
-                <div className="text-xl md:text-2xl font-bold text-teal-600">500+</div>
-                <div className="text-xs md:text-sm text-slate-600">Patients</div>
+              <div className="group">
+                <div className="text-xl md:text-2xl font-bold bg-gradient-to-br from-teal-600 to-teal-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">500+</div>
+                <div className="text-xs md:text-sm text-slate-700 font-medium">Patients</div>
               </div>
-              <div>
-                <div className="text-xl md:text-2xl font-bold text-amber-500">4.9★</div>
-                <div className="text-xs md:text-sm text-slate-600">Rating</div>
+              <div className="group">
+                <div className="text-xl md:text-2xl font-bold text-amber-500 group-hover:scale-110 transition-transform duration-300">4.9★</div>
+                <div className="text-xs md:text-sm text-slate-700 font-medium">Rating</div>
               </div>
-              <div>
-                <div className="text-xl md:text-2xl font-bold text-emerald-600">100%</div>
-                <div className="text-xs md:text-sm text-slate-600">Guarantee</div>
+              <div className="group">
+                <div className="text-xl md:text-2xl font-bold bg-gradient-to-br from-emerald-600 to-emerald-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">100%</div>
+                <div className="text-xs md:text-sm text-slate-700 font-medium">Guarantee</div>
               </div>
             </div>
             <a 

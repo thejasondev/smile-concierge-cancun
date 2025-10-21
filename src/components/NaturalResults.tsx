@@ -26,26 +26,29 @@ const NaturalResults: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile-Optimized Gallery */}
+        {/* Mobile-Optimized Gallery - Glassmorphism */}
         <div className="space-y-4 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 lg:gap-8 mb-8 md:mb-12">
           {/* Mobile: Show only 2 cases, Desktop: Show 3 */}
           {[1, 2].map((item) => (
             <div
               key={item}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="group relative bg-white/60 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-105"
             >
-              <div className="aspect-w-4 aspect-h-3 bg-gradient-to-br from-teal-100 to-cyan-200 flex items-center justify-center h-48 md:h-56">
-                <div className="text-center p-6 md:p-8">
-                  <svg className="w-12 h-12 md:w-16 md:h-16 text-teal-500 mx-auto mb-3 md:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  <p className="text-teal-700 font-semibold text-sm md:text-base">Before & After</p>
-                  <p className="text-xs md:text-sm text-teal-600">Case #{item}</p>
+              <div className="aspect-w-4 aspect-h-3 bg-gradient-to-br from-teal-100/80 to-cyan-200/80 backdrop-blur-sm flex items-center justify-center h-48 md:h-56 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+                <div className="relative text-center p-6 md:p-8">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-8 h-8 md:w-10 md:h-10 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <p className="text-teal-700 font-bold text-sm md:text-base">Before & After</p>
+                  <p className="text-xs md:text-sm text-teal-600 font-medium">Case #{item}</p>
                 </div>
               </div>
-              <div className="p-4 md:p-6">
-                <h3 className="font-semibold text-slate-800 mb-2 text-sm md:text-base">Natural Smile Transformation</h3>
-                <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
+              <div className="p-4 md:p-6 bg-white/40 backdrop-blur-sm">
+                <h3 className="font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent mb-2 text-sm md:text-base">Natural Smile Transformation</h3>
+                <p className="text-xs md:text-sm text-slate-700 leading-relaxed font-medium">
                   Perfect color matching
                   <span className="hidden md:inline"> and natural translucency</span>
                 </p>
@@ -53,20 +56,23 @@ const NaturalResults: React.FC = () => {
             </div>
           ))}
           
-          {/* Desktop: Show third case */}
-          <div className="hidden lg:block bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105">
-            <div className="aspect-w-4 aspect-h-3 bg-gradient-to-br from-emerald-100 to-teal-200 flex items-center justify-center h-56">
-              <div className="text-center p-8">
-                <svg className="w-16 h-16 text-emerald-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <p className="text-emerald-700 font-semibold">Before & After</p>
-                <p className="text-sm text-emerald-600">Case #3</p>
+          {/* Desktop: Show third case - Glassmorphism */}
+          <div className="hidden lg:block group relative bg-white/60 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-105">
+            <div className="aspect-w-4 aspect-h-3 bg-gradient-to-br from-emerald-100/80 to-teal-200/80 backdrop-blur-sm flex items-center justify-center h-56 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+              <div className="relative text-center p-8">
+                <div className="w-20 h-20 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <svg className="w-10 h-10 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <p className="text-emerald-700 font-bold">Before & After</p>
+                <p className="text-sm text-emerald-600 font-medium">Case #3</p>
               </div>
             </div>
-            <div className="p-6">
-              <h3 className="font-semibold text-slate-800 mb-2">Natural Smile Transformation</h3>
-              <p className="text-sm text-slate-600">
+            <div className="p-6 bg-white/40 backdrop-blur-sm">
+              <h3 className="font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-2">Natural Smile Transformation</h3>
+              <p className="text-sm text-slate-700 font-medium">
                 Authentic results with perfect color matching and natural translucency.
               </p>
             </div>

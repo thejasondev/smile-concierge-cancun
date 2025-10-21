@@ -35,20 +35,22 @@ const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section id="process" className="py-20 bg-white">
+    <section id="process" className="py-12 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+        {/* Mobile-First Header */}
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
             How It Works
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Your journey to a perfect smile is simple and carefully planned. 
-            We handle every detail so you can focus on enjoying your transformation.
+          <p className="text-base md:text-xl text-slate-600 max-w-2xl md:max-w-3xl mx-auto leading-relaxed">
+            Your journey to a perfect smile
+            <span className="hidden md:inline"> is simple and carefully planned. We handle every detail so you can focus on enjoying your transformation</span>
           </p>
         </div>
 
+        {/* Mobile: Vertical Timeline, Desktop: Horizontal Grid */}
         <div className="relative">
-          {/* Connection Line */}
+          {/* Desktop: Connection Line */}
           <div className="hidden lg:block absolute top-24 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
             <div className="flex justify-between">
               <div className="w-8 h-8"></div>
@@ -59,7 +61,47 @@ const HowItWorks: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
+          {/* Mobile: Vertical Timeline */}
+          <div className="lg:hidden space-y-6">
+            {steps.map((step, index) => (
+              <div key={index} className="relative">
+                {/* Vertical connecting line */}
+                {index < steps.length - 1 && (
+                  <div className="absolute left-8 top-20 bottom-0 w-0.5 bg-gradient-to-b from-teal-200 to-transparent"></div>
+                )}
+                
+                <div className="flex gap-4">
+                  {/* Left: Number + Icon */}
+                  <div className="flex-shrink-0">
+                    <div className={`relative w-16 h-16 ${index === 0 ? 'bg-gradient-to-br from-teal-600 to-teal-500' : index === 1 ? 'bg-gradient-to-br from-cyan-600 to-cyan-500' : 'bg-gradient-to-br from-emerald-600 to-emerald-500'} text-white rounded-2xl flex items-center justify-center shadow-lg`}>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold leading-none mb-1">{step.number}</div>
+                        <div className="text-[10px] opacity-80 uppercase tracking-wider">Step</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Right: Content Card */}
+                  <div className="flex-1 bg-white rounded-2xl p-5 shadow-lg border border-slate-100 hover:shadow-xl transition-all duration-300">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className={`w-10 h-10 ${index === 0 ? 'bg-teal-100 text-teal-600' : index === 1 ? 'bg-cyan-100 text-cyan-600' : 'bg-emerald-100 text-emerald-600'} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                        {step.icon}
+                      </div>
+                      <h3 className="text-lg font-bold text-slate-800 leading-tight">
+                        {step.title}
+                      </h3>
+                    </div>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: Horizontal Grid */}
+          <div className="hidden lg:grid lg:grid-cols-3 gap-12">
             {steps.map((step, index) => (
               <div key={index} className="relative">
                 <div className="text-center">
@@ -86,23 +128,29 @@ const HowItWorks: React.FC = () => {
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-2xl p-8 md:p-12 border border-teal-100">
-            <h3 className="text-2xl md:text-3xl font-bold text-slate-800 mb-4">
-              Ready to Start Your Smile Journey?
+        {/* Mobile-Optimized CTA */}
+        <div className="mt-8 md:mt-16 text-center">
+          <div className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-2xl p-6 md:p-8 lg:p-12 border border-teal-100">
+            <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-800 mb-3 md:mb-4">
+              Ready to Start?
             </h3>
-            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-              Take the first step towards your perfect smile. Our team is ready to guide you 
-              through every detail of your transformation.
+            <p className="text-sm md:text-lg text-slate-600 mb-6 md:mb-8 max-w-xl md:max-w-2xl mx-auto leading-relaxed">
+              Take the first step towards your perfect smile
+              <span className="hidden md:inline">. Our team is ready to guide you through every detail of your transformation</span>
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:from-teal-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
+              <a 
+                href="/process"
+                className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl text-base md:text-lg font-semibold hover:from-teal-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl text-center"
+              >
                 Start Free Assessment
-              </button>
-              <button className="border-2 border-teal-600 text-teal-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-teal-600 hover:text-white transition-all duration-300">
-                Schedule Consultation
-              </button>
+              </a>
+              <a 
+                href="/specialists"
+                className="border-2 border-teal-600 text-teal-600 px-6 md:px-8 py-3 md:py-4 rounded-xl text-base md:text-lg font-semibold hover:bg-teal-600 hover:text-white transition-all duration-300 text-center"
+              >
+                Meet Specialists
+              </a>
             </div>
           </div>
         </div>

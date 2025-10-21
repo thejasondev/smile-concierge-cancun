@@ -39,40 +39,47 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Mobile-First Key Benefits */}
+          {/* Mobile-First Key Benefits - Glassmorphism */}
           <div className="mb-8">
-            {/* Mobile: Stacked Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-sm sm:max-w-2xl mx-auto">
-              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-teal-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div className="flex items-center justify-center sm:block">
-                  <div className="flex items-center gap-3 sm:block sm:text-center">
-                    <div className="w-12 h-12 sm:w-auto sm:h-auto bg-teal-100 rounded-full flex items-center justify-center sm:bg-transparent sm:mb-2">
-                      <span className="text-2xl sm:text-3xl font-bold text-teal-600">70%</span>
-                    </div>
-                    <div className="text-sm sm:text-base text-slate-600 font-medium">Cost Savings</div>
-                  </div>
+            {/* Mobile: Compact inline badges with glassmorphism */}
+            <div className="flex flex-wrap items-center justify-center gap-3 md:hidden mb-4">
+              <div className="inline-flex items-center bg-white/70 backdrop-blur-xl rounded-full px-4 py-2.5 border border-white/40 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <span className="text-lg font-bold bg-gradient-to-r from-teal-600 to-teal-500 bg-clip-text text-transparent mr-2">70%</span>
+                <span className="text-xs text-slate-700 font-semibold">Savings</span>
+              </div>
+              <div className="inline-flex items-center bg-white/70 backdrop-blur-xl rounded-full px-4 py-2.5 border border-white/40 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <span className="text-lg font-bold bg-gradient-to-r from-cyan-600 to-cyan-500 bg-clip-text text-transparent mr-2">3-5</span>
+                <span className="text-xs text-slate-700 font-semibold">Days</span>
+              </div>
+              <div className="inline-flex items-center bg-white/70 backdrop-blur-xl rounded-full px-4 py-2.5 border border-white/40 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <span className="text-lg font-bold bg-gradient-to-r from-emerald-600 to-emerald-500 bg-clip-text text-transparent mr-2">100%</span>
+                <span className="text-xs text-slate-700 font-semibold">Guarantee</span>
+              </div>
+            </div>
+            
+            {/* Desktop: Full cards with glassmorphism */}
+            <div className="hidden md:grid md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+              <div className="group relative bg-white/60 backdrop-blur-xl rounded-2xl p-6 border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 text-center overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative">
+                  <div className="text-3xl font-bold bg-gradient-to-br from-teal-600 to-teal-500 bg-clip-text text-transparent mb-2">70%</div>
+                  <div className="text-base text-slate-700 font-semibold">Cost Savings</div>
                 </div>
               </div>
               
-              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-cyan-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div className="flex items-center justify-center sm:block">
-                  <div className="flex items-center gap-3 sm:block sm:text-center">
-                    <div className="w-12 h-12 sm:w-auto sm:h-auto bg-cyan-100 rounded-full flex items-center justify-center sm:bg-transparent sm:mb-2">
-                      <span className="text-2xl sm:text-3xl font-bold text-cyan-600">3-5</span>
-                    </div>
-                    <div className="text-sm sm:text-base text-slate-600 font-medium">Days Only</div>
-                  </div>
+              <div className="group relative bg-white/60 backdrop-blur-xl rounded-2xl p-6 border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 text-center overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative">
+                  <div className="text-3xl font-bold bg-gradient-to-br from-cyan-600 to-cyan-500 bg-clip-text text-transparent mb-2">3-5</div>
+                  <div className="text-base text-slate-700 font-semibold">Days Only</div>
                 </div>
               </div>
               
-              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-emerald-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div className="flex items-center justify-center sm:block">
-                  <div className="flex items-center gap-3 sm:block sm:text-center">
-                    <div className="w-12 h-12 sm:w-auto sm:h-auto bg-emerald-100 rounded-full flex items-center justify-center sm:bg-transparent sm:mb-2">
-                      <span className="text-2xl sm:text-3xl font-bold text-emerald-600">100%</span>
-                    </div>
-                    <div className="text-sm sm:text-base text-slate-600 font-medium">Guarantee</div>
-                  </div>
+              <div className="group relative bg-white/60 backdrop-blur-xl rounded-2xl p-6 border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 text-center overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative">
+                  <div className="text-3xl font-bold bg-gradient-to-br from-emerald-600 to-emerald-500 bg-clip-text text-transparent mb-2">100%</div>
+                  <div className="text-base text-slate-700 font-semibold">Guarantee</div>
                 </div>
               </div>
             </div>
@@ -107,19 +114,22 @@ const Hero: React.FC = () => {
             </div>
           </div>
           
-          {/* Trust Indicator - Mobile Optimized */}
-          <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-4 py-3 rounded-full border border-slate-200 shadow-md">
+          {/* Trust Indicator - Glassmorphism */}
+          <div className="inline-flex items-center gap-3 bg-white/70 backdrop-blur-xl px-5 py-3 rounded-full border border-white/40 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
             <div className="flex -space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-full border-2 border-white"></div>
-              <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-full border-2 border-white"></div>
-              <div className="w-8 h-8 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full border-2 border-white"></div>
+              <div className="w-8 h-8 bg-gradient-to-br from-teal-400 to-cyan-400 rounded-full border-2 border-white shadow-md"></div>
+              <div className="w-8 h-8 bg-gradient-to-br from-cyan-400 to-emerald-400 rounded-full border-2 border-white shadow-md"></div>
+              <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-teal-400 rounded-full border-2 border-white shadow-md"></div>
             </div>
-            <div className="text-sm text-slate-600">
-              <span className="font-semibold text-slate-800">500+</span> happy patients
+            <div className="text-sm text-slate-700 font-medium">
+              <span className="font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">500+</span> happy patients
             </div>
-            <svg className="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
+            <div className="flex items-center gap-0.5">
+              <svg className="w-4 h-4 text-amber-400 drop-shadow-sm" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <span className="text-xs font-bold text-amber-500">4.9</span>
+            </div>
           </div>
         </div>
       </div>

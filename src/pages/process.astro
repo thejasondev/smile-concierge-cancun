@@ -75,41 +75,54 @@ const timelineSteps = [
 <Layout title="Our Process - Smile Concierge Cancun">
   <Header client:load />
   <main>
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-cyan-50 via-white to-teal-50 py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h1 class="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+    <!-- Hero Section - Glassmorphism -->
+    <section class="relative bg-gradient-to-br from-cyan-50 via-teal-50 to-emerald-50 py-12 md:py-20 overflow-hidden">
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 opacity-30">
+        <div class="absolute top-10 left-10 w-32 h-32 bg-cyan-300 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 right-10 w-40 h-40 bg-teal-300 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8 md:mb-16">
+          <div class="inline-flex items-center gap-2 bg-white/70 backdrop-blur-xl px-4 py-2 rounded-full border border-white/40 shadow-lg mb-6">
+            <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+            <span class="text-sm font-semibold text-slate-700">Simple Process</span>
+          </div>
+          
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4 md:mb-6 leading-tight">
             Your Journey to the Perfect Smile
           </h1>
-          <p class="text-xl text-slate-600 max-w-3xl mx-auto">
-            From initial consultation to your final reveal, we've perfected every step 
-            to ensure your comfort, safety, and satisfaction throughout your transformation.
+          <p class="text-base md:text-xl text-slate-600 max-w-2xl md:max-w-3xl mx-auto leading-relaxed">
+            From initial consultation to your final reveal
+            <span class="hidden md:inline">, we've perfected every step to ensure your comfort, safety, and satisfaction throughout your transformation</span>
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Process Steps -->
-    <section class="py-20 bg-white">
+    <!-- Process Steps - Glassmorphism -->
+    <section class="py-12 md:py-20 bg-gradient-to-b from-white to-slate-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- Step 1 -->
-        <div class="mb-20">
-          <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Step 1 - Glassmorphism -->
+        <div class="mb-12 md:mb-20">
+          <div class="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
-              <div class="flex items-center mb-6">
-                <div class="w-16 h-16 bg-teal-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mr-6">
+              <div class="flex items-center mb-4 md:mb-6">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-teal-600 to-teal-500 text-white rounded-2xl flex items-center justify-center text-xl md:text-2xl font-bold mr-4 md:mr-6 shadow-lg">
                   1
                 </div>
-                <h2 class="text-3xl font-bold text-slate-800">Free Online Assessment</h2>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800">Free Online Assessment</h2>
               </div>
-              <p class="text-lg text-slate-600 mb-6">
+              <p class="text-base md:text-lg text-slate-700 font-medium mb-4 md:mb-6 leading-relaxed">
                 Start your journey from the comfort of your home. Our specialists review your photos, 
                 medical history, and goals to create a personalized treatment plan.
               </p>
               
-              <div class="bg-teal-50 rounded-xl p-6 mb-6 border border-teal-100">
+              <div class="bg-teal-50/60 backdrop-blur-sm rounded-2xl p-5 md:p-6 mb-4 md:mb-6 border border-teal-100/50 shadow-md">
                 <h3 class="font-semibold text-teal-800 mb-3">What's Included:</h3>
                 <ul class="space-y-2">
                   <li class="flex items-center text-slate-700">
@@ -139,37 +152,42 @@ const timelineSteps = [
                 </ul>
               </div>
 
-              <button class="bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-8 py-3 rounded-xl font-semibold hover:from-teal-700 hover:to-cyan-700 transition-all duration-300">
+              <a href="/process" class="inline-block bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-6 md:px-8 py-3 md:py-3.5 rounded-2xl text-sm md:text-base font-bold hover:from-teal-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-center">
                 Start Free Assessment
-              </button>
+              </a>
             </div>
             
-            <div class="bg-gradient-to-br from-teal-100 to-cyan-200 rounded-2xl p-12 text-center">
-              <svg class="w-32 h-32 text-teal-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-              </svg>
-              <p class="text-teal-700 font-semibold text-lg">Free Assessment</p>
-              <p class="text-teal-600">100% Online & Confidential</p>
+            <div class="relative bg-gradient-to-br from-teal-100/80 to-cyan-200/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 text-center overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+              <div class="relative">
+                <div class="w-24 h-24 md:w-32 md:h-32 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <svg class="w-12 h-12 md:w-16 md:h-16 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 2 0 01-2 2z"></path>
+                  </svg>
+                </div>
+                <p class="text-teal-700 font-bold text-base md:text-lg">Free Assessment</p>
+                <p class="text-teal-600 font-medium text-sm md:text-base">100% Online & Confidential</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Step 2 -->
-        <div class="mb-20">
-          <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Step 2 - Glassmorphism -->
+        <div class="mb-12 md:mb-20">
+          <div class="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div class="lg:order-2">
-              <div class="flex items-center mb-6">
-                <div class="w-16 h-16 bg-cyan-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mr-6">
+              <div class="flex items-center mb-4 md:mb-6">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-cyan-600 to-cyan-500 text-white rounded-2xl flex items-center justify-center text-xl md:text-2xl font-bold mr-4 md:mr-6 shadow-lg">
                   2
                 </div>
-                <h2 class="text-3xl font-bold text-slate-800">Arrival & Welcome</h2>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800">Arrival & Welcome</h2>
               </div>
-              <p class="text-lg text-slate-600 mb-6">
+              <p class="text-base md:text-lg text-slate-700 font-medium mb-4 md:mb-6 leading-relaxed">
                 Land in paradise and let us take care of everything. From airport pickup to luxury 
                 accommodation, your comfort is our priority from the moment you arrive.
               </p>
               
-              <div class="bg-cyan-50 rounded-xl p-6 mb-6 border border-cyan-100">
+              <div class="bg-cyan-50/60 backdrop-blur-sm rounded-2xl p-5 md:p-6 mb-4 md:mb-6 border border-cyan-100/50 shadow-md">
                 <h3 class="font-semibold text-cyan-800 mb-3">VIP Treatment Includes:</h3>
                 <ul class="space-y-2">
                   <li class="flex items-center text-slate-700">
@@ -200,32 +218,37 @@ const timelineSteps = [
               </div>
             </div>
             
-            <div class="lg:order-1 bg-gradient-to-br from-cyan-100 to-emerald-200 rounded-2xl p-12 text-center">
-              <svg class="w-32 h-32 text-cyan-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-              </svg>
-              <p class="text-cyan-700 font-semibold text-lg">VIP Arrival</p>
-              <p class="text-cyan-600">Luxury & Comfort</p>
+            <div class="lg:order-1 relative bg-gradient-to-br from-cyan-100/80 to-emerald-200/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 text-center overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+              <div class="relative">
+                <div class="w-24 h-24 md:w-32 md:h-32 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <svg class="w-12 h-12 md:w-16 md:h-16 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                  </svg>
+                </div>
+                <p class="text-cyan-700 font-bold text-base md:text-lg">VIP Arrival</p>
+                <p class="text-cyan-600 font-medium text-sm md:text-base">Luxury & Comfort</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Step 3 -->
-        <div class="mb-20">
-          <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Step 3 - Glassmorphism -->
+        <div class="mb-12 md:mb-20">
+          <div class="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
-              <div class="flex items-center mb-6">
-                <div class="w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mr-6">
+              <div class="flex items-center mb-4 md:mb-6">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-emerald-600 to-emerald-500 text-white rounded-2xl flex items-center justify-center text-xl md:text-2xl font-bold mr-4 md:mr-6 shadow-lg">
                   3
                 </div>
-                <h2 class="text-3xl font-bold text-slate-800">Treatment & Transformation</h2>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800">Treatment & Transformation</h2>
               </div>
-              <p class="text-lg text-slate-600 mb-6">
+              <p class="text-base md:text-lg text-slate-700 font-medium mb-4 md:mb-6 leading-relaxed">
                 Experience world-class dental care in state-of-the-art facilities. Our specialists 
                 use the latest technology and techniques to ensure your comfort and perfect results.
               </p>
               
-              <div class="bg-emerald-50 rounded-xl p-6 mb-6 border border-emerald-100">
+              <div class="bg-emerald-50/60 backdrop-blur-sm rounded-2xl p-5 md:p-6 mb-4 md:mb-6 border border-emerald-100/50 shadow-md">
                 <h3 class="font-semibold text-emerald-800 mb-3">Premium Care Features:</h3>
                 <ul class="space-y-2">
                   <li class="flex items-center text-slate-700">
@@ -256,12 +279,17 @@ const timelineSteps = [
               </div>
             </div>
             
-            <div class="bg-gradient-to-br from-emerald-100 to-teal-200 rounded-2xl p-12 text-center">
-              <svg class="w-32 h-32 text-emerald-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-              </svg>
-              <p class="text-emerald-700 font-semibold text-lg">Expert Treatment</p>
-              <p class="text-emerald-600">World-Class Care</p>
+            <div class="relative bg-gradient-to-br from-emerald-100/80 to-teal-200/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 text-center overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+              <div class="relative">
+                <div class="w-24 h-24 md:w-32 md:h-32 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <svg class="w-12 h-12 md:w-16 md:h-16 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                  </svg>
+                </div>
+                <p class="text-emerald-700 font-bold text-base md:text-lg">Expert Treatment</p>
+                <p class="text-emerald-600 font-medium text-sm md:text-base">World-Class Care</p>
+              </div>
             </div>
           </div>
         </div>
@@ -269,29 +297,29 @@ const timelineSteps = [
       </div>
     </section>
 
-    <!-- Timeline -->
-    <section class="py-20 bg-slate-50">
+    <!-- Timeline - Glassmorphism -->
+    <section class="py-12 md:py-20 bg-gradient-to-b from-slate-50 to-white">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6">
+        <div class="text-center mb-8 md:mb-16">
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4 md:mb-6">
             Your 5-Day Timeline
           </h2>
-          <p class="text-xl text-slate-600">
+          <p class="text-base md:text-xl text-slate-600 leading-relaxed">
             Most treatments are completed in just 3-5 days, leaving you time to enjoy Cancun.
           </p>
         </div>
 
-        <div class="space-y-6 lg:space-y-8">
+        <div class="space-y-4 md:space-y-6 lg:space-y-8">
           {timelineSteps.map((step, index) => (
             <div class="flex items-center">
-              <div class={`w-12 h-12 lg:w-14 lg:h-14 bg-${step.color}-600 text-white rounded-full flex items-center justify-center font-bold mr-4 lg:mr-6 text-sm lg:text-base flex-shrink-0`}>
+              <div class={`w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-${step.color}-600 to-${step.color}-500 text-white rounded-2xl flex items-center justify-center font-bold mr-3 md:mr-4 lg:mr-6 text-sm md:text-base flex-shrink-0 shadow-lg`}>
                 {step.day}
               </div>
-              <div class="flex-1 bg-white rounded-xl p-4 lg:p-6 shadow-md border border-slate-100">
-                <h3 class="font-semibold text-slate-800 mb-2 text-sm lg:text-base">
+              <div class="flex-1 bg-white/60 backdrop-blur-xl rounded-2xl p-4 md:p-5 lg:p-6 border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300">
+                <h3 class="font-bold text-slate-800 mb-2 text-sm md:text-base">
                   Day {step.day}: {step.title}
                 </h3>
-                <p class="text-slate-600 text-sm lg:text-base leading-relaxed">
+                <p class="text-slate-700 font-medium text-xs md:text-sm lg:text-base leading-relaxed">
                   {step.description}
                 </p>
               </div>
@@ -299,47 +327,60 @@ const timelineSteps = [
           ))}
         </div>
 
-        <!-- Additional Timeline Info -->
-        <div class="mt-16 bg-white rounded-2xl p-6 lg:p-8 shadow-lg border border-slate-100">
+        <!-- Additional Timeline Info - Glassmorphism -->
+        <div class="mt-8 md:mt-16 bg-white/60 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-white/40 shadow-xl">
           <div class="text-center mb-6">
-            <h3 class="text-xl lg:text-2xl font-bold text-slate-800 mb-3">
+            <h3 class="text-lg md:text-xl lg:text-2xl font-bold text-slate-800 mb-3">
               Flexible Scheduling
             </h3>
-            <p class="text-slate-600 text-sm lg:text-base">
+            <p class="text-slate-700 font-medium text-sm md:text-base leading-relaxed">
               We understand every case is unique. Your timeline may vary based on your specific treatment needs.
             </p>
           </div>
           
-          <div class="grid md:grid-cols-3 gap-4 lg:gap-6">
-            <div class="text-center p-4 bg-teal-50 rounded-xl border border-teal-100">
-              <div class="text-2xl font-bold text-teal-600 mb-2">3-5</div>
-              <div class="text-sm text-slate-600">Days Average</div>
+          <div class="grid grid-cols-3 gap-3 md:gap-4 lg:gap-6">
+            <div class="text-center p-3 md:p-4 bg-teal-50/60 backdrop-blur-sm rounded-2xl border border-teal-100/50 shadow-md hover:shadow-lg transition-all duration-300">
+              <div class="text-xl md:text-2xl font-bold bg-gradient-to-br from-teal-600 to-teal-500 bg-clip-text text-transparent mb-2">3-5</div>
+              <div class="text-xs md:text-sm text-slate-700 font-medium">Days Average</div>
             </div>
-            <div class="text-center p-4 bg-cyan-50 rounded-xl border border-cyan-100">
-              <div class="text-2xl font-bold text-cyan-600 mb-2">24/7</div>
-              <div class="text-sm text-slate-600">Support Available</div>
+            <div class="text-center p-3 md:p-4 bg-cyan-50/60 backdrop-blur-sm rounded-2xl border border-cyan-100/50 shadow-md hover:shadow-lg transition-all duration-300">
+              <div class="text-xl md:text-2xl font-bold bg-gradient-to-br from-cyan-600 to-cyan-500 bg-clip-text text-transparent mb-2">24/7</div>
+              <div class="text-xs md:text-sm text-slate-700 font-medium">Support Available</div>
             </div>
-            <div class="text-center p-4 bg-emerald-50 rounded-xl border border-emerald-100">
-              <div class="text-2xl font-bold text-emerald-600 mb-2">100%</div>
-              <div class="text-sm text-slate-600">Personalized Care</div>
+            <div class="text-center p-3 md:p-4 bg-emerald-50/60 backdrop-blur-sm rounded-2xl border border-emerald-100/50 shadow-md hover:shadow-lg transition-all duration-300">
+              <div class="text-xl md:text-2xl font-bold bg-gradient-to-br from-emerald-600 to-emerald-500 bg-clip-text text-transparent mb-2">100%</div>
+              <div class="text-xs md:text-sm text-slate-700 font-medium">Personalized Care</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-teal-600 to-cyan-600">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+    <!-- CTA Section - Modern -->
+    <section class="relative py-12 md:py-20 bg-gradient-to-br from-teal-600 via-cyan-600 to-emerald-600 overflow-hidden">
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-4 left-4 w-20 h-20 bg-white rounded-full blur-2xl"></div>
+        <div class="absolute top-20 right-8 w-16 h-16 bg-white rounded-full blur-2xl"></div>
+        <div class="absolute bottom-8 left-12 w-24 h-24 bg-white rounded-full blur-2xl"></div>
+        <div class="absolute bottom-16 right-4 w-12 h-12 bg-white rounded-full blur-2xl"></div>
+      </div>
+      
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 md:mb-6 leading-tight">
           Ready to Start Your Journey?
         </h2>
-        <p class="text-xl text-teal-100 mb-8">
+        <p class="text-base md:text-xl text-white/90 mb-6 md:mb-8 leading-relaxed">
           Take the first step towards your perfect smile with our free assessment.
         </p>
-        <button class="bg-white text-teal-700 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-teal-50 transition-colors duration-200">
-          Begin Your Transformation
-        </button>
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
+          <a href="/process" class="bg-white text-teal-700 px-6 md:px-8 py-3 md:py-4 rounded-2xl text-base md:text-lg font-bold hover:bg-teal-50 transition-all duration-300 shadow-lg hover:shadow-xl text-center transform hover:scale-105">
+            Begin Your Transformation
+          </a>
+          <a href="/specialists" class="border-2 border-white text-white px-6 md:px-8 py-3 md:py-4 rounded-2xl text-base md:text-lg font-bold hover:bg-white hover:text-teal-700 transition-all duration-300 text-center transform hover:scale-105">
+            Meet Our Specialists
+          </a>
+        </div>
       </div>
     </section>
   </main>
