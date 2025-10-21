@@ -1,0 +1,347 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.tsx';
+import Footer from '../components/Footer.tsx';
+
+// Process steps data
+const processSteps = [
+  {
+    id: 1,
+    title: 'Free Online Assessment',
+    description: 'Start your journey from the comfort of your home. Our specialists review your photos, medical history, and goals to create a personalized treatment plan.',
+    color: 'teal',
+    icon: 'document',
+    features: [
+      'Detailed photo analysis by our specialists',
+      'Personalized treatment recommendations',
+      'Cost estimate and timeline',
+      'Travel and accommodation planning'
+    ],
+    cta: 'Start Free Assessment'
+  },
+  {
+    id: 2,
+    title: 'Arrival & Welcome',
+    description: 'Land in paradise and let us take care of everything. From airport pickup to luxury accommodation, your comfort is our priority from the moment you arrive.',
+    color: 'cyan',
+    icon: 'plane',
+    features: [
+      'Private airport transfer',
+      'Luxury hotel accommodation',
+      'Welcome consultation with your specialist',
+      '24/7 concierge support'
+    ],
+    cta: 'Learn More'
+  },
+  {
+    id: 3,
+    title: 'Treatment & Transformation',
+    description: 'Experience world-class dental care in state-of-the-art facilities. Our specialists use the latest technology and techniques to ensure your comfort and perfect results.',
+    color: 'emerald',
+    icon: 'heart',
+    features: [
+      'Advanced sedation options for comfort',
+      'Digital smile design and preview',
+      'Premium materials and techniques',
+      'Real-time progress updates'
+    ],
+    cta: 'View Results'
+  }
+];
+
+// Timeline data
+const timelineSteps = [
+  {
+    day: 1,
+    title: 'Arrival & Consultation',
+    description: 'Airport pickup, hotel check-in, and comprehensive consultation with your specialist.',
+    color: 'teal'
+  },
+  {
+    day: '2-4',
+    title: 'Treatment Days',
+    description: 'Your dental procedures with breaks to enjoy Cancun\'s beaches and attractions.',
+    color: 'cyan'
+  },
+  {
+    day: 5,
+    title: 'Final Check & Departure',
+    description: 'Final adjustments, care instructions, and departure with your perfect new smile.',
+    color: 'emerald'
+  }
+];
+---
+
+<Layout title="Our Process - Smile Concierge Cancun">
+  <Header client:load />
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-cyan-50 via-white to-teal-50 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h1 class="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+            Your Journey to the Perfect Smile
+          </h1>
+          <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+            From initial consultation to your final reveal, we've perfected every step 
+            to ensure your comfort, safety, and satisfaction throughout your transformation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Steps -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Step 1 -->
+        <div class="mb-20">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-teal-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mr-6">
+                  1
+                </div>
+                <h2 class="text-3xl font-bold text-slate-800">Free Online Assessment</h2>
+              </div>
+              <p class="text-lg text-slate-600 mb-6">
+                Start your journey from the comfort of your home. Our specialists review your photos, 
+                medical history, and goals to create a personalized treatment plan.
+              </p>
+              
+              <div class="bg-teal-50 rounded-xl p-6 mb-6 border border-teal-100">
+                <h3 class="font-semibold text-teal-800 mb-3">What's Included:</h3>
+                <ul class="space-y-2">
+                  <li class="flex items-center text-slate-700">
+                    <svg class="w-4 h-4 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Detailed photo analysis by our specialists
+                  </li>
+                  <li class="flex items-center text-slate-700">
+                    <svg class="w-4 h-4 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Personalized treatment recommendations
+                  </li>
+                  <li class="flex items-center text-slate-700">
+                    <svg class="w-4 h-4 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Cost estimate and timeline
+                  </li>
+                  <li class="flex items-center text-slate-700">
+                    <svg class="w-4 h-4 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Travel and accommodation planning
+                  </li>
+                </ul>
+              </div>
+
+              <button class="bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-8 py-3 rounded-xl font-semibold hover:from-teal-700 hover:to-cyan-700 transition-all duration-300">
+                Start Free Assessment
+              </button>
+            </div>
+            
+            <div class="bg-gradient-to-br from-teal-100 to-cyan-200 rounded-2xl p-12 text-center">
+              <svg class="w-32 h-32 text-teal-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+              <p class="text-teal-700 font-semibold text-lg">Free Assessment</p>
+              <p class="text-teal-600">100% Online & Confidential</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="mb-20">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="lg:order-2">
+              <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-cyan-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mr-6">
+                  2
+                </div>
+                <h2 class="text-3xl font-bold text-slate-800">Arrival & Welcome</h2>
+              </div>
+              <p class="text-lg text-slate-600 mb-6">
+                Land in paradise and let us take care of everything. From airport pickup to luxury 
+                accommodation, your comfort is our priority from the moment you arrive.
+              </p>
+              
+              <div class="bg-cyan-50 rounded-xl p-6 mb-6 border border-cyan-100">
+                <h3 class="font-semibold text-cyan-800 mb-3">VIP Treatment Includes:</h3>
+                <ul class="space-y-2">
+                  <li class="flex items-center text-slate-700">
+                    <svg class="w-4 h-4 text-cyan-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Private airport transfer
+                  </li>
+                  <li class="flex items-center text-slate-700">
+                    <svg class="w-4 h-4 text-cyan-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Luxury hotel accommodation
+                  </li>
+                  <li class="flex items-center text-slate-700">
+                    <svg class="w-4 h-4 text-cyan-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Welcome consultation with your specialist
+                  </li>
+                  <li class="flex items-center text-slate-700">
+                    <svg class="w-4 h-4 text-cyan-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    24/7 concierge support
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="lg:order-1 bg-gradient-to-br from-cyan-100 to-emerald-200 rounded-2xl p-12 text-center">
+              <svg class="w-32 h-32 text-cyan-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+              </svg>
+              <p class="text-cyan-700 font-semibold text-lg">VIP Arrival</p>
+              <p class="text-cyan-600">Luxury & Comfort</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="mb-20">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mr-6">
+                  3
+                </div>
+                <h2 class="text-3xl font-bold text-slate-800">Treatment & Transformation</h2>
+              </div>
+              <p class="text-lg text-slate-600 mb-6">
+                Experience world-class dental care in state-of-the-art facilities. Our specialists 
+                use the latest technology and techniques to ensure your comfort and perfect results.
+              </p>
+              
+              <div class="bg-emerald-50 rounded-xl p-6 mb-6 border border-emerald-100">
+                <h3 class="font-semibold text-emerald-800 mb-3">Premium Care Features:</h3>
+                <ul class="space-y-2">
+                  <li class="flex items-center text-slate-700">
+                    <svg class="w-4 h-4 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Advanced sedation options for comfort
+                  </li>
+                  <li class="flex items-center text-slate-700">
+                    <svg class="w-4 h-4 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Digital smile design and preview
+                  </li>
+                  <li class="flex items-center text-slate-700">
+                    <svg class="w-4 h-4 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Premium materials and techniques
+                  </li>
+                  <li class="flex items-center text-slate-700">
+                    <svg class="w-4 h-4 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Real-time progress updates
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="bg-gradient-to-br from-emerald-100 to-teal-200 rounded-2xl p-12 text-center">
+              <svg class="w-32 h-32 text-emerald-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
+              <p class="text-emerald-700 font-semibold text-lg">Expert Treatment</p>
+              <p class="text-emerald-600">World-Class Care</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="py-20 bg-slate-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6">
+            Your 5-Day Timeline
+          </h2>
+          <p class="text-xl text-slate-600">
+            Most treatments are completed in just 3-5 days, leaving you time to enjoy Cancun.
+          </p>
+        </div>
+
+        <div class="space-y-6 lg:space-y-8">
+          {timelineSteps.map((step, index) => (
+            <div class="flex items-center">
+              <div class={`w-12 h-12 lg:w-14 lg:h-14 bg-${step.color}-600 text-white rounded-full flex items-center justify-center font-bold mr-4 lg:mr-6 text-sm lg:text-base flex-shrink-0`}>
+                {step.day}
+              </div>
+              <div class="flex-1 bg-white rounded-xl p-4 lg:p-6 shadow-md border border-slate-100">
+                <h3 class="font-semibold text-slate-800 mb-2 text-sm lg:text-base">
+                  Day {step.day}: {step.title}
+                </h3>
+                <p class="text-slate-600 text-sm lg:text-base leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Additional Timeline Info -->
+        <div class="mt-16 bg-white rounded-2xl p-6 lg:p-8 shadow-lg border border-slate-100">
+          <div class="text-center mb-6">
+            <h3 class="text-xl lg:text-2xl font-bold text-slate-800 mb-3">
+              Flexible Scheduling
+            </h3>
+            <p class="text-slate-600 text-sm lg:text-base">
+              We understand every case is unique. Your timeline may vary based on your specific treatment needs.
+            </p>
+          </div>
+          
+          <div class="grid md:grid-cols-3 gap-4 lg:gap-6">
+            <div class="text-center p-4 bg-teal-50 rounded-xl border border-teal-100">
+              <div class="text-2xl font-bold text-teal-600 mb-2">3-5</div>
+              <div class="text-sm text-slate-600">Days Average</div>
+            </div>
+            <div class="text-center p-4 bg-cyan-50 rounded-xl border border-cyan-100">
+              <div class="text-2xl font-bold text-cyan-600 mb-2">24/7</div>
+              <div class="text-sm text-slate-600">Support Available</div>
+            </div>
+            <div class="text-center p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+              <div class="text-2xl font-bold text-emerald-600 mb-2">100%</div>
+              <div class="text-sm text-slate-600">Personalized Care</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-teal-600 to-cyan-600">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+          Ready to Start Your Journey?
+        </h2>
+        <p class="text-xl text-teal-100 mb-8">
+          Take the first step towards your perfect smile with our free assessment.
+        </p>
+        <button class="bg-white text-teal-700 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-teal-50 transition-colors duration-200">
+          Begin Your Transformation
+        </button>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

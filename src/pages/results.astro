@@ -1,0 +1,152 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.tsx';
+import Footer from '../components/Footer.tsx';
+
+// Results data
+const resultCategories = [
+  { id: 'all', name: 'All Cases', active: true },
+  { id: 'veneers', name: 'Veneers', active: false },
+  { id: 'implants', name: 'Implants', active: false },
+  { id: 'crowns', name: 'Crowns', active: false },
+  { id: 'full-mouth', name: 'Full Mouth', active: false }
+];
+
+const featuredCases = [
+  {
+    id: 1,
+    title: 'Complete Smile Makeover',
+    description: '8 porcelain veneers for a natural, Hollywood-worthy smile transformation.',
+    treatment: 'Porcelain Veneers',
+    doctor: 'Dr. Vázquez',
+    duration: '3 days treatment',
+    color: 'teal'
+  },
+  {
+    id: 2,
+    title: 'Full Mouth Restoration',
+    description: 'Complete dental implant solution with natural-looking crowns.',
+    treatment: 'Dental Implants',
+    doctor: 'Dr. Pavón',
+    duration: '5 days treatment',
+    color: 'cyan'
+  },
+  {
+    id: 3,
+    title: 'Natural Crown Replacement',
+    description: 'Seamless crown and bridge work that blends perfectly with natural teeth.',
+    treatment: 'Crowns & Bridges',
+    doctor: 'Dr. García',
+    duration: '4 days treatment',
+    color: 'emerald'
+  }
+];
+---
+
+<Layout title="Before & After Results - Smile Concierge Cancun">
+  <Header client:load />
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-slate-50 to-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h1 class="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+            Natural Results That Wow
+          </h1>
+          <p class="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
+            See the incredible transformations our patients have achieved. 
+            Every smile tells a story of confidence, beauty, and natural perfection.
+          </p>
+          
+          <div class="inline-flex items-center bg-teal-50 px-6 py-3 rounded-full border border-teal-100">
+            <div class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center mr-3">
+              <svg class="w-4 h-4 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <p class="text-lg text-teal-700 font-semibold">
+              Over 500 successful transformations
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-12 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+          {resultCategories.map((category) => (
+            <button 
+              class={`px-4 md:px-6 py-2 rounded-full font-medium text-sm md:text-base transition-colors duration-200 ${
+                category.active 
+                  ? 'bg-teal-600 text-white' 
+                  : 'bg-slate-100 text-slate-600 hover:bg-teal-50 hover:text-teal-600'
+              }`}
+            >
+              {category.name}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Gallery -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          
+          {featuredCases.map((caseItem) => (
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-slate-100">
+              <div class={`aspect-w-4 aspect-h-3 bg-gradient-to-br from-${caseItem.color}-100 to-cyan-200 flex items-center justify-center`}>
+                <div class="text-center p-6 lg:p-8">
+                  <svg class={`w-12 h-12 lg:w-16 lg:h-16 text-${caseItem.color}-500 mx-auto mb-4`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                  <p class={`text-${caseItem.color}-700 font-semibold text-sm lg:text-base`}>Before & After</p>
+                  <p class={`text-xs lg:text-sm text-${caseItem.color}-600`}>{caseItem.treatment}</p>
+                </div>
+              </div>
+              <div class="p-4 lg:p-6">
+                <h3 class="font-semibold text-slate-800 mb-2 text-sm lg:text-base">{caseItem.title}</h3>
+                <p class="text-xs lg:text-sm text-slate-600 mb-4 leading-relaxed">
+                  {caseItem.description}
+                </p>
+                <div class="flex items-center justify-between">
+                  <span class={`text-xs bg-${caseItem.color}-100 text-${caseItem.color}-800 px-2 py-1 rounded-full font-medium`}>
+                    {caseItem.doctor}
+                  </span>
+                  <span class="text-xs text-slate-500">{caseItem.duration}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+
+        </div>
+
+        <!-- Load More -->
+        <div class="text-center mt-16">
+          <button class="bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-8 py-3 rounded-xl font-semibold hover:from-teal-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+            Load More Cases
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-teal-600 to-cyan-600">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+          Ready for Your Transformation?
+        </h2>
+        <p class="text-xl text-teal-100 mb-8">
+          Join hundreds of satisfied patients who achieved their perfect smile in Cancun.
+        </p>
+        <button class="bg-white text-teal-700 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-teal-50 transition-colors duration-200">
+          Get Your Free Assessment
+        </button>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

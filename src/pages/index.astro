@@ -1,16 +1,26 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.tsx';
+import Hero from '../components/Hero.tsx';
+import About from '../components/About.tsx';
+import Services from '../components/Services.tsx';
+import NaturalResults from '../components/NaturalResults.tsx';
+import HowItWorks from '../components/HowItWorks.tsx';
+import Testimonials from '../components/Testimonials.tsx';
+import CTA from '../components/CTA.tsx';
+import Footer from '../components/Footer.tsx';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Smile Concierge Cancun - Luxury Dental Experience with Finest Specialists">
+  <Header client:load />
+  <main>
+    <Hero />
+    <About />
+    <Services />
+    <NaturalResults />
+    <HowItWorks />
+    <Testimonials />
+    <CTA />
+  </main>
+  <Footer />
+</Layout>
