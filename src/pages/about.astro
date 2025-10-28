@@ -1,0 +1,293 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.tsx';
+import Footer from '../components/Footer.tsx';
+---
+
+<Layout title="About Us - Smile Concierge Cancun">
+  <Header client:load />
+  <main>
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-cream via-white to-sand py-16 md:py-24 overflow-hidden">
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute top-10 left-4 w-20 h-20 bg-forest rounded-full blur-xl"></div>
+        <div class="absolute bottom-20 right-8 w-24 h-24 bg-sage rounded-full blur-xl"></div>
+      </div>
+      
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-800 mb-6">
+          About Us
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-600 font-light max-w-3xl mx-auto">
+          A luxury dental experience, guided by experts.
+        </p>
+        
+        <!-- Experience Badge -->
+        <div class="flex justify-center mt-8">
+          <div class="inline-flex items-center gap-4 bg-white/80 backdrop-blur-xl px-8 py-4 rounded-2xl border border-slate-200 shadow-xl">
+            <div class="w-16 h-16 bg-gradient-to-br from-forest to-sage rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg">
+              10+
+            </div>
+            <div class="text-left">
+              <p class="text-sm text-slate-600 font-medium">Years of</p>
+              <p class="text-lg font-bold text-slate-800">Excellence</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Company Story -->
+    <section class="py-12 md:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+              How We Started
+            </h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-forest to-sage mx-auto rounded-full"></div>
+          </div>
+
+          <div class="space-y-6 text-base md:text-lg text-slate-700 leading-relaxed">
+            <p>
+              After years of training and gaining the trust of both patients and doctors, I had the opportunity to work alongside the best dental specialists in Cancun.
+            </p>
+            
+            <div class="bg-gradient-to-br from-sand/30 to-cream rounded-2xl p-6 md:p-8 border border-sand">
+              <p class="text-lg md:text-xl font-medium text-slate-800 italic">
+                "How can I create an alliance with the top doctors in Cancun that allows me to guide patients to the care they truly need, in the hands of the best?"
+              </p>
+            </div>
+
+            <p>
+              This question led to the creation of <strong class="text-forest">Smile Concierge Cancun</strong> — a connection that unites us as a large family of specialists.
+            </p>
+            
+            <p>
+              Through this network, I can personally understand your needs and help you find the dentist who best matches your specific dental requirements.
+            </p>
+
+            <div class="bg-white rounded-2xl p-6 md:p-8 border-l-4 border-forest shadow-lg">
+              <p class="text-lg font-semibold text-slate-800">
+                It's more than referrals — it's a personalized, trusted pathway to exceptional dental care.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CEO Section -->
+    <section class="py-12 md:py-20 bg-gradient-to-br from-sand via-cream to-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+          <!-- CEO Header -->
+          <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-3 bg-white/80 backdrop-blur-xl px-6 py-3 rounded-full border border-slate-200 shadow-lg mb-6">
+              <svg class="w-6 h-6 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              <span class="text-sm font-semibold text-slate-700">Our CEO</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-2">
+              Gretter Garriga
+            </h2>
+            <p class="text-lg text-slate-600">
+              Founder & CEO
+            </p>
+          </div>
+
+          <!-- CEO Story -->
+          <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-slate-100">
+            <div class="space-y-6 text-base md:text-lg text-slate-700 leading-relaxed">
+              <p>
+                Years ago, I began my career as a dental clinic manager. Over time, I've specialized in patient care and dental experience management — with one clear goal:
+              </p>
+              
+              <div class="bg-gradient-to-r from-sand/30 to-cream rounded-xl p-6 border-l-4 border-forest">
+                <p class="font-semibold text-slate-800">
+                  To make every patient's visit to the dentist a different and positive experience.
+                </p>
+              </div>
+
+              <p>
+                I've learned that the key lies in offering treatment that is honest, human, and empathetic.
+              </p>
+
+              <p class="italic text-slate-600">
+                Behind every smile, there's a story — people overcoming fears, finally investing in their well-being, or giving themselves the chance to smile confidently after years of waiting.
+              </p>
+
+              <p class="font-medium text-slate-800">
+                That deserves respect, empathy, and excellence.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Principles -->
+    <section class="py-12 md:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+            Our Core Principles
+          </h2>
+          <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+            We provide close, honest, and professional care, guided by three fundamental values
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+          <!-- Principle 1 -->
+          <div class="group bg-gradient-to-br from-white to-forest/5 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 hover:scale-105">
+            <div class="w-16 h-16 bg-gradient-to-br from-forest to-forest-dark rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-3">
+              Best Specialists
+            </h3>
+            <p class="text-slate-600 leading-relaxed">
+              We work with the best specialists in every field, ensuring expertise and quality results.
+            </p>
+          </div>
+
+          <!-- Principle 2 -->
+          <div class="group bg-gradient-to-br from-white to-sage/5 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 hover:scale-105">
+            <div class="w-16 h-16 bg-gradient-to-br from-sage to-sage-dark rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-3">
+              Premium Materials
+            </h3>
+            <p class="text-slate-600 leading-relaxed">
+              We only use top-tier materials and laboratories, because our patients deserve nothing less.
+            </p>
+          </div>
+
+          <!-- Principle 3 -->
+          <div class="group bg-gradient-to-br from-white to-forest-light/5 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 hover:scale-105">
+            <div class="w-16 h-16 bg-gradient-to-br from-forest-light to-sage rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-3">
+              Human Attention
+            </h3>
+            <p class="text-slate-600 leading-relaxed">
+              We offer personalized, human attention, guided by professionals who will accompany you through every step.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why We're Different -->
+    <section class="py-12 md:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <!-- Left: Content -->
+            <div class="space-y-6">
+              <h2 class="text-3xl md:text-4xl font-bold text-slate-800">
+                Not an Express Service
+              </h2>
+              <p class="text-lg text-slate-700 leading-relaxed">
+                We're not a quick-fix dental tourism service. Express dental tourism is often characterized by lower quality work and unnatural results.
+              </p>
+              <div class="bg-white rounded-2xl p-6 border-l-4 border-red-500 shadow-lg">
+                <p class="text-lg font-semibold text-slate-800">
+                  We believe your smile deserves more.
+                </p>
+              </div>
+              <p class="text-base text-slate-600 leading-relaxed">
+                We help you achieve, in a planned and efficient timeframe, the same level of quality that local patients receive — in luxury clinics, with top specialists, and at a more accessible cost.
+              </p>
+            </div>
+
+            <!-- Right: Visual Stats -->
+            <div class="space-y-4">
+              <div class="bg-white rounded-2xl p-6 shadow-xl border border-slate-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 bg-forest/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-bold text-slate-800">Pre-Planning</p>
+                    <p class="text-sm text-slate-600">We assess your case before arrival</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-2xl p-6 shadow-xl border border-slate-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 bg-sage/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-bold text-slate-800">Efficient Timeline</p>
+                    <p class="text-sm text-slate-600">Planned procedures, no rushing</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-2xl p-6 shadow-xl border border-slate-100">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 bg-forest-light/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-forest-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-bold text-slate-800">Natural Results</p>
+                    <p class="text-sm text-slate-600">Long-lasting, premium quality</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing Message -->
+    <section class="py-12 md:py-20 bg-gradient-to-r from-forest to-sage">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/20">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+            More Than a Dental Company
+          </h2>
+          <p class="text-lg md:text-xl text-white/95 leading-relaxed mb-8">
+            We're a family of professionals dedicated to caring for your smile as if it were our own. We can't wait to help you achieve your dream of a healthy, natural, and beautiful smile.
+          </p>
+          <a 
+            href="https://wa.me/5219983351933?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block bg-white text-forest px-10 py-5 rounded-2xl text-xl font-bold hover:bg-sand transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:scale-105"
+          >
+            Start Your Journey Today
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

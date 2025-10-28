@@ -52,10 +52,10 @@ const Services: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-            Meet Our Specialists
+            Our Specialists
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Cancun's most recognized dental experts, each with state-of-the-art clinics and proven results.
+            At Smile Concierge Cancun, we bring together the most recognized specialists in Cancun — each with exceptional experience and clinics equipped with state-of-the-art technology.
           </p>
         </div>
         
@@ -66,15 +66,15 @@ const Services: React.FC = () => {
               className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100"
             >
               <div className="text-center mb-6">
-                <div className={`w-20 h-20 ${index === 0 ? 'bg-teal-100' : index === 1 ? 'bg-cyan-100' : 'bg-emerald-100'} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                  <svg className={`w-10 h-10 ${index === 0 ? 'text-teal-600' : index === 1 ? 'text-cyan-600' : 'text-emerald-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className={`w-20 h-20 ${index === 0 ? 'bg-forest/10' : index === 1 ? 'bg-sage/10' : 'bg-forest-light/10'} rounded-full flex items-center justify-center mx-auto mb-4`}>
+                  <svg className={`w-10 h-10 ${index === 0 ? 'text-forest' : index === 1 ? 'text-sage' : 'text-forest-light'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
                 <h3 className="text-2xl font-bold text-slate-800 mb-2">
                   {specialist.name}
                 </h3>
-                <p className="text-teal-600 font-semibold mb-2">{specialist.clinic}</p>
+                <p className="text-forest font-semibold mb-2">{specialist.clinic}</p>
                 <p className="text-slate-600 text-sm">{specialist.specialty}</p>
               </div>
 
@@ -84,7 +84,7 @@ const Services: React.FC = () => {
                   {specialist.treatments.map((treatment, treatmentIndex) => (
                     <li key={treatmentIndex} className="flex items-start text-slate-600 text-sm">
                       <svg
-                        className="w-4 h-4 text-teal-500 mr-2 mt-0.5 flex-shrink-0"
+                        className="w-4 h-4 text-forest mr-2 mt-0.5 flex-shrink-0"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -100,24 +100,36 @@ const Services: React.FC = () => {
                 </ul>
               </div>
 
-              <div className="bg-teal-50 rounded-xl p-4 mb-6 border border-teal-100">
+              <div className="bg-sand/30 rounded-xl p-4 mb-6 border border-sand">
                 <div className="flex items-start">
-                  <div className="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
-                    <svg className="w-3 h-3 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="w-6 h-6 bg-forest/10 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                    <svg className="w-3 h-3 text-forest" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <p className="text-teal-800 text-sm font-medium">
+                  <p className="text-forest-dark text-sm font-medium">
                     {specialist.highlight}
                   </p>
                 </div>
               </div>
-
-              <button className="w-full bg-gradient-to-r from-teal-600 to-cyan-600 text-white py-3 rounded-xl font-semibold hover:from-teal-700 hover:to-cyan-700 transition-colors duration-200">
-                Schedule with {specialist.name.split(' ')[1]}
-              </button>
             </div>
           ))}
+        </div>
+
+        {/* CTA to Specialists Page */}
+        <div className="text-center mt-12">
+          <a 
+            href="/specialists"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-forest to-sage text-white px-8 md:px-10 py-4 md:py-5 rounded-2xl text-lg md:text-xl font-bold hover:from-forest-dark hover:to-sage-dark transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Learn More About Our Specialists
+          </a>
+          <p className="text-sm text-slate-600 mt-4">
+            Discover detailed information about each doctor's expertise and experience
+          </p>
         </div>
       </div>
     </section>

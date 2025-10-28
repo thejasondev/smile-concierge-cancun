@@ -20,7 +20,7 @@ const featuredCases = [
     treatment: 'Porcelain Veneers',
     doctor: 'Dr. Vázquez',
     duration: '3 days treatment',
-    color: 'teal'
+    color: 'forest'
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const featuredCases = [
     treatment: 'Dental Implants',
     doctor: 'Dr. Pavón',
     duration: '5 days treatment',
-    color: 'cyan'
+    color: 'sage'
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const featuredCases = [
     treatment: 'Crowns & Bridges',
     doctor: 'Dr. García',
     duration: '4 days treatment',
-    color: 'emerald'
+    color: 'forest-light'
   }
 ];
 ---
@@ -47,17 +47,17 @@ const featuredCases = [
   <Header client:load />
   <main>
     <!-- Hero Section - Glassmorphism -->
-    <section class="relative bg-gradient-to-br from-teal-50 via-cyan-50 to-slate-50 py-12 md:py-20 overflow-hidden">
+    <section class="relative bg-gradient-to-br from-cream via-sand/30 to-white py-12 md:py-20 overflow-hidden">
       <!-- Background Pattern -->
       <div class="absolute inset-0 opacity-30">
-        <div class="absolute top-10 right-10 w-32 h-32 bg-teal-300 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-10 left-10 w-40 h-40 bg-cyan-300 rounded-full blur-3xl"></div>
+        <div class="absolute top-10 right-10 w-32 h-32 bg-forest/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 left-10 w-40 h-40 bg-sage/20 rounded-full blur-3xl"></div>
       </div>
       
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-8 md:mb-16">
           <div class="inline-flex items-center gap-2 bg-white/70 backdrop-blur-xl px-4 py-2 rounded-full border border-white/40 shadow-lg mb-6">
-            <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
             </svg>
             <span class="text-sm font-semibold text-slate-700">Real Transformations</span>
@@ -72,12 +72,12 @@ const featuredCases = [
           </p>
           
           <div class="inline-flex items-center bg-white/70 backdrop-blur-xl px-5 md:px-6 py-3 rounded-full border border-white/40 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-            <div class="w-8 h-8 bg-gradient-to-br from-teal-100 to-teal-50 rounded-xl flex items-center justify-center mr-3 shadow-md">
-              <svg class="w-4 h-4 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
+            <div class="w-8 h-8 bg-forest/10 rounded-xl flex items-center justify-center mr-3 shadow-md">
+              <svg class="w-4 h-4 text-forest" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <p class="text-sm md:text-lg font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">
+            <p class="text-sm md:text-lg font-bold bg-gradient-to-r from-forest to-sage bg-clip-text text-transparent">
               500+ successful transformations
             </p>
           </div>
@@ -86,15 +86,15 @@ const featuredCases = [
     </section>
 
     <!-- Filter Section - Glassmorphism -->
-    <section class="py-8 md:py-12 bg-gradient-to-b from-white to-slate-50">
+    <section class="py-8 md:py-12 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-wrap justify-center gap-2 md:gap-3">
           {resultCategories.map((category) => (
             <button 
               class={`px-4 md:px-6 py-2 md:py-2.5 rounded-full font-semibold text-xs md:text-sm transition-all duration-300 ${
                 category.active 
-                  ? 'bg-gradient-to-r from-teal-600 to-cyan-600 text-white shadow-lg hover:shadow-xl scale-105' 
-                  : 'bg-white/60 backdrop-blur-xl text-slate-700 border border-white/40 shadow-md hover:shadow-lg hover:scale-105 hover:border-teal-200'
+                  ? 'bg-gradient-to-r from-forest to-sage text-white shadow-lg hover:shadow-xl scale-105' 
+                  : 'bg-white/60 backdrop-blur-xl text-slate-700 border border-white/40 shadow-md hover:shadow-lg hover:scale-105 hover:border-forest/20'
               }`}
             >
               {category.name}
@@ -105,7 +105,7 @@ const featuredCases = [
     </section>
 
     <!-- Results Gallery - Glassmorphism -->
-    <section class="py-12 md:py-20 bg-gradient-to-b from-slate-50 to-white">
+    <section class="py-12 md:py-20 bg-gradient-to-br from-sand via-cream to-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           
@@ -142,7 +142,7 @@ const featuredCases = [
 
         <!-- Load More -->
         <div class="text-center mt-8 md:mt-16">
-          <button class="bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-6 md:px-8 py-3 md:py-3.5 rounded-2xl text-sm md:text-base font-bold hover:from-teal-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+          <button class="bg-gradient-to-r from-forest to-sage text-white px-6 md:px-8 py-3 md:py-3.5 rounded-2xl text-sm md:text-base font-bold hover:from-forest-dark hover:to-sage-dark transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
             Load More Cases
           </button>
         </div>
@@ -150,7 +150,7 @@ const featuredCases = [
     </section>
 
     <!-- CTA Section - Modern -->
-    <section class="relative py-12 md:py-20 bg-gradient-to-br from-teal-600 via-cyan-600 to-emerald-600 overflow-hidden">
+    <section class="relative py-12 md:py-20 bg-gradient-to-br from-forest via-sage to-forest-light overflow-hidden">
       <!-- Background Pattern -->
       <div class="absolute inset-0 opacity-10">
         <div class="absolute top-4 left-4 w-20 h-20 bg-white rounded-full blur-2xl"></div>
@@ -167,10 +167,14 @@ const featuredCases = [
           Join hundreds of satisfied patients who achieved their perfect smile in Cancun.
         </p>
         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
-          <a href="/process" class="bg-white text-teal-700 px-6 md:px-8 py-3 md:py-4 rounded-2xl text-base md:text-lg font-bold hover:bg-teal-50 transition-all duration-300 shadow-lg hover:shadow-xl text-center transform hover:scale-105">
+          <a 
+           href="https://wa.me/5219983351933?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="bg-white text-forest px-6 md:px-8 py-3 md:py-4 rounded-2xl text-base md:text-lg font-bold hover:bg-sand transition-all duration-300 shadow-lg hover:shadow-xl text-center transform hover:scale-105">
             Get Your Free Assessment
-          </a>
-          <a href="/specialists" class="border-2 border-white text-white px-6 md:px-8 py-3 md:py-4 rounded-2xl text-base md:text-lg font-bold hover:bg-white hover:text-teal-700 transition-all duration-300 text-center transform hover:scale-105">
+          </a>         
+          <a href="/specialists" class="border-2 border-white text-white px-6 md:px-8 py-3 md:py-4 rounded-2xl text-base md:text-lg font-bold hover:bg-white hover:text-forest transition-all duration-300 text-center transform hover:scale-105">
             Meet Our Specialists
           </a>
         </div>

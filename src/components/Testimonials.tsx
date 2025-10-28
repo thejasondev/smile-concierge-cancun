@@ -49,7 +49,7 @@ const Testimonials: React.FC = () => {
               key={index}
               className="group relative bg-white/60 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${index === 0 ? 'from-teal-500/5' : index === 1 ? 'from-cyan-500/5' : 'from-emerald-500/5'} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+              <div className={`absolute inset-0 bg-gradient-to-br ${index === 0 ? 'from-forest/5' : index === 1 ? 'from-sage/5' : 'from-forest-light/5'} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
               <div className="relative">
               {/* Mobile: Compact Stars */}
               <div className="flex items-center justify-between mb-4">
@@ -65,7 +65,7 @@ const Testimonials: React.FC = () => {
                     </svg>
                   ))}
                 </div>
-                <span className={`inline-block ${index === 0 ? 'bg-teal-100 text-teal-800' : index === 1 ? 'bg-cyan-100 text-cyan-800' : 'bg-emerald-100 text-emerald-800'} text-xs px-2 py-1 rounded-full font-medium`}>
+                <span className={`inline-block ${index === 0 ? 'bg-forest/10 text-forest' : index === 1 ? 'bg-sage/10 text-sage' : 'bg-forest-light/10 text-forest-light'} text-xs px-2 py-1 rounded-full font-medium`}>
                   {testimonial.treatment}
                 </span>
               </div>
@@ -91,7 +91,7 @@ const Testimonials: React.FC = () => {
           <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 w-full max-w-md text-center">
             <div className="grid grid-cols-3 gap-4 md:gap-8 mb-4 md:mb-6">
               <div className="group">
-                <div className="text-xl md:text-2xl font-bold bg-gradient-to-br from-teal-600 to-teal-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">500+</div>
+                <div className="text-xl md:text-2xl font-bold bg-gradient-to-br from-forest to-forest-dark bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">500+</div>
                 <div className="text-xs md:text-sm text-slate-700 font-medium">Patients</div>
               </div>
               <div className="group">
@@ -99,13 +99,13 @@ const Testimonials: React.FC = () => {
                 <div className="text-xs md:text-sm text-slate-700 font-medium">Rating</div>
               </div>
               <div className="group">
-                <div className="text-xl md:text-2xl font-bold bg-gradient-to-br from-emerald-600 to-emerald-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">100%</div>
+                <div className="text-xl md:text-2xl font-bold bg-gradient-to-br from-forest-light to-sage bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">100%</div>
                 <div className="text-xs md:text-sm text-slate-700 font-medium">Guarantee</div>
               </div>
             </div>
             <a 
               href="/reviews" 
-              className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-5 md:px-6 py-2.5 md:py-3 rounded-xl text-sm md:text-base font-semibold hover:from-teal-700 hover:to-cyan-700 transition-all duration-300 w-full inline-block text-center"
+              className="bg-gradient-to-r from-forest to-sage text-white px-5 md:px-6 py-2.5 md:py-3 rounded-xl text-sm md:text-base font-semibold hover:from-forest-dark hover:to-sage-dark transition-all duration-300 w-full inline-block text-center"
             >
               Read All Reviews
             </a>

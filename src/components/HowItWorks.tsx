@@ -54,9 +54,9 @@ const HowItWorks: React.FC = () => {
           <div className="hidden lg:block absolute top-24 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
             <div className="flex justify-between">
               <div className="w-8 h-8"></div>
-              <div className="flex-1 border-t-2 border-dashed border-teal-200 mt-4"></div>
+              <div className="flex-1 border-t-2 border-dashed border-sand mt-4"></div>
               <div className="w-8 h-8"></div>
-              <div className="flex-1 border-t-2 border-dashed border-teal-200 mt-4"></div>
+              <div className="flex-1 border-t-2 border-dashed border-sand mt-4"></div>
               <div className="w-8 h-8"></div>
             </div>
           </div>
@@ -67,13 +67,13 @@ const HowItWorks: React.FC = () => {
               <div key={index} className="relative">
                 {/* Vertical connecting line */}
                 {index < steps.length - 1 && (
-                  <div className="absolute left-8 top-20 bottom-0 w-0.5 bg-gradient-to-b from-teal-200 to-transparent"></div>
+                  <div className="absolute left-8 top-20 bottom-0 w-0.5 bg-gradient-to-b from-sand to-transparent"></div>
                 )}
                 
                 <div className="flex gap-4">
                   {/* Left: Number + Icon */}
                   <div className="flex-shrink-0">
-                    <div className={`relative w-16 h-16 ${index === 0 ? 'bg-gradient-to-br from-teal-600 to-teal-500' : index === 1 ? 'bg-gradient-to-br from-cyan-600 to-cyan-500' : 'bg-gradient-to-br from-emerald-600 to-emerald-500'} text-white rounded-2xl flex items-center justify-center shadow-lg`}>
+                    <div className={`relative w-16 h-16 ${index === 0 ? 'bg-gradient-to-br from-forest to-forest-dark' : index === 1 ? 'bg-gradient-to-br from-sage to-sage-dark' : 'bg-gradient-to-br from-forest-light to-forest'} text-white rounded-2xl flex items-center justify-center shadow-lg`}>
                       <div className="text-center">
                         <div className="text-2xl font-bold leading-none mb-1">{step.number}</div>
                         <div className="text-[10px] opacity-80 uppercase tracking-wider">Step</div>
@@ -84,7 +84,7 @@ const HowItWorks: React.FC = () => {
                   {/* Right: Content Card */}
                   <div className="flex-1 bg-white rounded-2xl p-5 shadow-lg border border-slate-100 hover:shadow-xl transition-all duration-300">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className={`w-10 h-10 ${index === 0 ? 'bg-teal-100 text-teal-600' : index === 1 ? 'bg-cyan-100 text-cyan-600' : 'bg-emerald-100 text-emerald-600'} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                      <div className={`w-10 h-10 ${index === 0 ? 'bg-forest/10 text-forest' : index === 1 ? 'bg-sage/10 text-sage' : 'bg-forest-light/10 text-forest-light'} rounded-xl flex items-center justify-center flex-shrink-0`}>
                         {step.icon}
                       </div>
                       <h3 className="text-lg font-bold text-slate-800 leading-tight">
@@ -106,12 +106,12 @@ const HowItWorks: React.FC = () => {
               <div key={index} className="relative">
                 <div className="text-center">
                   {/* Step Number */}
-                  <div className={`relative inline-flex items-center justify-center w-16 h-16 ${index === 0 ? 'bg-teal-600' : index === 1 ? 'bg-cyan-600' : 'bg-emerald-600'} text-white rounded-full text-2xl font-bold mb-6 shadow-lg`}>
+                  <div className={`relative inline-flex items-center justify-center w-16 h-16 ${index === 0 ? 'bg-forest' : index === 1 ? 'bg-sage' : 'bg-forest-light'} text-white rounded-full text-2xl font-bold mb-6 shadow-lg`}>
                     {step.number}
                   </div>
                   
                   {/* Icon */}
-                  <div className={`w-16 h-16 ${index === 0 ? 'bg-teal-100 text-teal-600' : index === 1 ? 'bg-cyan-100 text-cyan-600' : 'bg-emerald-100 text-emerald-600'} rounded-full flex items-center justify-center mx-auto mb-6`}>
+                  <div className={`w-16 h-16 ${index === 0 ? 'bg-forest/10 text-forest' : index === 1 ? 'bg-sage/10 text-sage' : 'bg-forest-light/10 text-forest-light'} rounded-full flex items-center justify-center mx-auto mb-6`}>
                     {step.icon}
                   </div>
 
@@ -130,7 +130,7 @@ const HowItWorks: React.FC = () => {
 
         {/* Mobile-Optimized CTA */}
         <div className="mt-8 md:mt-16 text-center">
-          <div className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-2xl p-6 md:p-8 lg:p-12 border border-teal-100">
+          <div className="bg-gradient-to-r from-cream to-sand rounded-2xl p-6 md:p-8 lg:p-12 border border-sand">
             <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-800 mb-3 md:mb-4">
               Ready to Start?
             </h3>
@@ -140,14 +140,16 @@ const HowItWorks: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
               <a 
-                href="/process"
-                className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl text-base md:text-lg font-semibold hover:from-teal-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl text-center"
+                href="https://wa.me/5219983351933?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-forest to-sage text-white px-6 md:px-8 py-3 md:py-4 rounded-xl text-base md:text-lg font-semibold hover:from-forest-dark hover:to-sage-dark transition-all duration-300 shadow-lg hover:shadow-xl text-center"
               >
                 Start Free Assessment
               </a>
               <a 
                 href="/specialists"
-                className="border-2 border-teal-600 text-teal-600 px-6 md:px-8 py-3 md:py-4 rounded-xl text-base md:text-lg font-semibold hover:bg-teal-600 hover:text-white transition-all duration-300 text-center"
+                className="border-2 border-forest text-forest px-6 md:px-8 py-3 md:py-4 rounded-xl text-base md:text-lg font-semibold hover:bg-forest hover:text-white transition-all duration-300 text-center"
               >
                 Meet Specialists
               </a>
