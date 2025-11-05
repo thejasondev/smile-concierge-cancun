@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
           {/* Mobile-Optimized CTA */}
           <div className="mb-10 space-y-5">
             <a 
-              href="https://wa.me/5219983351933?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!" 
+              href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!" 
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-block bg-gradient-to-r from-forest to-sage text-white px-10 sm:px-12 py-5 sm:py-6 rounded-2xl text-xl sm:text-2xl font-bold hover:from-forest-dark hover:to-sage-dark transition-all duration-300 shadow-2xl hover:shadow-3xl text-center transform hover:scale-105"

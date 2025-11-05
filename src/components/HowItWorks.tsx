@@ -140,7 +140,7 @@ const HowItWorks: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
               <a 
-                href="https://wa.me/5219983351933?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
+                href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-forest to-sage text-white px-6 md:px-8 py-3 md:py-4 rounded-xl text-base md:text-lg font-semibold hover:from-forest-dark hover:to-sage-dark transition-all duration-300 shadow-lg hover:shadow-xl text-center"

@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
                 Get your free assessment and start your journey today.
               </p>
               <a 
-                href="https://wa.me/5219983351933?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
+                href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-white text-forest px-6 py-2 rounded-lg font-semibold hover:bg-sand transition-colors duration-200"
@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
                 aria-label="Follow us on WhatsApp"
                 className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-cream/60 hover:text-cream hover:bg-forest transition-all duration-300 hover:scale-110"
               >
@@ -138,7 +138,7 @@ const Footer: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </div>
-                <p className="text-cream/70 text-sm group-hover:text-cream transition-colors duration-200">+52 998 335 1933</p>
+                <p className="text-cream/70 text-sm group-hover:text-cream transition-colors duration-200">+52 998 388 9184</p>
               </div>
               
               <div className="flex items-center group">

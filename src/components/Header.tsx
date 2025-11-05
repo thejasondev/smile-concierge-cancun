@@ -101,7 +101,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
               </a>
               <div className="border-l border-slate-200 pl-8">
                 <a 
-                  href="https://wa.me/5219983351933?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
+                  href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gradient-to-r from-forest to-sage text-white px-6 py-2 rounded-lg font-semibold hover:from-forest-dark hover:to-sage-dark transition-all duration-300"
@@ -199,7 +199,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
           {/* CTA Section */}
           <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white via-white to-transparent border-t border-sand/50">
             <a
-              href="https://wa.me/5219983351933?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
+              href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMenuOpen(false)}

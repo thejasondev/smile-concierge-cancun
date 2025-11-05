@@ -9,6 +9,19 @@ interface Specialist {
 }
 
 const specialists: Specialist[] = [
+    {
+    name: 'Dr. Xavier Pavón',
+    clinic: 'Centro Dental Implantológico',
+    specialty: 'Specialist in Implantology and Advanced Rehabilitation',
+    treatments: [
+      'Dental implants',
+      'Bone grafting',
+      'Sinus lift',
+      'Zygomatic implants',
+      'All-on-4 / All-on-6 rehabilitations'
+    ],
+    highlight: 'Safe, aesthetic, and long-lasting solutions to restore your smile'
+  },
   {
     name: 'Dr. Ambar Vázquez',
     clinic: 'Ambar Vázquez Dental Studio',
@@ -31,19 +44,6 @@ const specialists: Specialist[] = [
     ],
     highlight: 'The art of restoring form, function, and beauty to your smile'
   },
-  {
-    name: 'Dr. Xavier Pavón',
-    clinic: 'Centro Dental Implantológico',
-    specialty: 'Specialist in Implantology and Advanced Rehabilitation',
-    treatments: [
-      'Dental implants',
-      'Bone grafting',
-      'Sinus lift',
-      'Zygomatic implants',
-      'All-on-4 / All-on-6 rehabilitations'
-    ],
-    highlight: 'Safe, aesthetic, and long-lasting solutions to restore your smile'
-  }
 ];
 
 const Services: React.FC = () => {

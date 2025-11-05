@@ -24,42 +24,6 @@ const SpecialistAccordion: React.FC = () => {
 
   const specialists: SpecialistData[] = [
     {
-      name: 'Dr. Ambar Vázquez',
-      shortName: 'Dr. Vázquez',
-      clinic: 'Ambar Vázquez Dental Studio',
-      specialty: 'Specialist in natural smile design and advanced aesthetics',
-      bio: [
-        'Expert in creating natural, harmonious smiles that enhance facial beauty.',
-        'Specializes in minimally invasive aesthetic dentistry with premium materials.'
-      ],
-      quote: 'Natural results, perfect proportions, and facial harmony',
-      expertise: [
-        'Smile design with injected composite veneers',
-        'Smile design with layered composite veneers',
-        'Smile design with layered Emax porcelain veneers'
-      ],
-      treatments: [],
-      color: 'forest'
-    },
-    {
-      name: 'Dr. Manuel García',
-      shortName: 'Dr. García',
-      clinic: 'Esencial Dental Cancún',
-      specialty: 'Specialist in oral rehabilitation and advanced dental aesthetics',
-      bio: [
-        'Expert in full-mouth rehabilitation and complex restorative cases.',
-        'Combines art and science to restore function and beauty to damaged smiles.'
-      ],
-      quote: 'The art of restoring form, function, and beauty to your smile',
-      expertise: [
-        'Full-mouth rehabilitation for patients with bruxism',
-        'Tooth reconstruction using direct and indirect resin techniques',
-        'Personalized smile designs'
-      ],
-      treatments: [],
-      color: 'sage'
-    },
-    {
       name: 'Dr. Francisco Xavier Primo Pavón',
       shortName: 'Dr. Xavier Pavón',
       clinic: 'Centro Dental Implantológico',
@@ -129,7 +93,43 @@ const SpecialistAccordion: React.FC = () => {
         }
       ],
       color: 'forest-light'
-    }
+    },
+    {
+      name: 'Dr. Ambar Vázquez',
+      shortName: 'Dr. Vázquez',
+      clinic: 'Ambar Vázquez Dental Studio',
+      specialty: 'Specialist in natural smile design and advanced aesthetics',
+      bio: [
+        'Expert in creating natural, harmonious smiles that enhance facial beauty.',
+        'Specializes in minimally invasive aesthetic dentistry with premium materials.'
+      ],
+      quote: 'Natural results, perfect proportions, and facial harmony',
+      expertise: [
+        'Smile design with injected composite veneers',
+        'Smile design with layered composite veneers',
+        'Smile design with layered Emax porcelain veneers'
+      ],
+      treatments: [],
+      color: 'forest'
+    },
+    {
+      name: 'Dr. Manuel García',
+      shortName: 'Dr. García',
+      clinic: 'Esencial Dental Cancún',
+      specialty: 'Specialist in oral rehabilitation and advanced dental aesthetics',
+      bio: [
+        'Expert in full-mouth rehabilitation and complex restorative cases.',
+        'Combines art and science to restore function and beauty to damaged smiles.'
+      ],
+      quote: 'The art of restoring form, function, and beauty to your smile',
+      expertise: [
+        'Full-mouth rehabilitation for patients with bruxism',
+        'Tooth reconstruction using direct and indirect resin techniques',
+        'Personalized smile designs'
+      ],
+      treatments: [],
+      color: 'sage'
+    },
   ];
 
   const toggleExpand = (id: string) => {
@@ -300,7 +300,7 @@ const SpecialistAccordion: React.FC = () => {
                 <div className={`bg-gradient-to-r ${colorGradient} rounded-2xl p-6 text-center`}>
                   <p className="text-white text-sm mb-4">Not sure which treatment is right for you?</p>
                   <a
-                    href="https://wa.me/5219983351933?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
+                    href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-white text-forest px-8 py-3 rounded-xl font-bold hover:bg-sand transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"

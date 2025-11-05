@@ -26,7 +26,7 @@ const CTA: React.FC = () => {
           {/* Mobile-Optimized CTA */}
           <div className="space-y-6 md:space-y-8">
             <a 
-              href="https://wa.me/5219983351933?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!" 
+              href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!" 
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-block bg-white text-forest px-10 md:px-12 py-5 md:py-6 rounded-2xl text-xl md:text-2xl font-bold hover:bg-sand transition-all duration-300 shadow-2xl hover:shadow-3xl text-center transform hover:scale-105"
