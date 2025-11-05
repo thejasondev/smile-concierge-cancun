@@ -2,7 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.tsx';
 import Footer from '../components/Footer.tsx';
-import SpecialistAccordion from '../components/SpecialistAccordion.tsx';
+import SpecialistCard from '../components/SpecialistCard.tsx';
+import { specialists } from '../data/specialists';
 ---
 
 <Layout title="Specialists - Smile Concierge Cancun">
@@ -36,15 +37,32 @@ import SpecialistAccordion from '../components/SpecialistAccordion.tsx';
       </div>
     </section>
 
-    <!-- Specialists Accordion - Modern Interactive -->
+    <!-- Specialists Grid - Modern Cards -->
     <section class="py-12 md:py-20 bg-white">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
-          <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-            Click on any specialist to learn more about their expertise, treatments, and approach
+          <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-4">
+            Our Specialists
+          </h2>
+          <p class="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
+            Click on any specialist card to view their complete profile, expertise, and available treatments
           </p>
         </div>
-        <SpecialistAccordion client:load />
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {specialists.map((specialist) => (
+            <SpecialistCard
+              client:load
+              name={specialist.name}
+              shortName={specialist.shortName}
+              clinic={specialist.clinic}
+              specialty={specialist.specialty}
+              expertise={specialist.expertise}
+              color={specialist.color}
+              slug={specialist.slug}
+            />
+          ))}
+        </div>
       </div>
     </section>
 

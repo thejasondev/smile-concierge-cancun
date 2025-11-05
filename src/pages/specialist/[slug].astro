@@ -1,0 +1,225 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.tsx';
+import Footer from '../../components/Footer.tsx';
+import { specialists, type SpecialistData } from '../../data/specialists';
+
+export async function getStaticPaths() {
+  return specialists.map((specialist) => ({
+    params: { slug: specialist.slug },
+    props: { specialist },
+  }));
+}
+
+interface Props {
+  specialist: SpecialistData;
+}
+
+const { specialist } = Astro.props;
+
+const getColorClasses = (color: string) => {
+  const colors = {
+    forest: {
+      bg: 'bg-forest/10',
+      text: 'text-forest',
+      border: 'border-forest/20',
+      gradient: 'from-forest to-sage',
+      bgSolid: 'bg-forest',
+      borderSolid: 'border-forest'
+    },
+    sage: {
+      bg: 'bg-sage/10',
+      text: 'text-sage',
+      border: 'border-sage/20',
+      gradient: 'from-sage to-forest',
+      bgSolid: 'bg-sage',
+      borderSolid: 'border-sage'
+    },
+    'forest-light': {
+      bg: 'bg-forest-light/10',
+      text: 'text-forest-light',
+      border: 'border-forest-light/20',
+      gradient: 'from-forest-light to-sage',
+      bgSolid: 'bg-forest-light',
+      borderSolid: 'border-forest-light'
+    }
+  };
+  return colors[color as keyof typeof colors];
+};
+
+const colorClasses = getColorClasses(specialist.color);
+---
+
+<Layout title={`${specialist.shortName} - Smile Concierge Cancun`}>
+  <Header client:load />
+  <main>
+    <!-- Hero Section - Specialist Profile -->
+    <section class="relative bg-gradient-to-br from-cream via-sand/30 to-white py-12 md:py-20 overflow-hidden">
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 opacity-30">
+        <div class="absolute top-10 left-10 w-32 h-32 bg-forest/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 right-10 w-40 h-40 bg-sage/20 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Back Button -->
+        <a 
+          href="/specialists" 
+          class="inline-flex items-center gap-2 text-slate-700 hover:text-forest font-medium mb-6 md:mb-8 transition-colors duration-200"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Back to Specialists
+        </a>
+
+        <div class="bg-white/70 backdrop-blur-xl rounded-3xl p-6 md:p-10 border border-white/40 shadow-2xl">
+          <div class="flex flex-col md:flex-row items-start gap-6 md:gap-8">
+            <!-- Icon -->
+            <div class={`flex-shrink-0 w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br ${colorClasses.gradient} rounded-3xl flex items-center justify-center shadow-xl`}>
+              <svg class="w-12 h-12 md:w-16 md:h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+            </div>
+
+            <!-- Info -->
+            <div class="flex-1">
+              <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-2">{specialist.shortName}</h1>
+              <p class={`text-lg md:text-xl font-semibold ${colorClasses.text} mb-3`}>{specialist.clinic}</p>
+              <p class="text-base md:text-lg text-slate-700 font-medium mb-4">{specialist.specialty}</p>
+              
+              <!-- Expertise Tags -->
+              <div class="flex flex-wrap gap-2">
+                {specialist.expertise.map((item) => (
+                  <span class={`text-xs md:text-sm px-3 py-1.5 ${colorClasses.bg} ${colorClasses.text} rounded-full font-medium border ${colorClasses.border}`}>
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bio Section -->
+    <section class="py-12 md:py-20 bg-white">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class={`${colorClasses.bg} rounded-3xl p-6 md:p-10 border ${colorClasses.border} shadow-xl`}>
+          <h2 class={`text-2xl md:text-3xl font-bold ${colorClasses.text} mb-6`}>About {specialist.shortName}</h2>
+          <div class="space-y-4">
+            {specialist.bio.map((paragraph) => (
+              <p class="text-slate-700 text-base md:text-lg leading-relaxed">{paragraph}</p>
+            ))}
+          </div>
+        </div>
+
+        <!-- Quote -->
+        <div class={`mt-8 bg-white rounded-3xl p-6 md:p-8 border-l-4 ${colorClasses.borderSolid} shadow-xl`}>
+          <p class="text-slate-800 italic text-lg md:text-xl font-medium leading-relaxed mb-3">
+            "{specialist.quote}"
+          </p>
+          <p class={`${colorClasses.text} font-bold text-base md:text-lg`}>— {specialist.shortName}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Treatments Section -->
+    {specialist.treatments.length > 0 && (
+      <section class="py-12 md:py-20 bg-gradient-to-br from-sand via-cream to-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-8 md:mb-12">
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
+              Treatments & Services
+            </h2>
+            <p class="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
+              Comprehensive dental solutions tailored to your needs
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {specialist.treatments.map((treatment) => (
+              <div class="bg-white/70 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+                <h3 class={`text-xl md:text-2xl font-bold ${colorClasses.text} mb-3`}>{treatment.title}</h3>
+                <p class="text-slate-700 text-sm md:text-base leading-relaxed mb-4">{treatment.description}</p>
+                {treatment.price && (
+                  <div class={`${colorClasses.bg} rounded-xl px-4 py-3 border ${colorClasses.border}`}>
+                    <p class="text-slate-800 text-sm md:text-base font-semibold">{treatment.price}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Advanced Techniques Section -->
+    {specialist.advancedTechniques && (
+      <section class="py-12 md:py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-8 md:mb-12">
+            <div class="inline-flex items-center gap-2 bg-forest-light/10 px-4 py-2 rounded-full border border-forest-light/20 shadow-lg mb-4">
+              <svg class="w-6 h-6 text-forest-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+              </svg>
+              <span class="text-sm font-semibold text-forest-light">Advanced Techniques</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
+              Advanced Implant Techniques
+            </h2>
+            <p class="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
+              For patients with severe bone loss or complex cases
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {specialist.advancedTechniques.map((technique) => (
+              <div class="bg-gradient-to-br from-forest-light/10 to-sage/10 rounded-2xl p-6 md:p-8 border border-forest-light/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+                <h3 class="text-xl md:text-2xl font-bold text-forest-light mb-3">{technique.title}</h3>
+                <p class="text-slate-700 text-sm md:text-base leading-relaxed">{technique.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- CTA Section -->
+    <section class={`relative py-12 md:py-20 bg-gradient-to-br ${colorClasses.gradient} overflow-hidden`}>
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-4 left-4 w-20 h-20 bg-white rounded-full blur-2xl"></div>
+        <div class="absolute top-20 right-8 w-16 h-16 bg-white rounded-full blur-2xl"></div>
+        <div class="absolute bottom-8 left-12 w-24 h-24 bg-white rounded-full blur-2xl"></div>
+        <div class="absolute bottom-16 right-4 w-12 h-12 bg-white rounded-full blur-2xl"></div>
+      </div>
+      
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 md:mb-6 leading-tight">
+          Ready to Transform Your Smile?
+        </h2>
+        <p class="text-base md:text-xl text-white/90 mb-6 md:mb-8 leading-relaxed">
+          Schedule a consultation with {specialist.shortName} and start your journey to a perfect smile.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
+          <a 
+            href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20scheduling%20a%20consultation%20with%20{specialist.shortName}.%20I%20would%20like%20to%20learn%20more%20about%20your%20services.%20Thank%20you!"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-white text-forest px-6 md:px-8 py-3 md:py-4 rounded-2xl text-base md:text-lg font-bold hover:bg-sand transition-all duration-300 shadow-lg hover:shadow-xl text-center transform hover:scale-105"
+          >
+            Contact {specialist.shortName}
+          </a>
+          <a 
+            href="/specialists" 
+            class="border-2 border-white text-white px-6 md:px-8 py-3 md:py-4 rounded-2xl text-base md:text-lg font-bold hover:bg-white hover:text-forest transition-all duration-300 text-center transform hover:scale-105"
+          >
+            View All Specialists
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
