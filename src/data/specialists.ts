@@ -16,7 +16,7 @@ export interface SpecialistData {
   treatments: Treatment[];
   advancedTechniques?: Treatment[];
   color: 'forest' | 'sage' | 'forest-light';
-  image?: string;
+  image?: string; // Path to profile image in /public folder
 }
 
 export const specialists: SpecialistData[] = [
@@ -90,7 +90,8 @@ export const specialists: SpecialistData[] = [
         description: 'Anchored in the cheekbone (zygoma) for full-arch restorations without complex grafting. Provides both functional strength and aesthetic excellence.'
       }
     ],
-    color: 'forest-light'
+    color: 'forest-light',
+    image: '/Dr.Pavon/profile-pic.jpg'
   },
   {
     name: 'Dr. Ambar Vázquez',
@@ -128,7 +129,8 @@ export const specialists: SpecialistData[] = [
         price: 'Complimentary with treatment'
       }
     ],
-    color: 'forest'
+    color: 'forest',
+    image: '/Dra.Ambar/profile-pic.jpeg'
   },
   {
     name: 'Dr. Manuel García',

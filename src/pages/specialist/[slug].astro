@@ -78,12 +78,22 @@ const whatsappUrl = `https://wa.me/529983889184?text=Hello!%20I'm%20interested%2
 
         <div class="bg-white/70 backdrop-blur-xl rounded-3xl p-6 md:p-10 border border-white/40 shadow-2xl">
           <div class="flex flex-col md:flex-row items-start gap-6 md:gap-8">
-            <!-- Icon -->
-            <div class={`flex-shrink-0 w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br ${colorClasses.gradient} rounded-3xl flex items-center justify-center shadow-xl`}>
-              <svg class="w-12 h-12 md:w-16 md:h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-              </svg>
-            </div>
+            <!-- Profile Image or Icon -->
+            {specialist.image ? (
+              <div class={`flex-shrink-0 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-${specialist.color} shadow-xl`}>
+                <img 
+                  src={specialist.image} 
+                  alt={specialist.shortName}
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            ) : (
+              <div class={`flex-shrink-0 w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br ${colorClasses.gradient} rounded-3xl flex items-center justify-center shadow-xl`}>
+                <svg class="w-12 h-12 md:w-16 md:h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+              </div>
+            )}
 
             <!-- Info -->
             <div class="flex-1">

@@ -8,6 +8,7 @@ interface SpecialistCardProps {
   expertise: string[];
   color: 'forest' | 'sage' | 'forest-light';
   slug: string;
+  image?: string;
 }
 
 const SpecialistCard: React.FC<SpecialistCardProps> = ({
@@ -17,7 +18,8 @@ const SpecialistCard: React.FC<SpecialistCardProps> = ({
   specialty,
   expertise,
   color,
-  slug
+  slug,
+  image
 }) => {
   const getColorClasses = (color: string) => {
     const colors = {
@@ -54,11 +56,19 @@ const SpecialistCard: React.FC<SpecialistCardProps> = ({
       <div className={`absolute inset-0 bg-gradient-to-br ${colorClasses.bg} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
       
       <div className="relative">
-        {/* Icon */}
-        <div className={`w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br ${colorClasses.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-          <svg className="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-          </svg>
+        {/* Profile Image or Icon */}
+        <div className={`w-24 h-24 md:w-28 md:h-28 mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300 ${image ? 'rounded-full overflow-hidden border-4' : 'bg-gradient-to-br rounded-2xl flex items-center justify-center'} ${image ? `border-${color}` : colorClasses.gradient}`}>
+          {image ? (
+            <img 
+              src={image} 
+              alt={shortName}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <svg className="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          )}
         </div>
 
         {/* Name & Clinic */}

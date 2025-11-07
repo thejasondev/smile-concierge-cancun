@@ -65,29 +65,47 @@ const Hero: React.FC = () => {
             </p>
           </div>
           
-          {/* Social Proof - Modern Pills */}
+          {/* Social Proof - Modern Pills with Real Patient Photos */}
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-            <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-xl px-4 py-2 rounded-full border border-white/40 shadow-md">
-              <div className="flex -space-x-1">
-                <div className="w-6 h-6 bg-gradient-to-br from-forest to-sage rounded-full border-2 border-white"></div>
-                <div className="w-6 h-6 bg-gradient-to-br from-sage to-forest-light rounded-full border-2 border-white"></div>
-                <div className="w-6 h-6 bg-gradient-to-br from-forest-light to-forest rounded-full border-2 border-white"></div>
+            <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-xl px-4 py-2 rounded-full border border-white/40 shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div className="flex -space-x-2">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white overflow-hidden shadow-md">
+                  <img 
+                    src="/Pacientes+500/paciente1.jpeg" 
+                    alt="Happy patient"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white overflow-hidden shadow-md">
+                  <img 
+                    src="/Pacientes+500/paciente2.jpeg" 
+                    alt="Happy patient"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white overflow-hidden shadow-md">
+                  <img 
+                    src="/Pacientes+500/paciente3.jpeg" 
+                    alt="Happy patient"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
-              <span className="text-sm font-semibold text-slate-700">500+ Patients</span>
+              <span className="text-sm sm:text-base font-semibold text-slate-700">500+ Patients</span>
             </div>
             
-            <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-xl px-4 py-2 rounded-full border border-white/40 shadow-md">
+            <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-xl px-4 py-2 rounded-full border border-white/40 shadow-md hover:shadow-lg transition-shadow duration-300">
               <svg className="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <span className="text-sm font-semibold text-slate-700">4.9 Rating</span>
+              <span className="text-sm sm:text-base font-semibold text-slate-700">4.9 Rating</span>
             </div>
             
-            <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-xl px-4 py-2 rounded-full border border-white/40 shadow-md">
+            <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-xl px-4 py-2 rounded-full border border-white/40 shadow-md hover:shadow-lg transition-shadow duration-300">
               <svg className="w-5 h-5 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
-              <span className="text-sm font-semibold text-slate-700">10+ Years</span>
+              <span className="text-sm sm:text-base font-semibold text-slate-700">10+ Years</span>
             </div>
           </div>
         </div>
