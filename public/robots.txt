@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://your-site.vercel.app/sitemap.xml
+Sitemap: https://smile-concierge-cancun.vercel.app/sitemap.xml
