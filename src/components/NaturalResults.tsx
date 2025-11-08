@@ -6,35 +6,35 @@ const NaturalResults: React.FC = () => {
       image: '/resultados/inyecdadas de resina .jpeg',
       title: 'Injected Composite Veneers',
       treatment: 'Smile Design',
-      specialist: 'Dr. Vázquez',
+      specialist: 'Dra. Vázquez',
       description: 'Natural color matching and translucency'
     },
     {
       image: '/resultados/inyectadas de resina.jpeg',
       title: 'Composite Restoration',
       treatment: 'Aesthetic Dentistry',
-      specialist: 'Dr. Vázquez',
+      specialist: 'Dra. Vázquez',
       description: 'Seamless integration with natural teeth'
     },
     {
       image: '/resultados/porcelana (1).jpeg',
       title: 'Emax Porcelain Veneers',
       treatment: 'Premium Smile Design',
-      specialist: 'Dr. Vázquez',
+      specialist: 'Dra. Vázquez',
       description: 'Perfect translucency and color gradients'
     },
     {
       image: '/resultados/porcelana (5).jpeg',
       title: 'Porcelain Crowns',
       treatment: 'Oral Rehabilitation',
-      specialist: 'Dr. García',
+      specialist: 'Dra. Vázquez',
       description: 'Authentic texture and natural appearance'
     },
     {
       image: '/resultados/porcelana (7).jpeg',
       title: 'Full Smile Makeover',
       treatment: 'Complete Transformation',
-      specialist: 'Dr. Vázquez',
+      specialist: 'Dra. Vázquez',
       description: 'Harmonious results with facial features'
     }
   ];
