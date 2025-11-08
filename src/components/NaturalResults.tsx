@@ -1,6 +1,44 @@
 import React from 'react';
 
 const NaturalResults: React.FC = () => {
+  const results = [
+    {
+      image: '/resultados/inyecdadas de resina .jpeg',
+      title: 'Injected Composite Veneers',
+      treatment: 'Smile Design',
+      specialist: 'Dr. Vázquez',
+      description: 'Natural color matching and translucency'
+    },
+    {
+      image: '/resultados/inyectadas de resina.jpeg',
+      title: 'Composite Restoration',
+      treatment: 'Aesthetic Dentistry',
+      specialist: 'Dr. Vázquez',
+      description: 'Seamless integration with natural teeth'
+    },
+    {
+      image: '/resultados/porcelana (1).jpeg',
+      title: 'Emax Porcelain Veneers',
+      treatment: 'Premium Smile Design',
+      specialist: 'Dr. Vázquez',
+      description: 'Perfect translucency and color gradients'
+    },
+    {
+      image: '/resultados/porcelana (5).jpeg',
+      title: 'Porcelain Crowns',
+      treatment: 'Oral Rehabilitation',
+      specialist: 'Dr. García',
+      description: 'Authentic texture and natural appearance'
+    },
+    {
+      image: '/resultados/porcelana (7).jpeg',
+      title: 'Full Smile Makeover',
+      treatment: 'Complete Transformation',
+      specialist: 'Dr. Vázquez',
+      description: 'Harmonious results with facial features'
+    }
+  ];
+
   return (
     <section id="results" className="py-12 md:py-20 bg-gradient-to-br from-slate-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,57 +64,46 @@ const NaturalResults: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile-Optimized Gallery - Glassmorphism */}
-        <div className="space-y-4 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 lg:gap-8 mb-8 md:mb-12">
-          {/* Mobile: Show only 2 cases, Desktop: Show 3 */}
-          {[1, 2].map((item) => (
+        {/* Real Results Gallery */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-8 md:mb-12">
+          {results.map((result, index) => (
             <div
-              key={item}
-              className="group relative bg-white/60 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              key={index}
+              className="group relative bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]"
             >
-              <div className="aspect-w-4 aspect-h-3 bg-gradient-to-br from-forest/10 to-sage/10 backdrop-blur-sm flex items-center justify-center h-48 md:h-56 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
-                <div className="relative text-center p-6 md:p-8">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <svg className="w-8 h-8 md:w-10 md:h-10 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <p className="text-forest font-bold text-sm md:text-base">Before & After</p>
-                  <p className="text-xs md:text-sm text-forest-light font-medium">Case #{item}</p>
+              {/* Before/After Image */}
+              <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                <img
+                  src={result.image}
+                  alt={`${result.title} - Before and After`}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                />
+                {/* Overlay Badge */}
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
+                  <p className="text-xs font-bold text-forest">Before & After</p>
+                </div>
+                {/* Specialist Tag */}
+                <div className="absolute top-4 right-4 bg-forest/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
+                  <p className="text-xs font-semibold text-white">{result.specialist}</p>
                 </div>
               </div>
-              <div className="p-4 md:p-6 bg-white/40 backdrop-blur-sm">
-                <h3 className="font-bold bg-gradient-to-r from-forest to-sage bg-clip-text text-transparent mb-2 text-sm md:text-base">Natural Smile Transformation</h3>
-                <p className="text-xs md:text-sm text-slate-700 leading-relaxed font-medium">
-                  Perfect color matching
-                  <span className="hidden md:inline"> and natural translucency</span>
+
+              {/* Content */}
+              <div className="p-5 md:p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className={`w-2 h-2 rounded-full ${index % 3 === 0 ? 'bg-forest' : index % 3 === 1 ? 'bg-sage' : 'bg-forest-light'}`}></div>
+                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{result.treatment}</span>
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-slate-800 mb-2">
+                  {result.title}
+                </h3>
+                <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+                  {result.description}
                 </p>
               </div>
             </div>
           ))}
-          
-          {/* Desktop: Show third case - Glassmorphism */}
-          <div className="hidden lg:block group relative bg-white/60 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-105">
-            <div className="aspect-w-4 aspect-h-3 bg-gradient-to-br from-forest-light/10 to-sage/10 backdrop-blur-sm flex items-center justify-center h-56 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
-              <div className="relative text-center p-8">
-                <div className="w-20 h-20 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-10 h-10 text-forest-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <p className="text-forest-light font-bold">Before & After</p>
-                <p className="text-sm text-sage font-medium">Case #3</p>
-              </div>
-            </div>
-            <div className="p-6 bg-white/40 backdrop-blur-sm">
-              <h3 className="font-bold bg-gradient-to-r from-forest-light to-sage bg-clip-text text-transparent mb-2">Natural Smile Transformation</h3>
-              <p className="text-sm text-slate-700 font-medium">
-                Authentic results with perfect color matching and natural translucency.
-              </p>
-            </div>
-          </div>
         </div>
 
         {/* Mobile-Optimized CTA */}
