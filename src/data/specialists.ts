@@ -173,6 +173,7 @@ export const specialists: SpecialistData[] = [
         price: 'Custom packages available'
       }
     ],
-    color: 'sage'
+    color: 'sage',
+    image: '/Dr.Garcia/profile-pic.jpeg'
   },
 ];

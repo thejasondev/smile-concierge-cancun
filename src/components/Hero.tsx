@@ -2,104 +2,121 @@ import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-[90vh] lg:min-h-screen overflow-hidden">
-      {/* Background Image with Overlay - Full Screen */}
+    <section className="relative min-h-screen overflow-hidden bg-slate-950 text-white">
+      {/* Background Image and Overlays */}
       <div className="absolute inset-0">
-        <img 
-          src="/hero/paciente-hero.jpeg" 
+        <img
+          src="/hero/hero.jpeg"
           alt="Happy patient with beautiful smile"
-          className="w-full h-full object-cover object-center"
+          className="h-full w-full object-cover object-center lg:object-right"
         />
-        {/* Gradient Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 via-forest/60 to-sage/50 lg:bg-gradient-to-r lg:from-slate-900/80 lg:via-forest/70 lg:to-transparent"></div>
+        <div className="absolute inset-0 bg-forest/75" />
+        <div className="absolute inset-0 bg-linear-to-r from-forest/85 via-slate-950/55 to-transparent" />
+        <div className="pointer-events-none absolute left-1/2 top-12 h-96 w-96 -translate-x-1/2 rounded-full bg-sand/25 blur-3xl sm:h-112 sm:w-md" />
+        <div className="pointer-events-none absolute -bottom-20 -right-12 h-88 w-88 rounded-full bg-sage/25 blur-3xl sm:h-104 sm:w-104" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full min-h-[90vh] lg:min-h-screen flex items-center">
-        <div className="w-full lg:max-w-2xl text-center lg:text-left">
-          {/* Glassmorphism Card on Desktop */}
-          <div className="lg:bg-white/10 lg:backdrop-blur-2xl lg:rounded-3xl lg:p-10 lg:border lg:border-white/20 lg:shadow-2xl">
-            {/* Heading */}
-            <div className="mb-6 lg:mb-8">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight drop-shadow-2xl">
-                <span className="block">Smile Concierge</span>
-                <span className="block text-sand"> Cancun</span>
-              </h1>
-              <div className="mt-4 sm:mt-6">
-                <span className="inline-block text-white text-xl sm:text-2xl md:text-3xl font-extralight drop-shadow-lg">
-                 Luxury. Expertise. Confidence.
+      <div className="relative z-10">
+        <div className="mx-auto flex min-h-screen max-w-7xl flex-col gap-16 px-6 py-20 sm:px-10 lg:flex-row lg:items-center lg:justify-between lg:py-28 xl:py-32">
+          {/* Primary copy */}
+          <div className="w-full max-w-2xl space-y-10">
+            <div className="flex flex-wrap items-center justify-center gap-3 text-sm font-medium text-white/80 lg:justify-start">
+              <span className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-xl">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
+                Now accepting new patients
+              </span>
+              <span className="hidden text-white/65 lg:inline-block">Concierge dentistry inspired by Mexico's Caribbean coast</span>
+            </div>
+
+            <div className="space-y-6 text-center lg:text-left">
+              <p className="text-xs uppercase tracking-[0.45em] text-sand/70 sm:text-sm">Smile Concierge Cancun</p>
+              <h1 className="text-4xl font-semibold leading-tight sm:text-4xl lg:text-5xl xl:text-6xl">
+                <span className="block bg-linear-to-r from-white via-sand to-cream bg-clip-text text-transparent">
+                  Guided smile transformations,
                 </span>
-              </div>
-            </div>
-            
-            {/* Description */}
-            <div className="mb-8 lg:mb-10 space-y-4">
-              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white font-normal leading-relaxed drop-shadow-lg">
-                Guided by Cancun's most experienced specialists
+                <span className="block text-white/90">crafted in Cancun.</span>
+              </h1>
+              <p className="text-lg text-white/70 sm:text-xl lg:text-2xl">
+                Experience concierge-level dentistry that blends world-class specialists, bespoke treatment plans, and serene recovery moments overlooking the Caribbean skyline.
               </p>
-
             </div>
 
-            {/* CTA Button */}
-            <div className="mb-8 lg:mb-10">
-              <a 
-                href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!" 
+            <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
+              <a
+                href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-block bg-white text-forest px-8 sm:px-12 py-4 sm:py-6 rounded-2xl text-lg sm:text-xl lg:text-2xl font-bold hover:bg-sand transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:scale-105"
+                className="group inline-flex items-center gap-3 rounded-2xl bg-linear-to-r from-white via-sand to-cream px-9 py-4 text-lg font-semibold text-forest shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-3xl"
               >
-                Start Your Free Assessment
+                Start your free assessment
+                <svg className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </a>
-              
-              {/* Trust Message */}
-              <p className="text-sm sm:text-base text-white/90 font-light mt-4 drop-shadow-lg">
-                Trusted by 500+ patients • 4.9★ rated
-              </p>
+              <a
+                href="/specialists"
+                className="inline-flex items-center gap-2 rounded-2xl border border-white/30 px-9 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-white/10"
+              >
+                Explore specialists
+              </a>
             </div>
-            
-            {/* Social Proof - Modern Pills with Real Patient Photos */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4">
-              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-xl px-4 py-2 rounded-full border border-white/30 shadow-lg hover:bg-white/30 transition-all duration-300">
-              <div className="flex -space-x-2">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white overflow-hidden shadow-md">
-                  <img 
-                    src="/Pacientes+500/paciente1.jpeg" 
+
+            <div className="flex flex-col gap-6 text-center text-white/75 sm:flex-row sm:items-center sm:justify-center lg:justify-start">
+              <div className="flex items-center justify-center gap-3">
+                <div className="flex -space-x-3">
+                  <img
+                    src="/Pacientes+500/paciente1.jpeg"
                     alt="Happy patient"
-                    className="w-full h-full object-cover"
+                    className="h-12 w-12 rounded-full border-2 border-white object-cover shadow-lg"
+                  />
+                  <img
+                    src="/Pacientes+500/paciente2.jpeg"
+                    alt="Happy patient"
+                    className="h-12 w-12 rounded-full border-2 border-white object-cover shadow-lg"
+                  />
+                  <img
+                    src="/Pacientes+500/paciente3.jpeg"
+                    alt="Happy patient"
+                    className="h-12 w-12 rounded-full border-2 border-white object-cover shadow-lg"
                   />
                 </div>
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white overflow-hidden shadow-md">
-                  <img 
-                    src="/Pacientes+500/paciente2.jpeg" 
-                    alt="Happy patient"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white overflow-hidden shadow-md">
-                  <img 
-                    src="/Pacientes+500/paciente3.jpeg" 
-                    alt="Happy patient"
-                    className="w-full h-full object-cover"
-                  />
+                <div className="text-left">
+                  <p className="text-lg font-semibold text-white">500+ smiles elevated</p>
+                  <p className="text-sm text-white/60">4.9★ average patient satisfaction</p>
                 </div>
               </div>
-              <span className="text-sm sm:text-base font-semibold text-white">500+ Patients</span>
-            </div>
-            
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-xl px-4 py-2 rounded-full border border-white/30 shadow-lg hover:bg-white/30 transition-all duration-300">
-              <svg className="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <span className="text-sm sm:text-base font-semibold text-white">4.9 Rating</span>
-            </div>
-            
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-xl px-4 py-2 rounded-full border border-white/30 shadow-lg hover:bg-white/30 transition-all duration-300">
-              <svg className="w-5 h-5 text-sand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-              <span className="text-sm sm:text-base font-semibold text-white">10+ Years</span>
-            </div>
+              <div className="hidden h-12 w-px bg-white/20 sm:block" />
+              <div className="space-y-1 text-sm text-white/60 sm:text-left">
+                <p>Door-to-door concierge planning</p>
+                <p>10+ years blending aesthetics and wellness</p>
+              </div>
             </div>
           </div>
+
+          {/* Metrics card */}
+          <aside className="hidden md:block w-full max-w-md self-center rounded-3xl border border-white/10 bg-white/10 p-8 shadow-2xl backdrop-blur-2xl sm:p-10 lg:max-w-lg">
+            <div className="mb-8 flex items-center justify-between">
+              <span className="text-xs uppercase tracking-[0.35em] text-white/60 sm:text-sm">Field data</span>
+              <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/70">Concierge metrics</span>
+            </div>
+            <div className="space-y-6">
+              <div>
+                <p className="text-4xl font-semibold text-sand">47%</p>
+                <p className="mt-1 text-sm text-white/65">Faster treatment clarity through curated assessments.</p>
+              </div>
+              <div className="border-t border-white/10 pt-6">
+                <p className="text-4xl font-semibold text-sand">5k+</p>
+                <p className="mt-1 text-sm text-white/65">Digital smile plans delivered to discerning travelers.</p>
+              </div>
+              <div className="border-t border-white/10 pt-6">
+                <p className="text-4xl font-semibold text-sand">100k+</p>
+                <p className="mt-1 text-sm text-white/65">Data points analyzed to craft lasting restorations.</p>
+              </div>
+            </div>
+            <div className="mt-8 rounded-2xl bg-white/10 p-4 text-xs text-white/60 sm:text-sm">
+              Benchmarked across 1,200+ concierge experiences with Smile Concierge Cancun and accredited partners.
+            </div>
+          </aside>
         </div>
       </div>
     </section>

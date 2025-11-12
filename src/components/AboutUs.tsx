@@ -2,27 +2,42 @@ import React from 'react';
 
 const AboutUs: React.FC = () => {
   return (
-    <section className="py-12 md:py-20 bg-gradient-to-br from-sand via-cream to-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden py-16 md:py-24 text-white">
+      <div className="absolute inset-0">
+        <img
+          src="/Dr.Pavon/bg-about.jpg"
+          alt="Smile Concierge specialist providing premium dental care"
+          className="h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-forest/80 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-linear-to-r from-slate-950/90 via-slate-950/65 to-slate-900/35" />
+        <div className="absolute inset-y-0 left-0 hidden w-1/3 bg-linear-to-r from-slate-950/80 via-transparent to-transparent md:block" />
+      </div>
+
+      <div className="relative z-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-8 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4 md:mb-6">
+        <div className="mb-10 text-center md:mb-16">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-sand/80">
+            Our Story
+          </span>
+          <h2 className="mt-6 text-3xl font-bold text-white md:text-4xl lg:text-5xl">
             About Us
           </h2>
-          <p className="text-xl md:text-2xl text-slate-700 font-light max-w-3xl mx-auto">
+          <p className="mx-auto mt-4 max-w-3xl text-lg font-light text-white/80 md:text-2xl">
             A luxury dental experience, guided by experts.
           </p>
         </div>
 
         {/* Experience Badge */}
-        <div className="flex justify-center mb-8 md:mb-12">
-          <div className="inline-flex items-center gap-4 bg-white/80 backdrop-blur-xl px-8 py-4 rounded-2xl border border-slate-200 shadow-xl">
+        <div className="mb-8 flex justify-center md:mb-12">
+          <div className="inline-flex items-center gap-4 rounded-2xl border border-white/30 bg-white/80 px-8 py-4 shadow-xl backdrop-blur-xl">
             <div className="w-16 h-16 bg-gradient-to-br from-forest to-sage rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg">
               10+
             </div>
-            <div className="text-left">
-              <p className="text-sm text-slate-600 font-medium">Years of</p>
-              <p className="text-lg font-bold text-slate-800">Excellence</p>
+            <div className="text-left text-slate-800">
+              <p className="text-sm font-medium text-slate-600">Years of</p>
+              <p className="text-lg font-bold">Excellence</p>
             </div>
           </div>
         </div>
@@ -30,8 +45,8 @@ const AboutUs: React.FC = () => {
         {/* Main Value Props - Visual Cards */}
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12 max-w-5xl mx-auto">
           {/* Card 1: What We Do */}
-          <div className="group bg-white rounded-2xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100">
-            <div className="w-14 h-14 bg-gradient-to-br from-forest/10 to-forest/5 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+          <div className="group rounded-2xl border border-white/25 bg-white/90 p-6 shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl md:p-8">
+            <div className="w-14 h-14 bg-linear-to-br from-forest/10 to-forest/5 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
               <svg className="w-7 h-7 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -45,8 +60,8 @@ const AboutUs: React.FC = () => {
           </div>
 
           {/* Card 2: Not Express */}
-          <div className="group bg-white rounded-2xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100">
-            <div className="w-14 h-14 bg-gradient-to-br from-red-100 to-red-50 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+          <div className="group rounded-2xl border border-white/25 bg-white/90 p-6 shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl md:p-8">
+            <div className="w-14 h-14 bg-linear-to-br from-red-100 to-red-50 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
               <svg className="w-7 h-7 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -61,8 +76,8 @@ const AboutUs: React.FC = () => {
         </div>
 
         {/* Our Approach - Feature List */}
-        <div className="max-w-4xl mx-auto mb-8 md:mb-12">
-          <h3 className="text-2xl md:text-3xl font-bold text-slate-800 mb-6 md:mb-8 text-center">
+        <div className="mx-auto mb-8 max-w-4xl md:mb-12">
+          <h3 className="mb-6 text-center text-2xl font-bold text-white md:mb-8 md:text-3xl">
             Our Approach
           </h3>
           <div className="grid md:grid-cols-3 gap-4 md:gap-6">
@@ -105,8 +120,8 @@ const AboutUs: React.FC = () => {
         </div>
 
         {/* Guarantee Statement - Prominent */}
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-gradient-to-r from-forest to-sage rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
+        <div className="mx-auto max-w-3xl">
+          <div className="bg-linear-to-r from-forest to-sage rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
             <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
             <div className="relative">
               <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
@@ -130,6 +145,7 @@ const AboutUs: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>

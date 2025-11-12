@@ -5,8 +5,8 @@ const CancunExperience: React.FC = () => {
     {
       src: '/cancun/cancun1.jpg',
       alt: 'Modern Cancun hotel zone',
-      title: 'Luxury Accommodations',
-      description: 'Stay in world-class hotels in Cancun\'s hotel zone'
+      title: 'Comfort and Safety',
+      description: 'We offer recovery homes and special Cancun hotel rates.'
     },
     {
       src: '/cancun/cancun2.jpg',
@@ -90,9 +90,9 @@ const CancunExperience: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
             </div>
-            <h4 className="text-lg font-bold text-slate-800 mb-2">Luxury Hotels</h4>
+            <h4 className="text-lg font-bold text-slate-800 mb-2">Comfort and Safety</h4>
             <p className="text-sm text-slate-600">
-              Premium accommodations in Cancun's safest areas
+              We offer recovery homes and preferred rates at select Cancun hotels for your convenience
             </p>
           </div>
 

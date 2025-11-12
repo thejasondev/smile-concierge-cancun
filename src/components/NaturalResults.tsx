@@ -36,11 +36,18 @@ const NaturalResults: React.FC = () => {
       treatment: 'Complete Transformation',
       specialist: 'Dra. Vázquez',
       description: 'Harmonious results with facial features'
+    },
+    {
+      image: '/resultados/porcelana .jpeg',
+      title: 'Another Treatment',
+      treatment: 'Another Transformation',
+      specialist: 'Dra. Vázquez',
+      description: 'Additional natural result'
     }
   ];
 
   return (
-    <section id="results" className="py-12 md:py-20 bg-gradient-to-br from-slate-50 to-white">
+    <section id="results" className="py-12 md:py-20 bg-gradient-to-br from-cream via-sand/30 to-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Mobile-First Header */}
         <div className="text-center mb-8 md:mb-16">
