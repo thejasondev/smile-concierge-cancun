@@ -219,7 +219,7 @@ const Hero: React.FC = () => {
         {/* Right Side - Image (fully visible, no overlay) */}
         <div className="relative w-full overflow-hidden lg:w-1/2">
           <img
-            src="/hero/hero.jpeg"
+            src="/hero/hero3.jpeg"
             alt="Happy patient with beautiful smile"
             className="h-full w-full object-cover object-center lg:object-right"
           />
