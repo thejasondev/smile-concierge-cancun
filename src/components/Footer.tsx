@@ -19,8 +19,13 @@ const Footer: React.FC = () => {
                     className="h-full w-full scale-[1.15] object-cover"
                   />
                 </div>
-                <h3 className="text-cream group-hover:text-sand text-2xl font-bold transition-colors duration-200 md:text-3xl">
-                  Smile Concierge Cancun
+                <h3 className="text-2xl font-bold transition-colors duration-200 md:text-3xl">
+                  <span className="text-cream group-hover:text-sand">
+                    Smile Concierge{' '}
+                  </span>
+                  <span className="text-sand group-hover:text-cream">
+                    Cancun
+                  </span>
                 </h3>
               </a>
               <p className="text-cream/80 mb-6 hidden max-w-md leading-relaxed md:block">

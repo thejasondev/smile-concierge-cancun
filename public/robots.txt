@@ -2,5 +2,12 @@
 User-agent: *
 Allow: /
 
+# Disallow admin or private paths (if any)
+Disallow: /api/
+Disallow: /_astro/
+
 # Sitemap location
 Sitemap: https://smile-concierge-cancun.vercel.app/sitemap.xml
+
+# Crawl delay (optional, helps with server load)
+Crawl-delay: 1

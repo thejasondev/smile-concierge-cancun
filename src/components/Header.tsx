@@ -121,8 +121,13 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
               </div>
 
               {/* Brand Name - Hidden on mobile, visible on md+ */}
-              <span className="text-forest group-hover:text-sage hidden text-lg font-bold transition-colors duration-200 md:block lg:text-xl">
-                Smile Concierge Cancun
+              <span className="hidden text-lg font-bold transition-colors duration-200 md:block lg:text-xl">
+                <span className="text-forest group-hover:text-sage-dark">
+                  Smile Concierge{' '}
+                </span>
+                <span className="text-sage group-hover:text-forest">
+                  Cancun
+                </span>
               </span>
             </a>
 

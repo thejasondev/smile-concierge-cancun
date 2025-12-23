@@ -11,9 +11,22 @@ import Testimonials from '../components/Testimonials.tsx';
 import AboutUs from '../components/AboutUs.tsx';
 import CTA from '../components/CTA.tsx';
 import Footer from '../components/Footer.tsx';
+import {
+  generateLocalBusinessSchema,
+  generateOrganizationSchema,
+} from '../seo/schemas';
 ---
 
-<Layout title="Smile Concierge Cancun - Luxury Dental Experience with Finest Specialists">
+<Layout
+  title="Dental Tourism Cancun | Veneers, Implants & Smile Design | Smile Concierge"
+  description="Transform your smile in Cancun with top dental specialists. Premium veneers, implants & smile design at 50-70% savings. Free assessment + luxury experience."
+  keywords="dental tourism cancun, veneers mexico, dental implants cancun, smile design cancun, dentist cancun, dental vacation, porcelain veneers mexico, all on 4 cancun"
+  ogType="website"
+>
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={generateLocalBusinessSchema()} />
+  <script type="application/ld+json" set:html={generateOrganizationSchema()} />
+
   <Header client:load />
   <main>
     <Hero />
