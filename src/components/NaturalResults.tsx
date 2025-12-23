@@ -7,105 +7,188 @@ const NaturalResults: React.FC = () => {
       title: 'Injected Composite Veneers',
       treatment: 'Smile Design',
       specialist: 'Dra. Vázquez',
-      description: 'Natural color matching and translucency'
+      description: 'Natural color matching and translucency',
     },
     {
       image: '/resultados/inyectadas de resina.jpeg',
       title: 'Composite Restoration',
       treatment: 'Aesthetic Dentistry',
       specialist: 'Dra. Vázquez',
-      description: 'Seamless integration with natural teeth'
+      description: 'Seamless integration with natural teeth',
     },
     {
       image: '/resultados/porcelana (1).jpeg',
       title: 'Emax Porcelain Veneers',
       treatment: 'Premium Smile Design',
       specialist: 'Dra. Vázquez',
-      description: 'Perfect translucency and color gradients'
+      description: 'Perfect translucency and color gradients',
     },
-    {
-      image: '/resultados/porcelana (5).jpeg',
-      title: 'Porcelain Crowns',
-      treatment: 'Oral Rehabilitation',
-      specialist: 'Dra. Vázquez',
-      description: 'Authentic texture and natural appearance'
-    },
-    {
-      image: '/resultados/porcelana (7).jpeg',
-      title: 'Full Smile Makeover',
-      treatment: 'Complete Transformation',
-      specialist: 'Dra. Vázquez',
-      description: 'Harmonious results with facial features'
-    },
-    {
-      image: '/resultados/porcelana .jpeg',
-      title: 'Another Treatment',
-      treatment: 'Another Transformation',
-      specialist: 'Dra. Vázquez',
-      description: 'Additional natural result'
-    }
   ];
 
   return (
-    <section id="results" className="py-12 md:py-20 bg-gradient-to-br from-cream via-sand/30 to-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="results"
+      className="from-cream via-sand/30 relative bg-gradient-to-br to-white py-12 md:py-20"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Mobile-First Header */}
-        <div className="text-center mb-8 md:mb-16">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4 md:mb-6">
+        <div className="mb-8 text-center md:mb-16">
+          <h2 className="mb-4 text-2xl font-bold text-slate-800 md:mb-6 md:text-3xl lg:text-4xl">
             Natural is in.
           </h2>
-          <p className="text-base md:text-xl text-slate-600 mb-4 md:mb-6 max-w-2xl md:max-w-3xl mx-auto leading-relaxed line-through decoration-red-500">
+          <p className="mx-auto mb-4 max-w-2xl text-base leading-relaxed text-slate-600 line-through decoration-red-500 md:mb-6 md:max-w-3xl md:text-xl">
             Gum-colored, fake-looking teeth are out.
           </p>
-          <p className="text-base md:text-xl text-slate-700 mb-4 md:mb-8 max-w-3xl mx-auto leading-relaxed">
-            Our restorations combine the perfect white with natural beauty: subtle translucency, color nuances, and fine details that reflect real-life teeth.
+          <p className="mx-auto mb-4 max-w-3xl text-base leading-relaxed text-slate-700 md:mb-8 md:text-xl">
+            Our restorations combine the perfect white with natural beauty:
+            subtle translucency, color nuances, and fine details that reflect
+            real-life teeth.
           </p>
-          <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Results that look authentic, elegant… just like the smiles of artists.
+          <p className="mx-auto max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg">
+            Results that look authentic, elegant… just like the smiles of
+            artists.
           </p>
-          {/* Mobile: Hide badge, Desktop: Show */}
-          <div className="mt-6 inline-flex items-center bg-sand/30 px-6 py-3 rounded-full border border-sand">
-            <p className="text-base md:text-lg text-forest font-semibold">
-               Your smile, natural and one-of-a-kind.
+          <div className="bg-sand/30 border-sand mt-6 inline-flex items-center rounded-full border px-6 py-3">
+            <p className="text-forest text-base font-semibold md:text-lg">
+              Your smile, natural and one-of-a-kind.
             </p>
           </div>
         </div>
 
-        {/* Real Results Gallery */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-8 md:mb-12">
+        {/* Mobile: Horizontal Scroll Carousel | Desktop: Grid */}
+        {/* Mobile Carousel Container */}
+        <div className="-mx-4 mb-8 px-4 md:hidden">
+          <div
+            className="scrollbar-hide flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4"
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              WebkitOverflowScrolling: 'touch',
+            }}
+          >
+            {results.map((result, index) => (
+              <div key={index} className="w-[85vw] flex-shrink-0 snap-start">
+                <div className="h-full overflow-hidden rounded-2xl bg-white shadow-xl">
+                  {/* Before/After Image */}
+                  <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                    <img
+                      src={result.image}
+                      alt={`${result.title} - Before and After`}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                    {/* Overlay Badge */}
+                    <div className="absolute top-3 left-3 rounded-full bg-white/95 px-2.5 py-1 shadow-lg backdrop-blur-sm">
+                      <p className="text-forest text-xs font-bold">
+                        Before & After
+                      </p>
+                    </div>
+                    {/* Specialist Tag */}
+                    <div className="bg-forest/90 absolute top-3 right-3 rounded-full px-2.5 py-1 shadow-lg backdrop-blur-sm">
+                      <p className="text-xs font-semibold text-white">
+                        {result.specialist}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-4">
+                    <div className="mb-2 flex items-center gap-2">
+                      <div
+                        className={`h-2 w-2 rounded-full ${index % 3 === 0 ? 'bg-forest' : index % 3 === 1 ? 'bg-sage' : 'bg-forest-light'}`}
+                      ></div>
+                      <span className="text-xs font-semibold tracking-wide text-slate-500 uppercase">
+                        {result.treatment}
+                      </span>
+                    </div>
+                    <h3 className="mb-1 text-lg font-bold text-slate-800">
+                      {result.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-slate-600">
+                      {result.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Scroll Indicator */}
+          <div className="mt-2 flex justify-center gap-2">
+            <span className="flex items-center gap-1 text-xs text-slate-400">
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M7 16l-4-4m0 0l4-4m-4 4h18"
+                />
+              </svg>
+              Swipe to see more
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="mb-8 hidden gap-6 md:mb-12 md:grid md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {results.map((result, index) => (
             <div
               key={index}
-              className="group relative bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]"
+              className="group relative overflow-hidden rounded-2xl bg-white shadow-xl transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
             >
               {/* Before/After Image */}
               <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
                 <img
                   src={result.image}
                   alt={`${result.title} - Before and After`}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
                 />
                 {/* Overlay Badge */}
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-                  <p className="text-xs font-bold text-forest">Before & After</p>
+                <div className="absolute top-4 left-4 rounded-full bg-white/95 px-3 py-1.5 shadow-lg backdrop-blur-sm">
+                  <p className="text-forest text-xs font-bold">
+                    Before & After
+                  </p>
                 </div>
                 {/* Specialist Tag */}
-                <div className="absolute top-4 right-4 bg-forest/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
-                  <p className="text-xs font-semibold text-white">{result.specialist}</p>
+                <div className="bg-forest/90 absolute top-4 right-4 rounded-full px-3 py-1.5 shadow-lg backdrop-blur-sm">
+                  <p className="text-xs font-semibold text-white">
+                    {result.specialist}
+                  </p>
                 </div>
               </div>
 
               {/* Content */}
               <div className="p-5 md:p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className={`w-2 h-2 rounded-full ${index % 3 === 0 ? 'bg-forest' : index % 3 === 1 ? 'bg-sage' : 'bg-forest-light'}`}></div>
-                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{result.treatment}</span>
+                <div className="mb-3 flex items-center gap-2">
+                  <div
+                    className={`h-2 w-2 rounded-full ${index % 3 === 0 ? 'bg-forest' : index % 3 === 1 ? 'bg-sage' : 'bg-forest-light'}`}
+                  ></div>
+                  <span className="text-xs font-semibold tracking-wide text-slate-500 uppercase">
+                    {result.treatment}
+                  </span>
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-slate-800 mb-2">
+                <h3 className="mb-2 text-lg font-bold text-slate-800 md:text-xl">
                   {result.title}
                 </h3>
-                <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+                <p className="text-sm leading-relaxed text-slate-600 md:text-base">
                   {result.description}
                 </p>
               </div>
@@ -114,57 +197,13 @@ const NaturalResults: React.FC = () => {
         </div>
 
         {/* Mobile-Optimized CTA */}
-        <div className="text-center mb-8 md:mb-16">
-          <a 
-            href="/results" 
-            className="bg-gradient-to-r from-forest to-sage text-white px-6 md:px-8 py-3 rounded-xl text-sm md:text-base font-semibold hover:from-forest-dark hover:to-sage-dark transition-all duration-300 shadow-lg hover:shadow-xl inline-block"
+        <div className="mb-8 text-center md:mb-16">
+          <a
+            href="/results"
+            className="from-forest to-sage hover:from-forest-dark hover:to-sage-dark inline-block rounded-xl bg-gradient-to-r px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl md:px-8 md:text-base"
           >
             View All Cases
           </a>
-        </div>
-
-        {/* Mobile-Optimized Features */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-          <div className="text-center p-4 md:p-6 bg-white rounded-xl shadow-md border border-slate-100">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-forest/10 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-              <svg className="w-5 h-5 md:w-6 md:h-6 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-              </svg>
-            </div>
-            <h4 className="font-semibold text-slate-800 mb-2 text-xs md:text-sm">Real Textures</h4>
-            <p className="text-xs text-slate-600 leading-relaxed hidden md:block">Authentic surface details</p>
-          </div>
-
-          <div className="text-center p-4 md:p-6 bg-white rounded-xl shadow-md border border-slate-100">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-sage/10 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-              <svg className="w-5 h-5 md:w-6 md:h-6 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
-              </svg>
-            </div>
-            <h4 className="font-semibold text-slate-800 mb-2 text-xs md:text-sm">Translucency</h4>
-            <p className="text-xs text-slate-600 leading-relaxed hidden md:block">Perfect light transmission</p>
-          </div>
-
-          <div className="text-center p-4 md:p-6 bg-white rounded-xl shadow-md border border-slate-100">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-forest-light/10 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-              <svg className="w-5 h-5 md:w-6 md:h-6 text-forest-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h4 className="font-semibold text-slate-800 mb-2 text-xs md:text-sm">Color Match</h4>
-            <p className="text-xs text-slate-600 leading-relaxed hidden md:block">Subtle color variations</p>
-          </div>
-
-          <div className="text-center p-4 md:p-6 bg-white rounded-xl shadow-md border border-slate-100">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-forest/10 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-              <svg className="w-5 h-5 md:w-6 md:h-6 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h4 className="font-semibold text-slate-800 mb-2 text-xs md:text-sm">Fine Details</h4>
-            <p className="text-xs text-slate-600 leading-relaxed hidden md:block">Precise craftsmanship</p>
-          </div>
         </div>
       </div>
     </section>
