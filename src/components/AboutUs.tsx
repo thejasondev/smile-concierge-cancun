@@ -52,7 +52,7 @@ const AboutUs: React.FC = () => {
     <section className="relative overflow-hidden py-12 text-white md:py-24">
       <div className="absolute inset-0">
         <img
-          src="/Dr.Pavon/bg-about.jpg"
+          src="/Dr.Pavon/bg-about.webp"
           alt="Smile Concierge specialist providing premium dental care"
           className="h-full w-full object-cover object-center"
         />

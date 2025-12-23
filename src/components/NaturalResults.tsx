@@ -3,21 +3,21 @@ import React from 'react';
 const NaturalResults: React.FC = () => {
   const results = [
     {
-      image: '/resultados/inyecdadas de resina .jpeg',
+      image: '/resultados/inyecdadas de resina .webp',
       title: 'Injected Composite Veneers',
       treatment: 'Smile Design',
       specialist: 'Dra. Vázquez',
       description: 'Natural color matching and translucency',
     },
     {
-      image: '/resultados/inyectadas de resina.jpeg',
+      image: '/resultados/inyectadas de resina.webp',
       title: 'Composite Restoration',
       treatment: 'Aesthetic Dentistry',
       specialist: 'Dra. Vázquez',
       description: 'Seamless integration with natural teeth',
     },
     {
-      image: '/resultados/porcelana (1).jpeg',
+      image: '/resultados/porcelana (1).webp',
       title: 'Emax Porcelain Veneers',
       treatment: 'Premium Smile Design',
       specialist: 'Dra. Vázquez',

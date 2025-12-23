@@ -3,19 +3,19 @@ import React from 'react';
 const CancunExperience: React.FC = () => {
   const experienceImages = [
     {
-      src: '/cancun/cancun1.jpg',
+      src: '/cancun/cancun1.webp',
       alt: 'Modern Cancun hotel zone',
       title: 'Comfort and Safety',
       description: 'We offer recovery homes and special Cancun hotel rates.',
     },
     {
-      src: '/cancun/cancun2.jpg',
+      src: '/cancun/cancun2.webp',
       alt: 'Beautiful Cancun beach',
       title: 'Paradise Recovery',
       description: 'Heal while enjoying Caribbean beaches',
     },
     {
-      src: '/cancun/cancun3.jpg',
+      src: '/cancun/cancun3.webp',
       alt: 'Cancun attractions and dining',
       title: 'World-Class Experience',
       description: "Explore Cancun's restaurants and attractions",
@@ -23,7 +23,7 @@ const CancunExperience: React.FC = () => {
   ];
 
   return (
-    <section className="to-cream relative overflow-hidden bg-gradient-to-br from-slate-50 via-white py-12 md:py-20">
+    <section className="to-cream relative overflow-hidden bg-linear-to-br from-slate-50 via-white py-12 md:py-20">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="bg-forest absolute top-20 right-10 h-32 w-32 rounded-full blur-3xl"></div>
@@ -61,29 +61,23 @@ const CancunExperience: React.FC = () => {
           </p>
         </div>
 
-        {/* Mobile: Horizontal Scroll Gallery | Desktop: Grid */}
-        {/* Mobile Gallery */}
+        {/* Mobile: Horizontal Scroll Gallery */}
         <div className="-mx-4 mb-8 px-4 md:hidden">
-          <div
-            className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4"
-            style={{
-              scrollbarWidth: 'none',
-              msOverflowStyle: 'none',
-              WebkitOverflowScrolling: 'touch',
-            }}
-          >
+          <div className="scrollbar-hide flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4">
             {experienceImages.map((image, index) => (
               <div key={index} className="w-[80vw] shrink-0 snap-start">
-                <div className="relative h-full overflow-hidden rounded-2xl shadow-xl">
-                  {/* Image */}
-                  <div className="relative aspect-[3/4] overflow-hidden">
+                <div className="relative overflow-hidden rounded-2xl shadow-xl">
+                  {/* Image Container with aspect ratio */}
+                  <div className="relative aspect-3/4">
                     <img
                       src={image.src}
                       alt={image.alt}
-                      className="h-full w-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 h-full w-full object-cover"
                     />
                     {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>
                   </div>
 
                   {/* Content Overlay */}
@@ -145,15 +139,17 @@ const CancunExperience: React.FC = () => {
               key={index}
               className="group relative overflow-hidden rounded-3xl shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl"
             >
-              {/* Image */}
-              <div className="relative aspect-[4/5] overflow-hidden">
+              {/* Image Container with aspect ratio */}
+              <div className="relative aspect-4/5">
                 <img
                   src={image.src}
                   alt={image.alt}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-90"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-slate-900/90 via-slate-900/50 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-90"></div>
               </div>
 
               {/* Content Overlay */}
@@ -275,7 +271,7 @@ const CancunExperience: React.FC = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="from-forest/5 via-sage/5 to-forest-light/5 border-forest/10 rounded-3xl border bg-gradient-to-r p-8 text-center md:p-12">
+        <div className="from-forest/5 via-sage/5 to-forest-light/5 border-forest/10 rounded-3xl border bg-linear-to-r p-8 text-center md:p-12">
           <h3 className="mb-4 text-2xl font-bold text-slate-800 md:text-3xl">
             Not Just Dental Work — A Transformative Experience
           </h3>
@@ -289,7 +285,7 @@ const CancunExperience: React.FC = () => {
               href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20learning%20about%20the%20Cancun%20experience%20and%20planning%20my%20dental%20transformation.%20Thank%20you!"
               target="_blank"
               rel="noopener noreferrer"
-              className="from-forest to-sage hover:from-forest-dark hover:to-sage-dark inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl"
+              className="from-forest to-sage hover:from-forest-dark hover:to-sage-dark inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl"
             >
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />

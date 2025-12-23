@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
         {/* Full Image Section - Mobile */}
         <div className="relative aspect-4/3 w-full overflow-hidden sm:aspect-16/10">
           <img
-            src="/hero/hero.jpeg"
+            src="/hero/hero.webp"
             alt="Happy patient with beautiful smile"
             className="h-full w-full object-cover object-center"
           />
@@ -82,17 +82,17 @@ const Hero: React.FC = () => {
             <div className="flex items-center justify-center gap-3 rounded-2xl bg-white/5 px-4 py-3 backdrop-blur-sm">
               <div className="flex -space-x-2">
                 <img
-                  src="/Pacientes+500/paciente1.jpeg"
+                  src="/Pacientes+500/paciente1.webp"
                   alt="Happy patient"
                   className="h-8 w-8 rounded-full border-2 border-white/70 object-cover"
                 />
                 <img
-                  src="/Pacientes+500/paciente2.jpeg"
+                  src="/Pacientes+500/paciente2.webp"
                   alt="Happy patient"
                   className="h-8 w-8 rounded-full border-2 border-white/70 object-cover"
                 />
                 <img
-                  src="/Pacientes+500/paciente3.jpeg"
+                  src="/Pacientes+500/paciente3.webp"
                   alt="Happy patient"
                   className="h-8 w-8 rounded-full border-2 border-white/70 object-cover"
                 />
@@ -183,17 +183,17 @@ const Hero: React.FC = () => {
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-3">
                   <img
-                    src="/Pacientes+500/paciente1.jpeg"
+                    src="/Pacientes+500/paciente1.webp"
                     alt="Happy patient"
                     className="h-10 w-10 rounded-full border-2 border-white/80 object-cover shadow-lg lg:h-11 lg:w-11"
                   />
                   <img
-                    src="/Pacientes+500/paciente2.jpeg"
+                    src="/Pacientes+500/paciente2.webp"
                     alt="Happy patient"
                     className="h-10 w-10 rounded-full border-2 border-white/80 object-cover shadow-lg lg:h-11 lg:w-11"
                   />
                   <img
-                    src="/Pacientes+500/paciente3.jpeg"
+                    src="/Pacientes+500/paciente3.webp"
                     alt="Happy patient"
                     className="h-10 w-10 rounded-full border-2 border-white/80 object-cover shadow-lg lg:h-11 lg:w-11"
                   />
@@ -219,7 +219,7 @@ const Hero: React.FC = () => {
         {/* Right Side - Image (fully visible, no overlay) */}
         <div className="relative w-full overflow-hidden lg:w-1/2">
           <img
-            src="/hero/hero3.jpeg"
+            src="/hero/hero3.webp"
             alt="Happy patient with beautiful smile"
             className="h-full w-full object-cover object-center lg:object-right"
           />

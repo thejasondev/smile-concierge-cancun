@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* Custom Color Palette - Natural & Professional */
 @theme {
@@ -6,19 +6,28 @@
   --color-forest: #1a4d2e;
   --color-forest-dark: #153d24;
   --color-forest-light: #2d6b4a;
-  
+
   /* Sage Green - Secondary Color */
   --color-sage: #4f6f52;
   --color-sage-dark: #3d5940;
   --color-sage-light: #6b8a6e;
-  
+
   /* Sand Beige - Accent/Background */
   --color-sand: #e8dfca;
   --color-sand-light: #f0e9d9;
   --color-sand-dark: #d4c9b0;
-  
+
   /* Cream - Light Background */
   --color-cream: #f5efe6;
   --color-cream-light: #faf6f0;
   --color-cream-dark: #ebe3d6;
+}
+
+/* Utility: Hide scrollbar for clean carousels */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
