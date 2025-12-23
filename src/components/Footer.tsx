@@ -9,9 +9,20 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="mb-6">
-              <h3 className="text-cream mb-4 text-3xl font-bold">
-                Smile Concierge Cancun
-              </h3>
+              {/* Logo + Brand Name */}
+              <a href="/" className="group mb-4 inline-flex items-center gap-3">
+                {/* Circular Logo */}
+                <div className="h-12 w-12 overflow-hidden rounded-full shadow-lg ring-2 ring-white/20 transition-shadow duration-300 group-hover:shadow-xl md:h-14 md:w-14">
+                  <img
+                    src="/logo/logo_scc.webp"
+                    alt="Smile Concierge Cancun"
+                    className="h-full w-full scale-[1.15] object-cover"
+                  />
+                </div>
+                <h3 className="text-cream group-hover:text-sand text-2xl font-bold transition-colors duration-200 md:text-3xl">
+                  Smile Concierge Cancun
+                </h3>
+              </a>
               <p className="text-cream/80 mb-6 hidden max-w-md leading-relaxed md:block">
                 A luxury dental experience, guided by Cancun's most experienced
                 and trusted specialists. We bring together exceptional expertise
