@@ -80,11 +80,32 @@ const ImageLightbox: React.FC<{
 
   return (
     <div
-      className="fixed inset-0 z-100 flex flex-col items-center justify-center"
+      className="fixed inset-0 z-100 flex items-center justify-center p-4 md:p-8"
       onClick={onClose}
     >
       {/* Backdrop */}
       <div className="absolute inset-0 bg-slate-900/95 backdrop-blur-md" />
+
+      {/* Close Button - Desktop Only (positioned absolutely) */}
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 z-30 hidden h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/20 md:flex"
+        aria-label="Close lightbox"
+      >
+        <svg
+          className="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
 
       {/* Navigation Arrows - Desktop Only */}
       <button
@@ -92,7 +113,7 @@ const ImageLightbox: React.FC<{
           e.stopPropagation();
           onNavigate(currentIndex > 0 ? currentIndex - 1 : images.length - 1);
         }}
-        className="absolute left-4 z-20 hidden h-14 w-14 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/20 md:flex"
+        className="absolute left-4 z-20 hidden h-14 w-14 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/20 md:left-8 lg:flex"
         aria-label="Previous image"
       >
         <svg
@@ -115,7 +136,7 @@ const ImageLightbox: React.FC<{
           e.stopPropagation();
           onNavigate(currentIndex < images.length - 1 ? currentIndex + 1 : 0);
         }}
-        className="absolute right-4 z-20 hidden h-14 w-14 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/20 md:flex"
+        className="absolute right-4 z-20 hidden h-14 w-14 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/20 md:right-8 lg:flex"
         aria-label="Next image"
       >
         <svg
@@ -135,26 +156,24 @@ const ImageLightbox: React.FC<{
 
       {/* Image Container */}
       <div
-        className="pt-safe relative z-10 flex w-full max-w-[95vw] flex-col px-4 pb-4 md:max-w-[85vw] lg:max-w-5xl"
+        className="relative z-10 flex w-full max-w-[95vw] flex-col md:max-w-3xl lg:max-w-4xl"
         onClick={(e) => e.stopPropagation()}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        {/* Header with Close Button - Mobile Friendly */}
-        <div className="mb-3 flex items-center justify-between md:mb-4">
+        {/* Mobile Header with Close Button */}
+        <div className="mb-3 flex items-center justify-between md:hidden">
           <span className="rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-sm">
             {currentIndex + 1} / {images.length}
           </span>
-
-          {/* Close Button - Well positioned for mobile */}
           <button
             onClick={onClose}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition-all duration-300 active:scale-95 md:h-12 md:w-12 md:hover:bg-white/30"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition-all duration-300 active:scale-95"
             aria-label="Close lightbox"
           >
             <svg
-              className="h-5 w-5 md:h-6 md:w-6"
+              className="h-5 w-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -170,31 +189,38 @@ const ImageLightbox: React.FC<{
         </div>
 
         {/* Main Image Card */}
-        <div className="overflow-hidden rounded-2xl bg-white shadow-2xl md:rounded-3xl">
+        <div className="relative overflow-hidden rounded-2xl bg-white shadow-2xl md:rounded-3xl">
+          {/* Desktop Counter Badge */}
+          <div className="absolute top-4 left-4 z-10 hidden rounded-full bg-black/50 px-4 py-1.5 backdrop-blur-sm md:block">
+            <span className="text-sm font-medium text-white">
+              {currentIndex + 1} / {images.length}
+            </span>
+          </div>
+
           <img
             src={current.image}
             alt={`${current.title} - Before and After`}
-            className="max-h-[50vh] w-full object-contain md:max-h-[65vh]"
+            className="max-h-[50vh] w-full object-contain md:max-h-[70vh]"
           />
 
-          {/* Image Info - Compact for mobile */}
-          <div className="border-t border-slate-100 bg-white p-3 md:p-5">
-            <div className="flex items-start justify-between gap-3">
+          {/* Image Info */}
+          <div className="border-t border-slate-100 bg-white p-3 md:p-6">
+            <div className="flex items-start justify-between gap-3 md:gap-4">
               <div className="min-w-0 flex-1">
                 <div className="mb-1 flex items-center gap-2">
                   <div className="bg-forest h-2 w-2 shrink-0 rounded-full"></div>
-                  <span className="truncate text-xs font-semibold tracking-wide text-slate-500 uppercase">
+                  <span className="truncate text-xs font-semibold tracking-wide text-slate-500 uppercase md:text-sm">
                     {current.treatment}
                   </span>
                 </div>
-                <h3 className="truncate text-base font-bold text-slate-800 md:text-lg">
+                <h3 className="text-base font-bold text-slate-800 md:text-xl">
                   {current.title}
                 </h3>
-                <p className="line-clamp-1 text-xs text-slate-600 md:text-sm">
+                <p className="line-clamp-2 text-xs text-slate-600 md:text-base">
                   {current.description}
                 </p>
               </div>
-              <div className="bg-forest/10 shrink-0 rounded-full px-3 py-1.5">
+              <div className="bg-forest/10 shrink-0 rounded-full px-3 py-1.5 md:px-4 md:py-2">
                 <p className="text-forest text-xs font-semibold md:text-sm">
                   {current.specialist}
                 </p>
@@ -203,7 +229,7 @@ const ImageLightbox: React.FC<{
           </div>
         </div>
 
-        {/* Dots & Swipe Hint */}
+        {/* Footer - Dots & Navigation */}
         <div className="mt-4 flex flex-col items-center gap-3">
           {/* Dots Indicator */}
           <div className="flex justify-center gap-2">
@@ -253,6 +279,11 @@ const ImageLightbox: React.FC<{
                 d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
             </svg>
+          </span>
+
+          {/* Keyboard Hint - Desktop only */}
+          <span className="hidden text-xs text-white/50 md:block">
+            Use ← → arrows to navigate • ESC to close
           </span>
         </div>
       </div>
