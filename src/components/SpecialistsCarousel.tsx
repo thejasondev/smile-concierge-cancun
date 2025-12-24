@@ -1,50 +1,10 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback } from 'react';
 import SpecialistCard from './SpecialistCard';
 import { specialists } from '../data/specialists';
 
 const SpecialistsCarousel: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const totalCards = specialists.length;
-
-  // Touch tracking refs
-  const touchStartX = useRef<number>(0);
-  const touchStartY = useRef<number>(0);
-  const touchEndX = useRef<number>(0);
-  const isSwiping = useRef<boolean>(false);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.targetTouches[0].clientX;
-    touchStartY.current = e.targetTouches[0].clientY;
-    touchEndX.current = e.targetTouches[0].clientX;
-    isSwiping.current = false;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.targetTouches[0].clientX;
-    const currentY = e.targetTouches[0].clientY;
-
-    const deltaX = Math.abs(touchEndX.current - touchStartX.current);
-    const deltaY = Math.abs(currentY - touchStartY.current);
-
-    if (deltaX > deltaY && deltaX > 10) {
-      isSwiping.current = true;
-    }
-  };
-
-  const handleTouchEnd = () => {
-    if (!isSwiping.current) return;
-
-    const distance = touchStartX.current - touchEndX.current;
-    const minSwipeDistance = 30;
-
-    if (Math.abs(distance) > minSwipeDistance) {
-      if (distance > 0) {
-        setActiveIndex((prev) => (prev + 1) % totalCards);
-      } else {
-        setActiveIndex((prev) => (prev - 1 + totalCards) % totalCards);
-      }
-    }
-  };
 
   const handleCardClick = useCallback((index: number) => {
     setActiveIndex(index);
@@ -86,14 +46,9 @@ const SpecialistsCarousel: React.FC = () => {
   };
 
   return (
-    <div
-      className="relative"
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-    >
+    <div className="relative">
       {/* Cards Container */}
-      <div className="relative mx-auto aspect-[3/4] max-w-[320px]">
+      <div className="relative mx-auto aspect-3/4 max-w-[320px]">
         {specialists.map((specialist, index) => {
           const styles = getCardStyles(index);
           return (
@@ -156,7 +111,7 @@ const SpecialistsCarousel: React.FC = () => {
           {specialists[activeIndex].shortName}
         </p>
 
-        {/* Swipe Hint */}
+        {/* Tap Hint */}
         <span className="flex items-center gap-1.5 text-xs text-slate-400">
           <svg
             className="h-4 w-4"
@@ -168,23 +123,10 @@ const SpecialistsCarousel: React.FC = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
-              d="M7 16l-4-4m0 0l4-4m-4 4h18"
+              d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
             />
           </svg>
-          Swipe or tap to explore
-          <svg
-            className="h-4 w-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            />
-          </svg>
+          Tap to explore
         </span>
       </div>
     </div>
