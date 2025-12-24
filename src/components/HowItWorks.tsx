@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 
 const steps = [
   {
@@ -29,51 +29,6 @@ const steps = [
 
 const HowItWorks: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const totalSteps = steps.length;
-
-  // Touch/Swipe handling with proper initialization
-  const touchStartX = useRef<number>(0);
-  const touchStartY = useRef<number>(0);
-  const touchEndX = useRef<number>(0);
-  const isSwiping = useRef<boolean>(false);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.targetTouches[0].clientX;
-    touchStartY.current = e.targetTouches[0].clientY;
-    touchEndX.current = e.targetTouches[0].clientX; // Initialize with start value
-    isSwiping.current = false;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.targetTouches[0].clientX;
-    const currentY = e.targetTouches[0].clientY;
-
-    const deltaX = Math.abs(touchEndX.current - touchStartX.current);
-    const deltaY = Math.abs(currentY - touchStartY.current);
-
-    // Only consider it a swipe if horizontal movement > vertical
-    if (deltaX > deltaY && deltaX > 10) {
-      isSwiping.current = true;
-      e.preventDefault(); // Prevent vertical scroll during horizontal swipe
-    }
-  };
-
-  const handleTouchEnd = () => {
-    if (!isSwiping.current) return;
-
-    const distance = touchStartX.current - touchEndX.current;
-    const minSwipeDistance = 30; // Reduced for better sensitivity
-
-    if (Math.abs(distance) > minSwipeDistance) {
-      if (distance > 0) {
-        // Swipe left - next
-        setActiveStep((prev) => Math.min(prev + 1, totalSteps - 1));
-      } else {
-        // Swipe right - previous
-        setActiveStep((prev) => Math.max(prev - 1, 0));
-      }
-    }
-  };
 
   const getColorClasses = (color: string) => {
     const colors: Record<string, { bg: string; text: string }> = {
@@ -97,7 +52,7 @@ const HowItWorks: React.FC = () => {
           </p>
         </div>
 
-        {/* Mobile: Swipeable Cards */}
+        {/* Mobile: Tab-based Navigation */}
         <div className="md:hidden">
           {/* Step Tabs */}
           <div className="mb-4 flex justify-center gap-2">
@@ -119,46 +74,28 @@ const HowItWorks: React.FC = () => {
             ))}
           </div>
 
-          {/* Swipeable Content Area */}
-          <div
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-          >
-            <div className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-lg">
+          {/* Content Card */}
+          <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-lg">
+            <div className="mb-3 flex items-center gap-3">
               <div
-                className="flex transition-transform duration-300 ease-out"
-                style={{ transform: `translateX(-${activeStep * 100}%)` }}
+                className={`flex h-10 w-10 items-center justify-center rounded-xl ${getColorClasses(steps[activeStep].color).bg}`}
               >
-                {steps.map((step, index) => {
-                  const colorClasses = getColorClasses(step.color);
-                  return (
-                    <div key={index} className="w-full flex-shrink-0 p-5">
-                      <div className="mb-3 flex items-center gap-3">
-                        <div
-                          className={`flex h-10 w-10 items-center justify-center rounded-xl ${colorClasses.bg}`}
-                        >
-                          <span
-                            className={`text-lg font-bold ${colorClasses.text}`}
-                          >
-                            {step.number}
-                          </span>
-                        </div>
-                        <h3 className="text-lg font-bold text-slate-800">
-                          {step.title}
-                        </h3>
-                      </div>
-                      <p className="text-sm leading-relaxed text-slate-600">
-                        {step.description}
-                      </p>
-                    </div>
-                  );
-                })}
+                <span
+                  className={`text-lg font-bold ${getColorClasses(steps[activeStep].color).text}`}
+                >
+                  {steps[activeStep].number}
+                </span>
               </div>
+              <h3 className="text-lg font-bold text-slate-800">
+                {steps[activeStep].title}
+              </h3>
             </div>
+            <p className="text-sm leading-relaxed text-slate-600">
+              {steps[activeStep].description}
+            </p>
           </div>
 
-          {/* Progress Dots + Swipe Hint */}
+          {/* Progress Dots */}
           <div className="mt-4 flex flex-col items-center gap-2">
             <div className="flex justify-center gap-2">
               {steps.map((_, index) => (
@@ -172,9 +109,7 @@ const HowItWorks: React.FC = () => {
                 />
               ))}
             </div>
-            <span className="text-xs text-slate-400">
-              Swipe or tap to navigate
-            </span>
+            <span className="text-xs text-slate-400">Tap to navigate</span>
           </div>
         </div>
 
