@@ -20,6 +20,48 @@ export interface SpecialistData {
 }
 
 export const specialists: SpecialistData[] = [
+    {
+    name: 'Dr. Ambar Vázquez',
+    shortName: 'Dr. Vázquez',
+    slug: 'dr-ambar-vazquez',
+    clinic: 'Ambar Vázquez Dental Studio',
+    specialty: 'Specialist in natural smile design and advanced aesthetics',
+    bio: [
+      'Expert in creating natural, harmonious smiles that enhance facial beauty.',
+      'Specializes in minimally invasive aesthetic dentistry with premium materials.',
+      "Dr. Vázquez combines artistic vision with technical precision to deliver smile transformations that look completely natural and complement each patient's unique facial features.",
+      "With years of experience in cosmetic dentistry, she has helped hundreds of patients achieve the confident, beautiful smile they've always wanted.",
+    ],
+    quote: 'Natural results, perfect proportions, and facial harmony',
+    expertise: [
+      'Smile design with injected composite veneers',
+      'Smile design with layered composite veneers',
+      'Smile design with layered Emax porcelain veneers',
+      'Minimally invasive aesthetic dentistry',
+    ],
+    treatments: [
+      {
+        title: 'Composite Veneers',
+        description:
+          'Beautiful, natural-looking veneers crafted with premium composite materials. Minimally invasive procedure that preserves your natural tooth structure.',
+        price: 'Starting at $300 USD per tooth',
+      },
+      {
+        title: 'Porcelain Veneers (Emax)',
+        description:
+          'Premium layered porcelain veneers for the most natural and durable results. Perfect for complete smile makeovers.',
+        price: 'Starting at $500 USD per tooth',
+      },
+      {
+        title: 'Smile Design Consultation',
+        description:
+          'Comprehensive smile analysis and digital design to preview your new smile before treatment begins.',
+        price: 'Complimentary with treatment',
+      },
+    ],
+    color: 'forest',
+    image: '/Dra.Ambar/profile-pic.webp',
+  },
   {
     name: 'Dr. Francisco Xavier Primo Pavón',
     shortName: 'Dr. Xavier Pavón',
@@ -105,48 +147,6 @@ export const specialists: SpecialistData[] = [
     ],
     color: 'forest-light',
     image: '/Dr.Pavon/profile-pic.webp',
-  },
-  {
-    name: 'Dr. Ambar Vázquez',
-    shortName: 'Dr. Vázquez',
-    slug: 'dr-ambar-vazquez',
-    clinic: 'Ambar Vázquez Dental Studio',
-    specialty: 'Specialist in natural smile design and advanced aesthetics',
-    bio: [
-      'Expert in creating natural, harmonious smiles that enhance facial beauty.',
-      'Specializes in minimally invasive aesthetic dentistry with premium materials.',
-      "Dr. Vázquez combines artistic vision with technical precision to deliver smile transformations that look completely natural and complement each patient's unique facial features.",
-      "With years of experience in cosmetic dentistry, she has helped hundreds of patients achieve the confident, beautiful smile they've always wanted.",
-    ],
-    quote: 'Natural results, perfect proportions, and facial harmony',
-    expertise: [
-      'Smile design with injected composite veneers',
-      'Smile design with layered composite veneers',
-      'Smile design with layered Emax porcelain veneers',
-      'Minimally invasive aesthetic dentistry',
-    ],
-    treatments: [
-      {
-        title: 'Composite Veneers',
-        description:
-          'Beautiful, natural-looking veneers crafted with premium composite materials. Minimally invasive procedure that preserves your natural tooth structure.',
-        price: 'Starting at $300 USD per tooth',
-      },
-      {
-        title: 'Porcelain Veneers (Emax)',
-        description:
-          'Premium layered porcelain veneers for the most natural and durable results. Perfect for complete smile makeovers.',
-        price: 'Starting at $500 USD per tooth',
-      },
-      {
-        title: 'Smile Design Consultation',
-        description:
-          'Comprehensive smile analysis and digital design to preview your new smile before treatment begins.',
-        price: 'Complimentary with treatment',
-      },
-    ],
-    color: 'forest',
-    image: '/Dra.Ambar/profile-pic.webp',
   },
   {
     name: 'Dr. Manuel García',
