@@ -2,93 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.tsx';
 import Footer from '../components/Footer.tsx';
-
-// Process steps data - Updated with current content
-const processSteps = [
-  {
-    id: 1,
-    title: 'Free Online Assessment',
-    description:
-      'Start your journey from the comfort of your home. Our specialists review your photos, X-Rays, medical history, and goals to create a personalized treatment plan.',
-    color: 'forest',
-    colorGradient: 'from-forest to-forest-dark',
-    iconPath:
-      'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
-    sectionTitle: "What's Included:",
-    features: [
-      'Detailed photo analysis by our specialists',
-      'Personalized treatment recommendations',
-      'Cost estimate and timeline',
-      'Travel and accommodation planning',
-    ],
-    ctaText: 'Start Free Assessment',
-    ctaUrl:
-      "https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!",
-    cardTitle: 'Free Assessment',
-    cardSubtitle: '100% Online & Confidential',
-  },
-  {
-    id: 2,
-    title: 'Arrival & Welcome',
-    description:
-      'If you choose one of our transportation and accommodation packages, we will take care of everything from the moment you arrive. From picking you up at the airport to ensuring you have a comfortable stay, we are here to make your experience as stress-free as possible - we offer recovery homes and preferred rates at select Cancun hotels for your convenience.',
-    color: 'sage',
-    colorGradient: 'from-sage to-sage-dark',
-    iconPath: 'M12 19l9 2-9-18-9 18 9-2zm0 0v-8',
-    sectionTitle: 'Full-Services Cancun Package:',
-    features: [
-      'Private airport transfer',
-      'Transportation to all your appointments',
-      'Hotel or private vacation home stay',
-    ],
-    extraText:
-      'Relax and let us handle every detail of your trip, so you can focus on your smile.',
-    cardTitle: 'Full-Services Cancun Package',
-    cardSubtitle: 'Comfort & Relax',
-    reverse: true,
-  },
-  {
-    id: 3,
-    title: 'Treatment & Transformation',
-    description:
-      'Experience world-class dental care in state-of-the-art facilities. Our specialists use the latest technology and techniques to ensure your comfort and perfect results.',
-    color: 'forest-light',
-    colorGradient: 'from-forest-light to-sage',
-    iconPath:
-      'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
-    sectionTitle: 'Premium Care Features:',
-    features: [
-      'Digital Smile Design and handcrafted planning in top dental laboratories',
-      'Premium materials and techniques',
-      'Treatment by renowned specialists',
-      'Treatment guaranteed by Smile Concierge Cancun',
-    ],
-    cardTitle: 'Expert Treatment',
-    cardSubtitle: 'World-Class Care',
-  },
-];
-
-// Timeline stats - Updated with current content
-const timelineStats = [
-  {
-    value: '3-10',
-    label: 'Days Average',
-    color: 'forest',
-    colorGradient: 'from-forest to-forest-dark',
-  },
-  {
-    value: '24/7',
-    label: 'Support Available',
-    color: 'sage',
-    colorGradient: 'from-sage to-sage-dark',
-  },
-  {
-    value: '100%',
-    label: 'Personalized Care',
-    color: 'forest-light',
-    colorGradient: 'from-forest-light to-sage',
-  },
-];
+import ProcessAccordion from '../components/ProcessAccordion.tsx';
 import {
   generateBreadcrumbSchema,
   generateWebPageSchema,
@@ -99,6 +13,69 @@ const breadcrumbs = [
   { name: 'Home', url: siteUrl },
   { name: 'Our Process', url: `${siteUrl}/process` },
 ];
+
+// Process steps data for desktop view
+const processSteps = [
+  {
+    id: 1,
+    title: 'Free Online Assessment',
+    description:
+      'Start your journey from the comfort of your home. Our specialists review your photos, X-Rays, medical history, and goals to create a personalized treatment plan.',
+    colorGradient: 'from-forest to-forest-dark',
+    color: 'forest',
+    features: [
+      'Detailed photo analysis by our specialists',
+      'Personalized treatment recommendations',
+      'Cost estimate and timeline',
+      'Travel and accommodation planning',
+    ],
+    ctaText: 'Start Free Assessment',
+    ctaUrl:
+      "https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.",
+  },
+  {
+    id: 2,
+    title: 'Arrival & Welcome',
+    description:
+      'We handle everything from airport pickup to accommodation, transportation to appointments, and comfortable stays in hotels or vacation homes.',
+    colorGradient: 'from-sage to-sage-dark',
+    color: 'sage',
+    features: [
+      'Private airport transfer',
+      'Transportation to all appointments',
+      'Hotel or private vacation home stay',
+    ],
+    note: 'Optional package - book separately',
+  },
+  {
+    id: 3,
+    title: 'Treatment & Transformation',
+    description:
+      'Experience world-class dental care in state-of-the-art facilities with premium materials and techniques.',
+    colorGradient: 'from-forest-light to-sage',
+    color: 'forest-light',
+    features: [
+      'Digital Smile Design planning',
+      'Premium materials and techniques',
+      'Treatment by renowned specialists',
+      'Guaranteed by Smile Concierge',
+    ],
+  },
+];
+
+const timelineStats = [
+  {
+    value: '3-10',
+    label: 'Days Average',
+    colorGradient: 'from-forest to-forest-dark',
+  },
+  { value: '24/7', label: 'Support', colorGradient: 'from-sage to-sage-dark' },
+  {
+    value: '100%',
+    label: 'Personalized',
+    colorGradient: 'from-forest-light to-sage',
+  },
+];
 ---
 
 <Layout
@@ -106,7 +83,6 @@ const breadcrumbs = [
   description="Discover our simple 3-step dental tourism process. Free online assessment, luxury Cancun experience, and world-class treatment. Your smile journey starts here."
   keywords="dental tourism process, how dental tourism works, dental treatment abroad, cancun dental process, smile makeover steps"
 >
-  <!-- Structured Data -->
   <script
     type="application/ld+json"
     set:html={generateBreadcrumbSchema(breadcrumbs)}
@@ -119,13 +95,13 @@ const breadcrumbs = [
       `${siteUrl}/process`
     )}
   />
+
   <Header client:load />
   <main>
-    <!-- Hero Section - Glassmorphism -->
+    <!-- Hero Section - Compact -->
     <section
-      class="from-cream via-sand/30 relative overflow-hidden bg-gradient-to-br to-white py-12 md:py-20"
+      class="from-cream via-sand/30 relative overflow-hidden bg-gradient-to-br to-white py-10 md:py-20"
     >
-      <!-- Background Pattern -->
       <div class="absolute inset-0 opacity-30">
         <div
           class="bg-forest/20 absolute top-10 left-10 h-32 w-32 rounded-full blur-3xl"
@@ -138,12 +114,12 @@ const breadcrumbs = [
       </div>
 
       <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-8 text-center md:mb-16">
+        <div class="mb-6 text-center md:mb-12">
           <div
-            class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/70 px-4 py-2 shadow-lg backdrop-blur-xl"
+            class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/70 px-3 py-1.5 shadow-lg backdrop-blur-xl md:mb-6 md:px-4 md:py-2"
           >
             <svg
-              class="text-forest h-5 w-5"
+              class="text-forest h-4 w-4 md:h-5 md:w-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -155,115 +131,92 @@ const breadcrumbs = [
                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
               ></path>
             </svg>
-            <span class="text-sm font-semibold text-slate-700"
+            <span class="text-xs font-semibold text-slate-700 md:text-sm"
               >Simple Process</span
             >
           </div>
 
           <h1
-            class="mb-4 text-3xl leading-tight font-bold text-slate-800 md:mb-6 md:text-4xl lg:text-5xl"
+            class="mb-3 text-2xl leading-tight font-bold text-slate-800 md:mb-6 md:text-4xl lg:text-5xl"
           >
             Your Journey to the Perfect Smile
           </h1>
           <p
-            class="mx-auto max-w-2xl text-base leading-relaxed text-slate-600 md:max-w-3xl md:text-xl"
+            class="mx-auto max-w-xl text-sm leading-relaxed text-slate-600 md:max-w-3xl md:text-xl"
           >
-            We ensure you get the dentist you truly deserve and never face the
-            process alone.
+            We ensure you get the dentist you truly deserve.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Process Steps - Dynamic Rendering -->
-    <section class="bg-white py-12 md:py-20">
+    <!-- Process Steps - Mobile: Accordion | Desktop: Full -->
+    <section class="bg-white py-8 md:py-20">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {
-          processSteps.map((step) => (
-            <div class="mb-12 md:mb-20">
-              <div class="grid items-center gap-8 md:gap-12 lg:grid-cols-2">
-                <div class={step.reverse ? 'lg:order-2' : ''}>
-                  <div class="mb-4 flex items-center md:mb-6">
-                    <div
-                      class={`h-14 w-14 bg-gradient-to-br md:h-16 md:w-16 ${step.colorGradient} mr-4 flex items-center justify-center rounded-2xl text-xl font-bold text-white shadow-lg md:mr-6 md:text-2xl`}
-                    >
-                      {step.id}
-                    </div>
-                    <h2 class="text-2xl font-bold text-slate-800 md:text-3xl">
-                      {step.title}
-                    </h2>
-                  </div>
-                  <p class="mb-4 text-base leading-relaxed font-medium text-slate-700 md:mb-6 md:text-lg">
-                    {step.description}
-                  </p>
+        <!-- Mobile: Accordion Component -->
+        <div class="md:hidden">
+          <ProcessAccordion client:load />
+        </div>
 
-                  <div
-                    class={`bg-${step.color}/5 mb-4 rounded-2xl border p-5 backdrop-blur-sm md:mb-6 md:p-6 border-${step.color}/10 shadow-md`}
-                  >
-                    <h3 class={`font-semibold text-${step.color} mb-3`}>
-                      {step.sectionTitle}
-                    </h3>
-                    <ul class="space-y-2">
-                      {step.features.map((feature) => (
-                        <li class="flex items-center text-slate-700">
-                          <svg
-                            class={`h-4 w-4 text-${step.color} mr-3`}
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                              clip-rule="evenodd"
-                            />
-                          </svg>
-                          {feature}
-                        </li>
-                      ))}
-                      {step.extraText && (
-                        <li class={`flex items-center text-${step.color}`}>
-                          {step.extraText}
-                        </li>
-                      )}
-                    </ul>
-                  </div>
-
-                  {step.id === 2 && (
-                    <div class="mt-6 space-y-4">
-                      <div class="border-sand/40 bg-sand/20 flex items-start gap-3 rounded-2xl border p-4 text-slate-800 shadow-sm">
-                        <div class="bg-forest/10 text-forest flex h-10 w-10 items-center justify-center rounded-xl">
-                          <svg
-                            class="h-5 w-5"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
-                          </svg>
-                        </div>
-                        <p class="text-sm leading-relaxed text-slate-700 md:text-base">
-                          <span class="text-forest font-semibold">
-                            Please note:
-                          </span>{' '}
-                          This package is not included with the treatment. If
-                          you're interested in our packages, make sure to book
-                          it.
-                        </p>
+        <!-- Desktop: Full Layout -->
+        <div class="hidden md:block">
+          {
+            processSteps.map((step) => (
+              <div class="mb-16 last:mb-0">
+                <div class="grid items-start gap-8 lg:grid-cols-2 lg:gap-12">
+                  <div>
+                    <div class="mb-4 flex items-center">
+                      <div
+                        class={`h-14 w-14 bg-gradient-to-br ${step.colorGradient} mr-4 flex items-center justify-center rounded-2xl text-xl font-bold text-white shadow-lg`}
+                      >
+                        {step.id}
                       </div>
+                      <h2 class="text-2xl font-bold text-slate-800 md:text-3xl">
+                        {step.title}
+                      </h2>
+                    </div>
+                    <p class="mb-4 text-base leading-relaxed text-slate-700">
+                      {step.description}
+                    </p>
+
+                    <div
+                      class={`rounded-xl bg-${step.color}/5 border border-${step.color}/10 p-4 shadow-sm`}
+                    >
+                      <ul class="space-y-2">
+                        {step.features.map((feature: string) => (
+                          <li class="flex items-center text-slate-700">
+                            <svg
+                              class={`h-4 w-4 text-${step.color} mr-3`}
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                      {step.note && (
+                        <p class="mt-3 text-sm text-slate-500 italic">
+                          {step.note}
+                        </p>
+                      )}
+                    </div>
+
+                    {step.ctaText && step.ctaUrl && (
                       <a
-                        href="https://wa.me/529983889184?text=Hello!%20I%27m%20interested%20in%20booking%20one%20of%20your%20package%20options.%20Could%20you%20share%20details%20and%20availability,%20please%3F%20Thank%20you!"
+                        href={step.ctaUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="from-forest to-sage inline-flex items-center justify-center gap-2 rounded-2xl bg-linear-to-r px-6 py-3 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl md:px-8 md:py-3.5 md:text-base"
+                        class={`mt-4 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r ${step.colorGradient} px-6 py-3 font-bold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl`}
                       >
-                        Book Packages
+                        {step.ctaText}
                         <svg
-                          class="h-5 w-5"
+                          class="h-4 w-4"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -276,126 +229,63 @@ const breadcrumbs = [
                           />
                         </svg>
                       </a>
-                    </div>
-                  )}
+                    )}
+                  </div>
 
-                  {step.ctaText && step.ctaUrl && (
-                    <a
-                      href={step.ctaUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="from-forest to-sage hover:from-forest-dark hover:to-sage-dark inline-block rounded-2xl bg-gradient-to-r px-6 py-3 text-center text-sm font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl md:px-8 md:py-3.5 md:text-base"
-                    >
-                      {step.ctaText}
-                    </a>
-                  )}
-                </div>
-
-                <div
-                  class={`${step.reverse ? 'lg:order-1' : ''} relative bg-gradient-to-br from-${step.color}/10 to-${step.id === 1 ? 'sage' : step.id === 2 ? 'forest-light' : 'sage'}/10 overflow-hidden rounded-2xl p-8 text-center backdrop-blur-sm md:p-12`}
-                >
-                  <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
-                  <div class="relative">
-                    <div class="mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-2xl bg-white/80 shadow-lg backdrop-blur-sm md:h-32 md:w-32">
-                      <svg
-                        class={`h-12 w-12 md:h-16 md:w-16 text-${step.color}`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d={step.iconPath}
-                        />
-                      </svg>
+                  <div
+                    class={`rounded-2xl bg-gradient-to-br from-${step.color}/10 to-${step.color === 'forest' ? 'sage' : 'forest-light'}/10 p-8 text-center`}
+                  >
+                    <div class="mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-2xl bg-white/80 shadow-lg">
+                      <span class={`text-${step.color} text-4xl font-bold`}>
+                        {step.id}
+                      </span>
                     </div>
-                    <p
-                      class={`text-${step.color} text-base font-bold md:text-lg`}
-                    >
-                      {step.cardTitle}
-                    </p>
-                    <p
-                      class={`text-${step.id === 1 ? 'forest-light' : step.id === 2 ? 'sage-light' : 'sage'} text-sm font-medium md:text-base`}
-                    >
-                      {step.cardSubtitle}
-                    </p>
+                    <p class={`text-${step.color} font-bold`}>Step {step.id}</p>
                   </div>
                 </div>
               </div>
-            </div>
-          ))
-        }
-      </div>
-    </section>
-
-    <!-- Timeline - Glassmorphism -->
-    <section
-      class="from-sand via-cream bg-gradient-to-br to-white py-12 md:py-20"
-    >
-      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <h1
-          class="mb-4 text-center text-2xl font-bold text-slate-800 md:mb-6 md:text-3xl lg:text-4xl"
-        >
-          Your Timeline
-        </h1>
-        <!-- Additional Timeline Info - Glassmorphism -->
-        <div
-          class="mt-8 rounded-2xl border border-white/40 bg-white/60 p-6 shadow-xl backdrop-blur-xl md:mt-16 md:p-8"
-        >
-          <div class="mb-6 text-center">
-            <h3
-              class="mb-3 text-lg font-bold text-slate-800 md:text-xl lg:text-2xl"
-            >
-              Flexible Scheduling
-            </h3>
-            <p
-              class="text-sm leading-relaxed font-medium text-slate-700 md:text-base"
-            >
-              We understand every case is unique. Your timeline may vary based
-              on your specific treatment needs.
-            </p>
-          </div>
-
-          <div class="grid grid-cols-3 gap-3 md:gap-4 lg:gap-6">
-            {
-              timelineStats.map((stat) => (
-                <div
-                  class={`p-3 text-center md:p-4 bg-${stat.color}/5 rounded-2xl border backdrop-blur-sm border-${stat.color}/10 shadow-md transition-all duration-300 hover:shadow-lg`}
-                >
-                  <div
-                    class={`bg-gradient-to-br text-xl font-bold md:text-2xl ${stat.colorGradient} mb-2 bg-clip-text text-transparent`}
-                  >
-                    {stat.value}
-                  </div>
-                  <div class="text-xs font-medium text-slate-700 md:text-sm">
-                    {stat.label}
-                  </div>
-                </div>
-              ))
-            }
-          </div>
+            ))
+          }
         </div>
       </div>
     </section>
 
-    <!-- CTA Section - Modern -->
+    <!-- Timeline Stats - Compact -->
     <section
-      class="from-forest via-sage to-forest-light relative overflow-hidden bg-gradient-to-br py-12 md:py-20"
+      class="from-sand via-cream bg-gradient-to-br to-white py-8 md:py-16"
     >
-      <!-- Background Pattern -->
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <h2
+          class="mb-4 text-center text-xl font-bold text-slate-800 md:mb-6 md:text-3xl"
+        >
+          Your Timeline
+        </h2>
+        <div class="grid grid-cols-3 gap-2 md:gap-4">
+          {
+            timelineStats.map((stat) => (
+              <div class="rounded-xl border border-white/40 bg-white/60 p-3 text-center shadow-lg backdrop-blur-xl md:rounded-2xl md:p-5">
+                <div
+                  class={`bg-gradient-to-br ${stat.colorGradient} mb-1 bg-clip-text text-xl font-bold text-transparent md:mb-2 md:text-3xl`}
+                >
+                  {stat.value}
+                </div>
+                <div class="text-xs font-medium text-slate-700 md:text-sm">
+                  {stat.label}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section - Compact -->
+    <section
+      class="from-forest via-sage to-forest-light relative overflow-hidden bg-gradient-to-br py-10 md:py-20"
+    >
       <div class="absolute inset-0 opacity-10">
         <div
           class="absolute top-4 left-4 h-20 w-20 rounded-full bg-white blur-2xl"
-        >
-        </div>
-        <div
-          class="absolute top-20 right-8 h-16 w-16 rounded-full bg-white blur-2xl"
-        >
-        </div>
-        <div
-          class="absolute bottom-8 left-12 h-24 w-24 rounded-full bg-white blur-2xl"
         >
         </div>
         <div
@@ -406,30 +296,27 @@ const breadcrumbs = [
 
       <div class="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <h2
-          class="mb-4 text-2xl leading-tight font-bold text-white md:mb-6 md:text-3xl lg:text-4xl"
+          class="mb-3 text-xl leading-tight font-bold text-white md:mb-6 md:text-4xl"
         >
           Ready to Start Your Journey?
         </h2>
         <p
-          class="mb-6 text-base leading-relaxed text-white/90 md:mb-8 md:text-xl"
+          class="mb-5 text-sm leading-relaxed text-white/90 md:mb-8 md:text-xl"
         >
-          Take the first step towards your perfect smile with our free
-          assessment.
+          Take the first step towards your perfect smile.
         </p>
-        <div
-          class="mx-auto flex max-w-md flex-col justify-center gap-3 sm:max-w-none sm:flex-row sm:gap-4"
-        >
+        <div class="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
           <a
-            href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
+            href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment."
             target="_blank"
             rel="noopener noreferrer"
-            class="text-forest hover:bg-sand transform rounded-2xl bg-white px-6 py-3 text-center text-base font-bold shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl md:px-8 md:py-4 md:text-lg"
+            class="text-forest hover:bg-sand transform rounded-xl bg-white px-5 py-2.5 text-center text-sm font-bold shadow-lg transition-all duration-300 hover:scale-105 md:rounded-2xl md:px-8 md:py-4 md:text-lg"
           >
             Begin Your Transformation
           </a>
           <a
             href="/specialists"
-            class="hover:text-forest transform rounded-2xl border-2 border-white px-6 py-3 text-center text-base font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-white md:px-8 md:py-4 md:text-lg"
+            class="hover:text-forest transform rounded-xl border-2 border-white px-5 py-2.5 text-center text-sm font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-white md:rounded-2xl md:px-8 md:py-4 md:text-lg"
           >
             Meet Our Specialists
           </a>

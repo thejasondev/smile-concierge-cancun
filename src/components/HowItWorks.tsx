@@ -1,160 +1,228 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
+
+const steps = [
+  {
+    number: '1',
+    title: 'Contact Us',
+    description:
+      "Send us your information so we can evaluate your case. If needed, we'll schedule an online consultation.",
+    color: 'forest',
+    colorGradient: 'from-forest to-forest-dark',
+  },
+  {
+    number: '2',
+    title: 'Plan Your Trip',
+    description:
+      'We help you plan your entire treatment: procedures, appointments, and your stay in Cancun.',
+    color: 'sage',
+    colorGradient: 'from-sage to-sage-dark',
+  },
+  {
+    number: '3',
+    title: 'Get Treated',
+    description:
+      "We guide you throughout your treatment. You'll be in the best hands with personalized luxury care.",
+    color: 'forest-light',
+    colorGradient: 'from-forest-light to-forest',
+  },
+];
 
 const HowItWorks: React.FC = () => {
-  const steps = [
-    {
-      number: '1',
-      title: 'Contact Us',
-      description: 'Send us your information so we can evaluate your case. If needed, we\'ll schedule an online consultation to understand your smile and plan your treatment.',
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-        </svg>
-      )
-    },
-    {
-      number: '2',
-      title: 'Schedule Your Appointment',
-      description: 'We help you plan your entire treatment: procedures, appointments, and your stay in Cancun. As a plus, we offer transportation and accommodation packages if you wish to book these services with us.',
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-      )
-    },
-    {
-      number: '3',
-      title: 'Treatment & Care',
-      description: 'We guide you throughout your treatment with our specialists. You\'ll be in the best hands, receiving personalized advice and luxury care every step of the way.',
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-        </svg>
-      )
+  const [activeStep, setActiveStep] = useState(0);
+  const totalSteps = steps.length;
+
+  // Touch/Swipe handling with proper initialization
+  const touchStartX = useRef<number>(0);
+  const touchStartY = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
+  const isSwiping = useRef<boolean>(false);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+    touchStartY.current = e.targetTouches[0].clientY;
+    touchEndX.current = e.targetTouches[0].clientX; // Initialize with start value
+    isSwiping.current = false;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+    const currentY = e.targetTouches[0].clientY;
+
+    const deltaX = Math.abs(touchEndX.current - touchStartX.current);
+    const deltaY = Math.abs(currentY - touchStartY.current);
+
+    // Only consider it a swipe if horizontal movement > vertical
+    if (deltaX > deltaY && deltaX > 10) {
+      isSwiping.current = true;
+      e.preventDefault(); // Prevent vertical scroll during horizontal swipe
     }
-  ];
+  };
+
+  const handleTouchEnd = () => {
+    if (!isSwiping.current) return;
+
+    const distance = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 30; // Reduced for better sensitivity
+
+    if (Math.abs(distance) > minSwipeDistance) {
+      if (distance > 0) {
+        // Swipe left - next
+        setActiveStep((prev) => Math.min(prev + 1, totalSteps - 1));
+      } else {
+        // Swipe right - previous
+        setActiveStep((prev) => Math.max(prev - 1, 0));
+      }
+    }
+  };
+
+  const getColorClasses = (color: string) => {
+    const colors: Record<string, { bg: string; text: string }> = {
+      forest: { bg: 'bg-forest/10', text: 'text-forest' },
+      sage: { bg: 'bg-sage/10', text: 'text-sage' },
+      'forest-light': { bg: 'bg-forest-light/10', text: 'text-forest-light' },
+    };
+    return colors[color] || colors.forest;
+  };
 
   return (
-    <section id="process" className="py-12 md:py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Mobile-First Header */}
-        <div className="text-center mb-8 md:mb-16">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
+    <section id="process" className="bg-white py-10 md:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="mb-6 text-center md:mb-12">
+          <h2 className="mb-2 text-2xl font-bold text-slate-800 md:mb-4 md:text-4xl">
             How It Works
           </h2>
-          <p className="text-base md:text-xl text-slate-600 max-w-2xl md:max-w-3xl mx-auto leading-relaxed">
-            Your journey to a perfect smile
-            <span className="hidden md:inline"> is simple and carefully planned. We handle every detail so you can focus on enjoying your transformation</span>
+          <p className="text-sm text-slate-600 md:text-xl">
+            Your journey to a perfect smile in 3 simple steps
           </p>
         </div>
 
-        {/* Mobile: Vertical Timeline, Desktop: Horizontal Grid */}
-        <div className="relative">
-          {/* Desktop: Connection Line */}
-          <div className="hidden lg:block absolute top-24 left-1/2 transform -translate-x-1/2 w-full max-w-4xl">
-            <div className="flex justify-between">
-              <div className="w-8 h-8"></div>
-              <div className="flex-1 border-t-2 border-dashed border-sand mt-4"></div>
-              <div className="w-8 h-8"></div>
-              <div className="flex-1 border-t-2 border-dashed border-sand mt-4"></div>
-              <div className="w-8 h-8"></div>
+        {/* Mobile: Swipeable Cards */}
+        <div className="md:hidden">
+          {/* Step Tabs */}
+          <div className="mb-4 flex justify-center gap-2">
+            {steps.map((step, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveStep(index)}
+                className={`flex flex-col items-center gap-1 rounded-xl px-4 py-3 transition-all duration-300 ${
+                  index === activeStep
+                    ? `bg-gradient-to-br ${step.colorGradient} text-white shadow-lg`
+                    : 'bg-slate-100 text-slate-500'
+                }`}
+              >
+                <span className="text-lg font-bold">{step.number}</span>
+                <span className="text-[10px] tracking-wider uppercase opacity-80">
+                  Step
+                </span>
+              </button>
+            ))}
+          </div>
+
+          {/* Swipeable Content Area */}
+          <div
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-lg">
+              <div
+                className="flex transition-transform duration-300 ease-out"
+                style={{ transform: `translateX(-${activeStep * 100}%)` }}
+              >
+                {steps.map((step, index) => {
+                  const colorClasses = getColorClasses(step.color);
+                  return (
+                    <div key={index} className="w-full flex-shrink-0 p-5">
+                      <div className="mb-3 flex items-center gap-3">
+                        <div
+                          className={`flex h-10 w-10 items-center justify-center rounded-xl ${colorClasses.bg}`}
+                        >
+                          <span
+                            className={`text-lg font-bold ${colorClasses.text}`}
+                          >
+                            {step.number}
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-bold text-slate-800">
+                          {step.title}
+                        </h3>
+                      </div>
+                      <p className="text-sm leading-relaxed text-slate-600">
+                        {step.description}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
-          {/* Mobile: Vertical Timeline */}
-          <div className="lg:hidden space-y-6">
-            {steps.map((step, index) => (
-              <div key={index} className="relative">
-                {/* Vertical connecting line */}
-                {index < steps.length - 1 && (
-                  <div className="absolute left-8 top-20 bottom-0 w-0.5 bg-gradient-to-b from-sand to-transparent"></div>
-                )}
-                
-                <div className="flex gap-4">
-                  {/* Left: Number + Icon */}
-                  <div className="flex-shrink-0">
-                    <div className={`relative w-16 h-16 ${index === 0 ? 'bg-gradient-to-br from-forest to-forest-dark' : index === 1 ? 'bg-gradient-to-br from-sage to-sage-dark' : 'bg-gradient-to-br from-forest-light to-forest'} text-white rounded-2xl flex items-center justify-center shadow-lg`}>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold leading-none mb-1">{step.number}</div>
-                        <div className="text-[10px] opacity-80 uppercase tracking-wider">Step</div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Right: Content Card */}
-                  <div className="flex-1 bg-white rounded-2xl p-5 shadow-lg border border-slate-100 hover:shadow-xl transition-all duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className={`w-10 h-10 ${index === 0 ? 'bg-forest/10 text-forest' : index === 1 ? 'bg-sage/10 text-sage' : 'bg-forest-light/10 text-forest-light'} rounded-xl flex items-center justify-center flex-shrink-0`}>
-                        {step.icon}
-                      </div>
-                      <h3 className="text-lg font-bold text-slate-800 leading-tight">
-                        {step.title}
-                      </h3>
-                    </div>
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Desktop: Horizontal Grid */}
-          <div className="hidden lg:grid lg:grid-cols-3 gap-12">
-            {steps.map((step, index) => (
-              <div key={index} className="relative">
-                <div className="text-center">
-                  {/* Step Number */}
-                  <div className={`relative inline-flex items-center justify-center w-16 h-16 ${index === 0 ? 'bg-forest' : index === 1 ? 'bg-sage' : 'bg-forest-light'} text-white rounded-full text-2xl font-bold mb-6 shadow-lg`}>
-                    {step.number}
-                  </div>
-                  
-                  {/* Icon */}
-                  <div className={`w-16 h-16 ${index === 0 ? 'bg-forest/10 text-forest' : index === 1 ? 'bg-sage/10 text-sage' : 'bg-forest-light/10 text-forest-light'} rounded-full flex items-center justify-center mx-auto mb-6`}>
-                    {step.icon}
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="text-2xl font-bold text-slate-800 mb-4">
-                    {step.title}
-                  </h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+          {/* Progress Dots + Swipe Hint */}
+          <div className="mt-4 flex flex-col items-center gap-2">
+            <div className="flex justify-center gap-2">
+              {steps.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveStep(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === activeStep ? 'bg-forest w-6' : 'w-2 bg-slate-200'
+                  }`}
+                  aria-label={`Go to step ${index + 1}`}
+                />
+              ))}
+            </div>
+            <span className="text-xs text-slate-400">
+              Swipe or tap to navigate
+            </span>
           </div>
         </div>
 
-        {/* Mobile-Optimized CTA */}
-        <div className="mt-8 md:mt-16 text-center">
-          <div className="bg-gradient-to-r from-cream to-sand rounded-2xl p-6 md:p-8 lg:p-12 border border-sand">
-            <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-800 mb-3 md:mb-4">
-              Ready to Start?
-            </h3>
-            <p className="text-sm md:text-lg text-slate-600 mb-6 md:mb-8 max-w-xl md:max-w-2xl mx-auto leading-relaxed">
-              Take the first step towards your perfect smile
-              <span className="hidden md:inline">. Our team is ready to guide you through every detail of your transformation</span>
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
-              <a 
-                href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gradient-to-r from-forest to-sage text-white px-6 md:px-8 py-3 md:py-4 rounded-xl text-base md:text-lg font-semibold hover:from-forest-dark hover:to-sage-dark transition-all duration-300 shadow-lg hover:shadow-xl text-center"
+        {/* Desktop: Horizontal Cards */}
+        <div className="hidden gap-8 md:grid md:grid-cols-3">
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              className="group rounded-2xl border border-slate-100 bg-white p-6 text-center shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            >
+              <div
+                className={`mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br ${step.colorGradient} text-2xl font-bold text-white shadow-lg transition-transform group-hover:scale-110`}
               >
-                Start Free Assessment
-              </a>
-              <a 
-                href="/specialists"
-                className="border-2 border-forest text-forest px-6 md:px-8 py-3 md:py-4 rounded-xl text-base md:text-lg font-semibold hover:bg-forest hover:text-white transition-all duration-300 text-center"
-              >
-                Meet Specialists
-              </a>
+                {step.number}
+              </div>
+              <h3 className="mb-3 text-xl font-bold text-slate-800">
+                {step.title}
+              </h3>
+              <p className="leading-relaxed text-slate-600">
+                {step.description}
+              </p>
             </div>
-          </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-8 text-center md:mt-12">
+          <a
+            href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="from-forest to-sage inline-flex items-center gap-2 rounded-xl bg-gradient-to-r px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl md:px-8 md:py-4 md:text-base"
+          >
+            Start Your Journey
+            <svg
+              className="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </a>
         </div>
       </div>
     </section>

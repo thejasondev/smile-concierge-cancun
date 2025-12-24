@@ -28,26 +28,25 @@ const Footer: React.FC = () => {
                   </span>
                 </h3>
               </a>
-              <p className="text-cream/80 mb-6 hidden max-w-md leading-relaxed md:block">
+              <p className="text-cream/80 mb-4 max-w-md text-sm leading-relaxed md:mb-6 md:text-base">
                 A luxury dental experience, guided by Cancun's most experienced
-                and trusted specialists. We bring together exceptional expertise
-                and state-of-the-art technology for natural, lasting results.
+                and trusted specialists.
               </p>
             </div>
 
             {/* CTA Section */}
-            <div className="from-forest to-sage mb-6 rounded-2xl bg-gradient-to-r p-6">
-              <h4 className="mb-3 hidden text-xl font-semibold text-white md:block">
+            <div className="from-forest to-sage mb-6 rounded-2xl bg-gradient-to-r p-4 md:p-6">
+              <h4 className="mb-2 text-base font-semibold text-white md:mb-3 md:text-xl">
                 Ready to Transform Your Smile?
               </h4>
-              <p className="text-cream mb-4 hidden text-sm md:block">
+              <p className="text-cream mb-3 text-xs md:mb-4 md:text-sm">
                 Get your free assessment and start your journey today.
               </p>
               <a
                 href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-forest hover:bg-sand inline-block rounded-lg bg-white px-6 py-2 font-semibold transition-colors duration-200"
+                className="text-forest hover:bg-sand inline-block rounded-lg bg-white px-5 py-2 text-sm font-semibold transition-colors duration-200 md:px-6"
               >
                 Get Free Assessment
               </a>
