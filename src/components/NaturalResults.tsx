@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 
 interface ResultImage {
   image: string;
@@ -16,8 +16,11 @@ const ImageLightbox: React.FC<{
   onClose: () => void;
   onNavigate: (index: number) => void;
 }> = ({ images, currentIndex, isOpen, onClose, onNavigate }) => {
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  // Use refs instead of state for better performance
+  const touchStartX = useRef<number>(0);
+  const touchStartY = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
+  const isSwiping = useRef<boolean>(false);
 
   // Handle keyboard navigation
   useEffect(() => {
@@ -47,21 +50,32 @@ const ImageLightbox: React.FC<{
     };
   }, [isOpen]);
 
-  // Touch handlers for swipe navigation
+  // Touch handlers for swipe navigation - fixed with refs
   const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
+    touchStartX.current = e.targetTouches[0].clientX;
+    touchStartY.current = e.targetTouches[0].clientY;
+    touchEndX.current = e.targetTouches[0].clientX; // Initialize with start
+    isSwiping.current = false;
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
+    touchEndX.current = e.targetTouches[0].clientX;
+    const currentY = e.targetTouches[0].clientY;
+
+    const deltaX = Math.abs(touchEndX.current - touchStartX.current);
+    const deltaY = Math.abs(currentY - touchStartY.current);
+
+    // Only swipe if horizontal movement > vertical
+    if (deltaX > deltaY && deltaX > 10) {
+      isSwiping.current = true;
+    }
   };
 
   const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
+    if (!isSwiping.current) return;
 
-    const distance = touchStart - touchEnd;
-    const minSwipeDistance = 50;
+    const distance = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 30; // Reduced for sensitivity
 
     if (Math.abs(distance) > minSwipeDistance) {
       if (distance > 0) {
