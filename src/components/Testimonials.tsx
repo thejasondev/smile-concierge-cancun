@@ -9,6 +9,7 @@ const Testimonials: React.FC = () => {
       shortText: 'Amazing natural-looking veneers. Professional team!',
       rating: 5,
       treatment: 'Veneers',
+      image: '/reviews/Sarah-Johnson-pic.webp',
     },
     {
       name: 'Michael Chen',
@@ -17,6 +18,7 @@ const Testimonials: React.FC = () => {
       shortText: 'Complete smile transformation. Incredible results!',
       rating: 5,
       treatment: 'All-on-4',
+      image: '/reviews/Michael-Chen-pic.webp',
     },
     {
       name: 'Emma Rodriguez',
@@ -25,6 +27,7 @@ const Testimonials: React.FC = () => {
       shortText: 'True artists! Implants feel completely natural.',
       rating: 5,
       treatment: 'Implants',
+      image: '/reviews/Emma-Rodriguez-pic.webp',
     },
   ];
 
@@ -91,14 +94,21 @@ const Testimonials: React.FC = () => {
                       "{testimonial.shortText}"
                     </blockquote>
 
-                    {/* Patient Info */}
-                    <div className="border-t border-white/20 pt-3">
-                      <h4 className="text-sm font-semibold text-slate-800">
-                        {testimonial.name}
-                      </h4>
-                      <p className="text-xs text-slate-500">
-                        {testimonial.location}
-                      </p>
+                    {/* Patient Info with Photo */}
+                    <div className="flex items-center gap-3 border-t border-white/20 pt-3">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className={`h-10 w-10 rounded-full object-cover ring-2 ${index === 0 ? 'ring-forest/30' : index === 1 ? 'ring-sage/30' : 'ring-forest-light/30'}`}
+                      />
+                      <div>
+                        <h4 className="text-sm font-semibold text-slate-800">
+                          {testimonial.name}
+                        </h4>
+                        <p className="text-xs text-slate-500">
+                          {testimonial.location}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -176,14 +186,21 @@ const Testimonials: React.FC = () => {
                   "{testimonial.text}"
                 </blockquote>
 
-                {/* Simplified Patient Info */}
-                <div className="border-t border-white/20 pt-4 md:pt-6">
-                  <h4 className="text-sm font-semibold text-slate-800 md:text-base">
-                    {testimonial.name}
-                  </h4>
-                  <p className="text-xs text-slate-500 md:text-sm">
-                    {testimonial.location}
-                  </p>
+                {/* Patient Info with Photo */}
+                <div className="flex items-center gap-4 border-t border-white/20 pt-4 md:pt-6">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className={`h-12 w-12 rounded-full object-cover ring-2 ${index === 0 ? 'ring-forest/30' : index === 1 ? 'ring-sage/30' : 'ring-forest-light/30'}`}
+                  />
+                  <div>
+                    <h4 className="text-sm font-semibold text-slate-800 md:text-base">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-xs text-slate-500 md:text-sm">
+                      {testimonial.location}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

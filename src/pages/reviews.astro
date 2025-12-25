@@ -12,8 +12,10 @@ const featuredTestimonials = [
     treatment: '8 Porcelain Veneers',
     doctor: 'Dr. Vázquez',
     rating: 5,
-    quote: 'I was nervous about dental tourism, but Smile Concierge Cancun exceeded every expectation. Dr. Vázquez created the most natural-looking veneers I could have imagined. The entire team made me feel comfortable throughout my stay, and the results are absolutely stunning. I\'ve received so many compliments on my smile!',
-    color: 'forest'
+    quote:
+      "I was nervous about dental tourism, but Smile Concierge Cancun exceeded every expectation. Dr. Vázquez created the most natural-looking veneers I could have imagined. The entire team made me feel comfortable throughout my stay, and the results are absolutely stunning. I've received so many compliments on my smile!",
+    color: 'forest',
+    image: '/reviews/Sarah-Johnson-pic.webp',
   },
   {
     id: 2,
@@ -22,9 +24,11 @@ const featuredTestimonials = [
     treatment: 'Full Mouth Dental Implants',
     doctor: 'Dr. Pavón',
     rating: 5,
-    quote: 'After years of hiding my smile, I finally took the leap with Smile Concierge Cancun. Dr. Pavón and his team are true artists. My dental implants look and feel exactly like my natural teeth. The luxury care and attention to detail was exceptional. I can\'t stop smiling now!',
-    color: 'sage'
-  }
+    quote:
+      "After years of hiding my smile, I finally took the leap with Smile Concierge Cancun. Dr. Pavón and his team are true artists. My dental implants look and feel exactly like my natural teeth. The luxury care and attention to detail was exceptional. I can't stop smiling now!",
+    color: 'sage',
+    image: '/reviews/Emma-Rodriguez-pic.webp',
+  },
 ];
 
 // Regular testimonials data
@@ -35,8 +39,10 @@ const regularTestimonials = [
     location: 'Toronto, Canada',
     treatment: 'Dental Crowns',
     rating: 5,
-    quote: 'Professional, caring, and the results are amazing. My crowns look completely natural!',
-    color: 'emerald'
+    quote:
+      'Professional, caring, and the results are amazing. My crowns look completely natural!',
+    color: 'emerald',
+    image: '/reviews/Michael-Chen-pic.webp',
   },
   {
     id: 4,
@@ -44,8 +50,10 @@ const regularTestimonials = [
     location: 'London, UK',
     treatment: 'Smile Makeover',
     rating: 5,
-    quote: 'The whole experience was seamless. Great communication and incredible results!',
-    color: 'forest'
+    quote:
+      'The whole experience was seamless. Great communication and incredible results!',
+    color: 'forest',
+    image: '/reviews/Lisa-Thompson-pic.webp',
   },
   {
     id: 5,
@@ -53,53 +61,55 @@ const regularTestimonials = [
     location: 'Miami, USA',
     treatment: 'Veneers',
     rating: 5,
-    quote: 'Best decision I ever made. The team made me feel comfortable and confident throughout.',
-    color: 'sage'
-  }
+    quote:
+      'Best decision I ever made. The team made me feel comfortable and confident throughout.',
+    color: 'sage',
+    image: '/reviews/David-Martinez-pic.webp',
+  },
 ];
 
 // Video testimonials data
 const videoTestimonials = [
   {
     id: 1,
-    name: 'Sarah\'s Story',
+    name: "Sarah's Story",
     treatment: 'Porcelain Veneers',
-    color: 'forest'
+    color: 'forest',
   },
   {
     id: 2,
-    name: 'Michael\'s Journey',
+    name: "Michael's Journey",
     treatment: 'Full Mouth Restoration',
-    color: 'sage'
+    color: 'sage',
   },
   {
     id: 3,
-    name: 'Emma\'s Experience',
+    name: "Emma's Experience",
     treatment: 'Dental Implants',
-    color: 'forest-light'
-  }
+    color: 'forest-light',
+  },
 ];
 
 // Trust indicators - Updated with current content
 const trustIndicators = [
-  { 
-    value: '500+', 
-    label: 'Happy Patients', 
+  {
+    value: '500+',
+    label: 'Happy Patients',
     colorGradient: 'from-forest to-forest-dark',
-    useGradient: true
+    useGradient: true,
   },
-  { 
-    value: '4.9★', 
-    label: 'Average Rating', 
+  {
+    value: '4.9★',
+    label: 'Average Rating',
     color: 'forest',
-    useGradient: false
+    useGradient: false,
   },
-  { 
-    value: '100%', 
-    label: 'Satisfaction', 
+  {
+    value: '100%',
+    label: 'Satisfaction',
     colorGradient: 'from-forest-light to-sage',
-    useGradient: true
-  }
+    useGradient: true,
+  },
 ];
 ---
 
@@ -107,132 +117,223 @@ const trustIndicators = [
   <Header client:load />
   <main>
     <!-- Hero Section - Glassmorphism -->
-    <section class="relative bg-gradient-to-br from-cream via-sand/30 to-white py-12 md:py-20 overflow-hidden">
+    <section
+      class="from-cream via-sand/30 relative overflow-hidden bg-gradient-to-br to-white py-12 md:py-20"
+    >
       <!-- Background Pattern -->
       <div class="absolute inset-0 opacity-30">
-        <div class="absolute top-10 left-10 w-32 h-32 bg-forest/20 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-10 right-10 w-40 h-40 bg-sage/20 rounded-full blur-3xl"></div>
+        <div
+          class="bg-forest/20 absolute top-10 left-10 h-32 w-32 rounded-full blur-3xl"
+        >
+        </div>
+        <div
+          class="bg-sage/20 absolute right-10 bottom-10 h-40 w-40 rounded-full blur-3xl"
+        >
+        </div>
       </div>
-      
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8 md:mb-16">
-          <div class="inline-flex items-center gap-2 bg-white/70 backdrop-blur-xl px-4 py-2 rounded-full border border-white/40 shadow-lg mb-6">
-            <svg class="w-5 h-5 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-8 text-center md:mb-16">
+          <div
+            class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/70 px-4 py-2 shadow-lg backdrop-blur-xl"
+          >
+            <svg
+              class="text-forest h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+              ></path>
             </svg>
-            <span class="text-sm font-semibold text-slate-700">Patient Reviews</span>
+            <span class="text-sm font-semibold text-slate-700"
+              >Patient Reviews</span
+            >
           </div>
-          
-          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4 md:mb-6 leading-tight">
+
+          <h1
+            class="mb-4 text-3xl leading-tight font-bold text-slate-800 md:mb-6 md:text-4xl lg:text-5xl"
+          >
             Real Stories, Real Transformations
           </h1>
-          <p class="text-base md:text-xl text-slate-600 max-w-2xl md:max-w-3xl mx-auto mb-6 md:mb-8 leading-relaxed">
+          <p
+            class="mx-auto mb-6 max-w-2xl text-base leading-relaxed text-slate-600 md:mb-8 md:max-w-3xl md:text-xl"
+          >
             Discover why over 500 patients from around the world
-            <span class="hidden md:inline"> have trusted us with their smile transformations in beautiful Cancun</span>
+            <span class="hidden md:inline">
+              have trusted us with their smile transformations in beautiful
+              Cancun</span
+            >
           </p>
-          
-          <div class="flex flex-wrap justify-center items-center gap-4 md:gap-8">
-            {trustIndicators.map((indicator) => (
-              <div class="bg-white/70 backdrop-blur-xl px-5 py-3 rounded-2xl border border-white/40 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div class={`text-2xl md:text-3xl font-bold ${indicator.useGradient ? `bg-gradient-to-br ${indicator.colorGradient} bg-clip-text text-transparent` : `text-${indicator.color}`}`}>
-                  {indicator.value}
+
+          <div
+            class="flex flex-wrap items-center justify-center gap-4 md:gap-8"
+          >
+            {
+              trustIndicators.map((indicator) => (
+                <div class="rounded-2xl border border-white/40 bg-white/70 px-5 py-3 shadow-lg backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                  <div
+                    class={`text-2xl font-bold md:text-3xl ${indicator.useGradient ? `bg-gradient-to-br ${indicator.colorGradient} bg-clip-text text-transparent` : `text-${indicator.color}`}`}
+                  >
+                    {indicator.value}
+                  </div>
+                  <div class="text-xs font-medium text-slate-700 md:text-sm">
+                    {indicator.label}
+                  </div>
                 </div>
-                <div class="text-xs md:text-sm text-slate-700 font-medium">{indicator.label}</div>
-              </div>
-            ))}
+              ))
+            }
           </div>
         </div>
       </div>
     </section>
 
     <!-- Featured Reviews - Glassmorphism -->
-    <section class="py-12 md:py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8 md:mb-16">
-          <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
+    <section class="bg-white py-12 md:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-8 text-center md:mb-16">
+          <h2
+            class="mb-4 text-2xl font-bold text-slate-800 md:text-3xl lg:text-4xl"
+          >
             Featured Patient Stories
           </h2>
         </div>
 
-        <div class="grid lg:grid-cols-2 gap-12 mb-16">
-          {featuredTestimonials.map((testimonial) => (
-            <div class={`group relative bg-white/60 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden`}>
-              <div class={`absolute inset-0 bg-gradient-to-br from-${testimonial.color}/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-              <div class="relative">
-                <div class="flex mb-6">
-                  {Array.from({length: testimonial.rating}).map(() => (
-                    <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                    </svg>
-                  ))}
-                </div>
-                
-                <blockquote class="text-lg text-slate-700 mb-6 italic leading-relaxed">
-                  "{testimonial.quote}"
-                </blockquote>
-                
-                <div class="flex items-center justify-between border-t border-white/20 pt-6">
-                  <div>
-                    <h4 class="font-semibold text-slate-800">{testimonial.name}</h4>
-                    <p class="text-sm text-slate-600">{testimonial.location}</p>
-                    <p class={`text-sm font-bold bg-gradient-to-r from-${testimonial.color} to-${testimonial.color}-dark bg-clip-text text-transparent`}>
-                      {testimonial.treatment}
-                    </p>
+        <div class="mb-16 grid gap-12 lg:grid-cols-2">
+          {
+            featuredTestimonials.map((testimonial) => (
+              <div
+                class={`group relative overflow-hidden rounded-3xl border border-white/40 bg-white/60 p-6 shadow-xl backdrop-blur-xl transition-all duration-300 hover:shadow-2xl md:p-8`}
+              >
+                <div
+                  class={`absolute inset-0 bg-gradient-to-br from-${testimonial.color}/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
+                />
+                <div class="relative">
+                  <div class="mb-6 flex">
+                    {Array.from({ length: testimonial.rating }).map(() => (
+                      <svg
+                        class="h-6 w-6 text-amber-400"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
                   </div>
-                  <div class="text-right">
-                    <span class={`inline-block bg-${testimonial.color}/10 text-${testimonial.color} text-xs px-3 py-1 rounded-full font-semibold`}>
-                      {testimonial.doctor}
-                    </span>
+
+                  <blockquote class="mb-6 text-lg leading-relaxed text-slate-700 italic">
+                    "{testimonial.quote}"
+                  </blockquote>
+
+                  <div class="flex items-center justify-between border-t border-white/20 pt-6">
+                    <div class="flex items-center gap-4">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        class={`h-12 w-12 rounded-full object-cover ring-2 ring-${testimonial.color}/30 md:h-14 md:w-14`}
+                      />
+                      <div>
+                        <h4 class="font-semibold text-slate-800">
+                          {testimonial.name}
+                        </h4>
+                        <p class="text-sm text-slate-600">
+                          {testimonial.location}
+                        </p>
+                        <p
+                          class={`bg-gradient-to-r text-sm font-bold from-${testimonial.color} to-${testimonial.color}-dark bg-clip-text text-transparent`}
+                        >
+                          {testimonial.treatment}
+                        </p>
+                      </div>
+                    </div>
+                    <div class="text-right">
+                      <span
+                        class={`inline-block bg-${testimonial.color}/10 text-${testimonial.color} rounded-full px-3 py-1 text-xs font-semibold`}
+                      >
+                        {testimonial.doctor}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
     </section>
 
     <!-- All Reviews Grid - Glassmorphism -->
-    <section class="py-12 md:py-20 bg-gradient-to-br from-sand via-cream to-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+    <section
+      class="from-sand via-cream bg-gradient-to-br to-white py-12 md:py-20"
+    >
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-16 text-center">
+          <h2 class="mb-4 text-3xl font-bold text-slate-800 md:text-4xl">
             More Patient Experiences
           </h2>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {regularTestimonials.map((testimonial) => (
-            <div class={`group relative bg-white/60 backdrop-blur-xl rounded-2xl p-5 md:p-6 border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden`}>
-              <div class={`absolute inset-0 bg-gradient-to-br from-${testimonial.color}/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-              <div class="relative">
-                <div class="flex mb-4">
-                  {Array.from({length: testimonial.rating}).map(() => (
-                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                    </svg>
-                  ))}
-                </div>
-                
-                <blockquote class="text-slate-600 mb-4 italic">
-                  "{testimonial.quote}"
-                </blockquote>
-                
-                <div class="border-t border-white/20 pt-4">
-                  <h4 class="font-semibold text-slate-800">{testimonial.name}</h4>
-                  <p class="text-sm text-slate-600">{testimonial.location}</p>
-                  <span class={`inline-block bg-${testimonial.color}/10 text-${testimonial.color} text-xs px-2 py-1 rounded-full font-semibold mt-2`}>
-                    {testimonial.treatment}
-                  </span>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {
+            regularTestimonials.map((testimonial) => (
+              <div
+                class={`group relative overflow-hidden rounded-2xl border border-white/40 bg-white/60 p-5 shadow-xl backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl md:p-6`}
+              >
+                <div
+                  class={`absolute inset-0 bg-gradient-to-br from-${testimonial.color}/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
+                />
+                <div class="relative">
+                  <div class="mb-4 flex">
+                    {Array.from({ length: testimonial.rating }).map(() => (
+                      <svg
+                        class="h-4 w-4 text-amber-400"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+
+                  <blockquote class="mb-4 text-slate-600 italic">
+                    "{testimonial.quote}"
+                  </blockquote>
+
+                  <div class="flex items-center gap-3 border-t border-white/20 pt-4">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      class={`h-10 w-10 rounded-full object-cover ring-2 ring-${testimonial.color}/30`}
+                    />
+                    <div>
+                      <h4 class="font-semibold text-slate-800">
+                        {testimonial.name}
+                      </h4>
+                      <p class="text-sm text-slate-600">
+                        {testimonial.location}
+                      </p>
+                      <span
+                        class={`inline-block bg-${testimonial.color}/10 text-${testimonial.color} mt-1 rounded-full px-2 py-0.5 text-xs font-semibold`}
+                      >
+                        {testimonial.treatment}
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
 
         <!-- Load More -->
-        <div class="text-center mt-8 md:mt-12">
-          <button class="bg-gradient-to-r from-forest to-sage text-white px-6 md:px-8 py-3 md:py-3.5 rounded-2xl text-sm md:text-base font-bold hover:from-forest-dark hover:to-sage-dark transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+        <div class="mt-8 text-center md:mt-12">
+          <button
+            class="from-forest to-sage hover:from-forest-dark hover:to-sage-dark rounded-2xl bg-gradient-to-r px-6 py-3 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl md:px-8 md:py-3.5 md:text-base"
+          >
             Load More Reviews
           </button>
         </div>
@@ -240,61 +341,109 @@ const trustIndicators = [
     </section>
 
     <!-- Video Testimonials - Glassmorphism -->
-    <section class="py-12 md:py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8 md:mb-16">
-          <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
+    <section class="bg-white py-12 md:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-8 text-center md:mb-16">
+          <h2
+            class="mb-4 text-2xl font-bold text-slate-800 md:text-3xl lg:text-4xl"
+          >
             Video Testimonials
           </h2>
-          <p class="text-base md:text-xl text-slate-600 leading-relaxed">
+          <p class="text-base leading-relaxed text-slate-600 md:text-xl">
             Hear directly from our patients about their transformation journey.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {videoTestimonials.map((video) => (
-            <div class={`relative bg-gradient-to-br from-${video.color}/10 to-${video.id === 1 ? 'sage' : video.id === 2 ? 'forest-light' : 'sage'}/10 backdrop-blur-sm rounded-2xl aspect-video flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden cursor-pointer`}>
-              <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
-              <div class="relative text-center">
-                <div class="w-16 h-16 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg hover:scale-110 transition-transform duration-300">
-                  <svg class={`w-8 h-8 text-${video.color}`} fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
-                  </svg>
+        <div
+          class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3"
+        >
+          {
+            videoTestimonials.map((video) => (
+              <div
+                class={`relative bg-gradient-to-br from-${video.color}/10 to-${video.id === 1 ? 'sage' : video.id === 2 ? 'forest-light' : 'sage'}/10 flex aspect-video cursor-pointer items-center justify-center overflow-hidden rounded-2xl shadow-xl backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-2xl`}
+              >
+                <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
+                <div class="relative text-center">
+                  <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/80 shadow-lg backdrop-blur-sm transition-transform duration-300 hover:scale-110">
+                    <svg
+                      class={`h-8 w-8 text-${video.color}`}
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <p class={`text-${video.color} text-base font-bold`}>
+                    {video.name}
+                  </p>
+                  <p
+                    class={`text-${video.id === 1 ? 'forest-light' : video.id === 2 ? 'sage-light' : 'sage'} text-sm font-medium`}
+                  >
+                    {video.treatment}
+                  </p>
                 </div>
-                <p class={`text-${video.color} font-bold text-base`}>{video.name}</p>
-                <p class={`text-${video.id === 1 ? 'forest-light' : video.id === 2 ? 'sage-light' : 'sage'} font-medium text-sm`}>{video.treatment}</p>
               </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
     </section>
 
     <!-- CTA Section - Modern -->
-    <section class="relative py-12 md:py-20 bg-gradient-to-br from-forest via-sage to-forest-light overflow-hidden">
+    <section
+      class="from-forest via-sage to-forest-light relative overflow-hidden bg-gradient-to-br py-12 md:py-20"
+    >
       <!-- Background Pattern -->
       <div class="absolute inset-0 opacity-10">
-        <div class="absolute top-4 left-4 w-20 h-20 bg-white rounded-full blur-2xl"></div>
-        <div class="absolute top-20 right-8 w-16 h-16 bg-white rounded-full blur-2xl"></div>
-        <div class="absolute bottom-8 left-12 w-24 h-24 bg-white rounded-full blur-2xl"></div>
-        <div class="absolute bottom-16 right-4 w-12 h-12 bg-white rounded-full blur-2xl"></div>
+        <div
+          class="absolute top-4 left-4 h-20 w-20 rounded-full bg-white blur-2xl"
+        >
+        </div>
+        <div
+          class="absolute top-20 right-8 h-16 w-16 rounded-full bg-white blur-2xl"
+        >
+        </div>
+        <div
+          class="absolute bottom-8 left-12 h-24 w-24 rounded-full bg-white blur-2xl"
+        >
+        </div>
+        <div
+          class="absolute right-4 bottom-16 h-12 w-12 rounded-full bg-white blur-2xl"
+        >
+        </div>
       </div>
-      
-      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 md:mb-6 leading-tight">
+
+      <div class="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+        <h2
+          class="mb-4 text-2xl leading-tight font-bold text-white md:mb-6 md:text-3xl lg:text-4xl"
+        >
           Ready to Join Our Success Stories?
         </h2>
-        <p class="text-base md:text-xl text-white/90 mb-6 md:mb-8 leading-relaxed">
-          Start your transformation journey with a free assessment from our specialists.
+        <p
+          class="mb-6 text-base leading-relaxed text-white/90 md:mb-8 md:text-xl"
+        >
+          Start your transformation journey with a free assessment from our
+          specialists.
         </p>
-        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
-          <a href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="bg-white text-forest px-6 md:px-8 py-3 md:py-4 rounded-2xl text-base md:text-lg font-bold hover:bg-sand transition-all duration-300 shadow-lg hover:shadow-xl text-center transform hover:scale-105">
+        <div
+          class="mx-auto flex max-w-md flex-col justify-center gap-3 sm:max-w-none sm:flex-row sm:gap-4"
+        >
+          <a
+            href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-forest hover:bg-sand transform rounded-2xl bg-white px-6 py-3 text-center text-base font-bold shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl md:px-8 md:py-4 md:text-lg"
+          >
             Get Your Free Assessment
           </a>
-          <a href="/results" class="border-2 border-white text-white px-6 md:px-8 py-3 md:py-4 rounded-2xl text-base md:text-lg font-bold hover:bg-white hover:text-forest transition-all duration-300 text-center transform hover:scale-105">
+          <a
+            href="/results"
+            class="hover:text-forest transform rounded-2xl border-2 border-white px-6 py-3 text-center text-base font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-white md:px-8 md:py-4 md:text-lg"
+          >
             View More Results
           </a>
         </div>
