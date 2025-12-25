@@ -6,6 +6,12 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ className = '' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState('');
+
+  // Get current path on mount
+  useEffect(() => {
+    setCurrentPath(window.location.pathname);
+  }, []);
 
   // Prevent body scroll when menu is open
   useEffect(() => {
@@ -18,6 +24,12 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
       document.body.style.overflow = 'unset';
     };
   }, [isMenuOpen]);
+
+  // Check if path is active
+  const isActive = (href: string) => {
+    if (href === '/') return currentPath === '/';
+    return currentPath.startsWith(href);
+  };
 
   const menuItems = [
     {
@@ -120,43 +132,45 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
                 />
               </div>
 
-              {/* Brand Name - Hidden on mobile, visible on md+ */}
-              <span className="hidden text-lg font-bold transition-colors duration-200 md:block lg:text-xl">
-                <span className="text-forest group-hover:text-sage-dark">
-                  Smile Concierge{' '}
+              {/* Brand Name - Stacked on mobile, inline on desktop */}
+              <div className="flex flex-col transition-colors duration-200">
+                <span className="text-sm leading-tight font-bold md:text-lg lg:text-xl">
+                  <span className="text-forest group-hover:text-sage-dark">
+                    Smile Concierge
+                  </span>
+                  <span className="text-sage group-hover:text-forest hidden md:inline">
+                    {' '}
+                    Cancun
+                  </span>
                 </span>
-                <span className="text-sage group-hover:text-forest">
+                {/* Cancun - Second line on mobile only */}
+                <span className="from-sage to-forest-light bg-gradient-to-r bg-clip-text text-[10px] font-semibold tracking-widest text-transparent uppercase md:hidden">
                   Cancun
                 </span>
-              </span>
+              </div>
             </a>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation with Active Indicator */}
             <nav className="hidden items-center space-x-8 lg:flex">
-              <a
-                href="/specialists"
-                className="hover:text-forest font-medium text-slate-600 transition-colors duration-200"
-              >
-                Specialists
-              </a>
-              <a
-                href="/results"
-                className="hover:text-forest font-medium text-slate-600 transition-colors duration-200"
-              >
-                Results
-              </a>
-              <a
-                href="/process"
-                className="hover:text-forest font-medium text-slate-600 transition-colors duration-200"
-              >
-                Process
-              </a>
-              <a
-                href="/about"
-                className="hover:text-forest font-medium text-slate-600 transition-colors duration-200"
-              >
-                About Us
-              </a>
+              {menuItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className={`relative font-medium transition-colors duration-200 ${
+                    isActive(item.href)
+                      ? 'text-forest'
+                      : 'hover:text-forest text-slate-600'
+                  }`}
+                >
+                  {item.label}
+                  {/* Active Indicator - Animated Underline */}
+                  <span
+                    className={`bg-forest absolute -bottom-1 left-0 h-0.5 transition-all duration-300 ${
+                      isActive(item.href) ? 'w-full' : 'w-0'
+                    }`}
+                  />
+                </a>
+              ))}
               <div className="border-l border-slate-200 pl-8">
                 <a
                   href="https://wa.me/529983889184?text=Hello!%20I'm%20interested%20in%20receiving%20a%20free%20dental%20assessment.%20I%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20how%20you%20can%20help%20me%20achieve%20my%20perfect%20smile.%20Thank%20you!"
@@ -275,7 +289,11 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`group flex items-center gap-4 rounded-2xl border bg-white/80 p-4 hover:bg-white ${colorClasses.border} transform shadow-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-lg`}
+                  className={`group flex transform items-center gap-4 rounded-2xl border p-4 shadow-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-lg ${
+                    isActive(item.href)
+                      ? `${colorClasses.bg} border-${item.color}/40 bg-opacity-100`
+                      : `bg-white/80 hover:bg-white ${colorClasses.border}`
+                  }`}
                   style={{
                     animationDelay: `${index * 50}ms`,
                     animation: isMenuOpen
@@ -289,23 +307,50 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
                     {item.icon}
                   </div>
                   <div className="flex-1">
-                    <span className="group-hover:text-forest font-semibold text-slate-800 transition-colors duration-300">
+                    <span
+                      className={`font-semibold transition-colors duration-300 ${
+                        isActive(item.href)
+                          ? colorClasses.icon
+                          : 'group-hover:text-forest text-slate-800'
+                      }`}
+                    >
                       {item.label}
                     </span>
+                    {isActive(item.href) && (
+                      <span className="block text-xs text-slate-500">
+                        Current page
+                      </span>
+                    )}
                   </div>
-                  <svg
-                    className="group-hover:text-forest h-5 w-5 text-slate-400 transition-all duration-300 group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
+                  {isActive(item.href) ? (
+                    <svg
+                      className={`h-5 w-5 ${colorClasses.icon}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.5}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      className="group-hover:text-forest h-5 w-5 text-slate-400 transition-all duration-300 group-hover:translate-x-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  )}
                 </a>
               );
             })}

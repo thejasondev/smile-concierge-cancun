@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 interface ResultImage {
   image: string;
@@ -16,12 +16,6 @@ const ImageLightbox: React.FC<{
   onClose: () => void;
   onNavigate: (index: number) => void;
 }> = ({ images, currentIndex, isOpen, onClose, onNavigate }) => {
-  // Use refs instead of state for better performance
-  const touchStartX = useRef<number>(0);
-  const touchStartY = useRef<number>(0);
-  const touchEndX = useRef<number>(0);
-  const isSwiping = useRef<boolean>(false);
-
   // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -50,42 +44,12 @@ const ImageLightbox: React.FC<{
     };
   }, [isOpen]);
 
-  // Touch handlers for swipe navigation - fixed with refs
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.targetTouches[0].clientX;
-    touchStartY.current = e.targetTouches[0].clientY;
-    touchEndX.current = e.targetTouches[0].clientX; // Initialize with start
-    isSwiping.current = false;
+  const goToPrev = () => {
+    onNavigate(currentIndex > 0 ? currentIndex - 1 : images.length - 1);
   };
 
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.targetTouches[0].clientX;
-    const currentY = e.targetTouches[0].clientY;
-
-    const deltaX = Math.abs(touchEndX.current - touchStartX.current);
-    const deltaY = Math.abs(currentY - touchStartY.current);
-
-    // Only swipe if horizontal movement > vertical
-    if (deltaX > deltaY && deltaX > 10) {
-      isSwiping.current = true;
-    }
-  };
-
-  const handleTouchEnd = () => {
-    if (!isSwiping.current) return;
-
-    const distance = touchStartX.current - touchEndX.current;
-    const minSwipeDistance = 30; // Reduced for sensitivity
-
-    if (Math.abs(distance) > minSwipeDistance) {
-      if (distance > 0) {
-        // Swipe left - next image
-        onNavigate(currentIndex < images.length - 1 ? currentIndex + 1 : 0);
-      } else {
-        // Swipe right - previous image
-        onNavigate(currentIndex > 0 ? currentIndex - 1 : images.length - 1);
-      }
-    }
+  const goToNext = () => {
+    onNavigate(currentIndex < images.length - 1 ? currentIndex + 1 : 0);
   };
 
   if (!isOpen) return null;
@@ -125,7 +89,7 @@ const ImageLightbox: React.FC<{
       <button
         onClick={(e) => {
           e.stopPropagation();
-          onNavigate(currentIndex > 0 ? currentIndex - 1 : images.length - 1);
+          goToPrev();
         }}
         className="absolute left-4 z-20 hidden h-14 w-14 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/20 md:left-8 lg:flex"
         aria-label="Previous image"
@@ -148,7 +112,7 @@ const ImageLightbox: React.FC<{
       <button
         onClick={(e) => {
           e.stopPropagation();
-          onNavigate(currentIndex < images.length - 1 ? currentIndex + 1 : 0);
+          goToNext();
         }}
         className="absolute right-4 z-20 hidden h-14 w-14 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/20 md:right-8 lg:flex"
         aria-label="Next image"
@@ -172,9 +136,6 @@ const ImageLightbox: React.FC<{
       <div
         className="relative z-10 flex w-full max-w-[95vw] flex-col md:max-w-3xl lg:max-w-4xl"
         onClick={(e) => e.stopPropagation()}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
       >
         {/* Mobile Header with Close Button */}
         <div className="mb-3 flex items-center justify-between md:hidden">
@@ -202,7 +163,7 @@ const ImageLightbox: React.FC<{
           </button>
         </div>
 
-        {/* Main Image Card */}
+        {/* Main Image Card with Tap Navigation Zones */}
         <div className="relative overflow-hidden rounded-2xl bg-white shadow-2xl md:rounded-3xl">
           {/* Desktop Counter Badge */}
           <div className="absolute top-4 left-4 z-10 hidden rounded-full bg-black/50 px-4 py-1.5 backdrop-blur-sm md:block">
@@ -211,11 +172,72 @@ const ImageLightbox: React.FC<{
             </span>
           </div>
 
-          <img
-            src={current.image}
-            alt={`${current.title} - Before and After`}
-            className="max-h-[50vh] w-full object-contain md:max-h-[70vh]"
-          />
+          {/* Image with Tap Zones for Mobile */}
+          <div className="relative">
+            <img
+              src={current.image}
+              alt={`${current.title} - Before and After`}
+              className="max-h-[50vh] w-full object-contain md:max-h-[70vh]"
+            />
+
+            {/* Mobile Tap Zones - invisible but tappable */}
+            <div className="absolute inset-0 flex md:hidden">
+              {/* Left tap zone - Previous */}
+              <button
+                onClick={goToPrev}
+                className="h-full w-1/3 focus:outline-none"
+                aria-label="Previous image"
+              />
+              {/* Center - no action */}
+              <div className="h-full w-1/3" />
+              {/* Right tap zone - Next */}
+              <button
+                onClick={goToNext}
+                className="h-full w-1/3 focus:outline-none"
+                aria-label="Next image"
+              />
+            </div>
+          </div>
+
+          {/* Mobile Navigation Arrows - Sides of Image, vertically centered */}
+          <button
+            onClick={goToPrev}
+            className="absolute top-1/2 left-2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-all active:scale-95 md:hidden"
+            aria-label="Previous"
+          >
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            onClick={goToNext}
+            className="absolute top-1/2 right-2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-all active:scale-95 md:hidden"
+            aria-label="Next"
+          >
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
 
           {/* Image Info */}
           <div className="border-t border-slate-100 bg-white p-3 md:p-6">
@@ -264,7 +286,7 @@ const ImageLightbox: React.FC<{
             ))}
           </div>
 
-          {/* Swipe Hint - Mobile only */}
+          {/* Tap Hint - Mobile only */}
           <span className="flex items-center gap-1.5 text-xs text-white/60 md:hidden">
             <svg
               className="h-4 w-4"
@@ -276,23 +298,10 @@ const ImageLightbox: React.FC<{
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M7 16l-4-4m0 0l4-4m-4 4h18"
+                d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
               />
             </svg>
-            Swipe to navigate
-            <svg
-              className="h-4 w-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
+            Tap arrows or dots to navigate
           </span>
 
           {/* Keyboard Hint - Desktop only */}
