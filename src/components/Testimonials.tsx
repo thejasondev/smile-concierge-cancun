@@ -12,13 +12,13 @@ const Testimonials: React.FC = () => {
       image: '/reviews/Sarah-Johnson-pic.webp',
     },
     {
-      name: 'Michael Chen',
-      location: 'Toronto, Canada',
+      name: 'David Martinez',
+      location: 'Miami, USA',
       text: 'Dr. García completely transformed my teeth. The All-on-4 procedure was seamless, and the results look incredibly natural.',
       shortText: 'Complete smile transformation. Incredible results!',
       rating: 5,
       treatment: 'All-on-4',
-      image: '/reviews/Michael-Chen-pic.webp',
+      image: '/reviews/David-Martinez-pic.webp',
     },
     {
       name: 'Emma Rodriguez',
