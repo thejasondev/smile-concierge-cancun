@@ -20,7 +20,7 @@ export interface SpecialistData {
 }
 
 export const specialists: SpecialistData[] = [
-    {
+  {
     name: 'Dr. Ambar Vázquez',
     shortName: 'Dr. Vázquez',
     slug: 'dr-ambar-vazquez',
@@ -149,52 +149,47 @@ export const specialists: SpecialistData[] = [
     image: '/Dr.Pavon/profile-pic.webp',
   },
   {
-    name: 'Dr. Manuel García',
-    shortName: 'Dr. García',
-    slug: 'dr-manuel-garcia',
-    clinic: 'Esencial Dental Cancún',
+    name: 'Dr. Emmanuel Sáenz',
+    shortName: 'Dr. Sáenz',
+    slug: 'dr-emmanuel-saenz',
+    clinic: 'Ambar Vázquez Dental Studio',
     specialty:
-      'Specialist in oral rehabilitation and advanced dental aesthetics',
+      'Specialist in Composite Smile Design – Injected & Layered Techniques',
     bio: [
-      'Expert in full-mouth rehabilitation and complex restorative cases.',
-      'Combines art and science to restore function and beauty to damaged smiles.',
-      'Dr. García specializes in treating patients with bruxism and severe dental wear, using advanced techniques to rebuild and protect teeth.',
-      'His personalized approach ensures each patient receives a treatment plan tailored to their specific needs and aesthetic goals.',
+      'Dr. Emmanuel Sáenz graduated from the Universidad Odontológica del Sur. With strong experience in general dentistry, he discovered his true passion in aesthetic dentistry and smile design.',
+      "He completed a residency at Ambar Vázquez Dental Studio, working closely under the mentorship of Dr. Ámbar Vázquez, one of Mexico's most recognized aesthetic dentists.",
+      'Today, Dr. Sáenz specializes in composite veneer smile designs, mastering both the injected and layered techniques.',
+      'He works alongside Dr. Ámbar at Ambar Vázquez Dental Studio, delivering natural, artistic, and highly detailed smile transformations.',
     ],
-    quote: 'The art of restoring form, function, and beauty to your smile',
+    quote:
+      'Natural, artistic, and highly detailed smile transformations — one layer at a time',
     expertise: [
-      'Full-mouth rehabilitation for patients with bruxism',
-      'Tooth reconstruction using direct and indirect resin techniques',
-      'Personalized smile designs',
-      'Complex restorative dentistry',
+      'Injected composite veneer smile design',
+      'Layered composite veneer smile design',
+      'Aesthetic rehabilitation of molars & posterior teeth',
+      'Advanced composite resin techniques',
     ],
     treatments: [
       {
-        title: 'Full Mouth Rehabilitation',
+        title: 'Aesthetic Rehabilitation of Molars & Posterior Teeth',
         description:
-          'Comprehensive treatment for patients with extensive dental damage. Restores function, aesthetics, and oral health.',
-        price: 'Custom packages available',
-      },
-      {
-        title: 'Bruxism Treatment',
-        description:
-          'Specialized care for patients who grind their teeth. Includes protective restorations and occlusal guards.',
+          'Functional and aesthetic restorations for worn, fractured, or decayed teeth — restoring strength, anatomy, and long-term function while preserving natural structure.',
         price: 'Contact us for evaluation',
       },
       {
-        title: 'Tooth Reconstruction',
+        title: 'Injected Composite Veneer Smile Design',
         description:
-          'Advanced resin techniques to rebuild damaged teeth with natural-looking, durable results.',
-        price: 'Starting at $250 USD per tooth',
+          'Aesthetic veneer technique using natural shades of composite resin. Ideal for patients who want to refine and enhance their smile without major complications such as severe discoloration or significant misalignment.',
+        price: 'Contact us for details',
       },
       {
-        title: 'Smile Makeover',
+        title: 'Layered Composite Veneer Smile Design',
         description:
-          'Complete smile transformation combining multiple treatments for optimal aesthetics and function.',
-        price: 'Custom packages available',
+          'Advanced stratified composite veneer technique that allows us to select natural shades or brighter white tones. Suitable for patients with tooth discoloration or those seeking a more noticeable smile enhancement.',
+        price: 'Contact us for details',
       },
     ],
     color: 'sage',
-    image: '/Dr.Garcia/profile-pic.webp',
+    image: '/Dr.Emmanuel/Dr.Emmanuel.webp',
   },
 ];

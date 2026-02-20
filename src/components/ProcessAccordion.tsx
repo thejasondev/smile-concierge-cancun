@@ -146,11 +146,33 @@ const ProcessAccordion: React.FC = () => {
                 >
                   {step.id}
                 </div>
-                <span
-                  className={`font-semibold ${index === activeStep ? 'text-slate-800' : 'text-slate-600'}`}
-                >
-                  {step.title}
-                </span>
+                <div className="flex flex-col">
+                  <span
+                    className={`font-semibold ${index === activeStep ? 'text-slate-800' : 'text-slate-600'}`}
+                  >
+                    {step.title}
+                  </span>
+                  {step.extraText && (
+                    <div className="mt-1">
+                      <span className="inline-flex items-center gap-1 rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-[10px] font-medium text-amber-700">
+                        <svg
+                          className="h-3 w-3"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                        {step.extraText}
+                      </span>
+                    </div>
+                  )}
+                </div>
               </div>
               <svg
                 className={`h-5 w-5 text-slate-400 transition-transform duration-300 ${
@@ -212,11 +234,6 @@ const ProcessAccordion: React.FC = () => {
                       </li>
                     ))}
                   </ul>
-                  {step.extraText && (
-                    <p className="mt-2 text-xs text-slate-500 italic">
-                      {step.extraText}
-                    </p>
-                  )}
                 </div>
 
                 {/* CTA */}

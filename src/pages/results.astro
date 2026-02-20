@@ -2,48 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.tsx';
 import Footer from '../components/Footer.tsx';
-
-// Results data
-const resultCategories = [
-  { id: 'all', name: 'All Cases', active: true },
-  { id: 'veneers', name: 'Veneers', active: false },
-  { id: 'implants', name: 'Implants', active: false },
-  { id: 'crowns', name: 'Crowns', active: false },
-  { id: 'full-mouth', name: 'Full Mouth', active: false },
-];
-
-const featuredCases = [
-  {
-    id: 1,
-    title: 'Complete Smile Makeover',
-    description:
-      '8 porcelain veneers for a natural, Hollywood-worthy smile transformation.',
-    treatment: 'Porcelain Veneers',
-    doctor: 'Dr. Vázquez',
-    duration: '3 days treatment',
-    color: 'forest',
-  },
-  {
-    id: 2,
-    title: 'Full Mouth Restoration',
-    description:
-      'Complete dental implant solution with natural-looking crowns.',
-    treatment: 'Dental Implants',
-    doctor: 'Dr. Pavón',
-    duration: '5 days treatment',
-    color: 'sage',
-  },
-  {
-    id: 3,
-    title: 'Natural Crown Replacement',
-    description:
-      'Seamless crown and bridge work that blends perfectly with natural teeth.',
-    treatment: 'Crowns & Bridges',
-    doctor: 'Dr. García',
-    duration: '4 days treatment',
-    color: 'forest-light',
-  },
-];
+import ResultsGallery from '../components/ResultsGallery.tsx';
+import { galleryImages } from '../data/galleryImages';
 import {
   generateBreadcrumbSchema,
   generateWebPageSchema,
@@ -157,101 +117,12 @@ const breadcrumbs = [
       </div>
     </section>
 
-    <!-- Filter Section - Glassmorphism -->
-    <section class="bg-white py-8 md:py-12">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-wrap justify-center gap-2 md:gap-3">
-          {
-            resultCategories.map((category) => (
-              <button
-                class={`rounded-full px-4 py-2 text-xs font-semibold transition-all duration-300 md:px-6 md:py-2.5 md:text-sm ${
-                  category.active
-                    ? 'from-forest to-sage scale-105 bg-gradient-to-r text-white shadow-lg hover:shadow-xl'
-                    : 'hover:border-forest/20 border border-white/40 bg-white/60 text-slate-700 shadow-md backdrop-blur-xl hover:scale-105 hover:shadow-lg'
-                }`}
-              >
-                {category.name}
-              </button>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <!-- Results Gallery - Glassmorphism -->
+    <!-- Gallery Section -->
     <section
       class="from-sand via-cream bg-gradient-to-br to-white py-12 md:py-20"
     >
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div
-          class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-8"
-        >
-          {
-            featuredCases.map((caseItem) => (
-              <div class="group relative overflow-hidden rounded-2xl border border-white/40 bg-white/60 shadow-xl backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div
-                  class={`aspect-w-4 aspect-h-3 bg-gradient-to-br from-${caseItem.color}-100/80 relative flex h-48 items-center justify-center overflow-hidden to-cyan-200/80 backdrop-blur-sm md:h-56`}
-                >
-                  <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
-                  <div class="relative p-6 text-center lg:p-8">
-                    <div class="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/80 shadow-lg backdrop-blur-sm transition-transform duration-300 group-hover:scale-110 md:mb-4 md:h-20 md:w-20">
-                      <svg
-                        class={`h-8 w-8 md:h-10 md:w-10 text-${caseItem.color}-600`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        />
-                      </svg>
-                    </div>
-                    <p
-                      class={`text-${caseItem.color}-700 text-sm font-bold md:text-base`}
-                    >
-                      Before & After
-                    </p>
-                    <p
-                      class={`text-xs md:text-sm text-${caseItem.color}-600 font-medium`}
-                    >
-                      {caseItem.treatment}
-                    </p>
-                  </div>
-                </div>
-                <div class="bg-white/40 p-4 backdrop-blur-sm md:p-5 lg:p-6">
-                  <h3 class="mb-2 text-sm font-bold text-slate-800 md:text-base">
-                    {caseItem.title}
-                  </h3>
-                  <p class="mb-4 text-xs leading-relaxed font-medium text-slate-700 md:text-sm">
-                    {caseItem.description}
-                  </p>
-                  <div class="flex items-center justify-between">
-                    <span
-                      class={`text-xs bg-${caseItem.color}-100/80 text-${caseItem.color}-800 rounded-full px-2.5 py-1 font-semibold`}
-                    >
-                      {caseItem.doctor}
-                    </span>
-                    <span class="text-xs font-medium text-slate-600">
-                      {caseItem.duration}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))
-          }
-        </div>
-
-        <!-- Load More -->
-        <div class="mt-8 text-center md:mt-16">
-          <button
-            class="from-forest to-sage hover:from-forest-dark hover:to-sage-dark rounded-2xl bg-gradient-to-r px-6 py-3 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl md:px-8 md:py-3.5 md:text-base"
-          >
-            Load More Cases
-          </button>
-        </div>
+        <ResultsGallery images={galleryImages} client:load />
       </div>
     </section>
 

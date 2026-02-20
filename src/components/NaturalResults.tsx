@@ -320,23 +320,23 @@ const NaturalResults: React.FC = () => {
 
   const results: ResultImage[] = [
     {
-      image: '/resultados/inyecdadas de resina .webp',
+      image: '/resultados/Emax Veneers b-a.webp',
+      title: 'Emax Veneers',
+      treatment: 'Smile Design',
+      specialist: 'Dra. Vázquez',
+      description: 'Natural color matching and translucency',
+    },
+    {
+      image: '/resultados/Injected Composite Veneers b-a .webp',
       title: 'Injected Composite Veneers',
       treatment: 'Smile Design',
       specialist: 'Dra. Vázquez',
       description: 'Natural color matching and translucency',
     },
     {
-      image: '/resultados/inyectadas de resina.webp',
-      title: 'Composite Restoration',
-      treatment: 'Aesthetic Dentistry',
-      specialist: 'Dra. Vázquez',
-      description: 'Seamless integration with natural teeth',
-    },
-    {
-      image: '/resultados/porcelana (1).webp',
-      title: 'Emax Porcelain Veneers',
-      treatment: 'Premium Smile Design',
+      image: '/resultados/Layered Composite Veneers b-a.webp',
+      title: 'Layered Composite Veneers',
+      treatment: 'Smile Design',
       specialist: 'Dra. Vázquez',
       description: 'Perfect translucency and color gradients',
     },

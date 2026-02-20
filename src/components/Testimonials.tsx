@@ -14,10 +14,10 @@ const Testimonials: React.FC = () => {
     {
       name: 'David Martinez',
       location: 'Miami, USA',
-      text: 'Dr. García completely transformed my teeth. The All-on-4 procedure was seamless, and the results look incredibly natural.',
+      text: 'I went to Dr. Emmanuel to get a smile design before my wedding, and the result was incredible. It truly became the best wedding gift I could have given myself. Everyone was amazed at the ceremony. Thank you so much to Dr. Emmanuel and the entire team for making this dream come true.',
       shortText: 'Complete smile transformation. Incredible results!',
       rating: 5,
-      treatment: 'All-on-4',
+      treatment: 'Implants',
       image: '/reviews/David-Martinez-pic.webp',
     },
     {
@@ -26,7 +26,7 @@ const Testimonials: React.FC = () => {
       text: 'Dr. Pavón and his team are true artists. My dental implants look and feel exactly like my natural teeth.',
       shortText: 'True artists! Implants feel completely natural.',
       rating: 5,
-      treatment: 'Implants',
+      treatment: 'All-on-4',
       image: '/reviews/Emma-Rodriguez-pic.webp',
     },
   ];
